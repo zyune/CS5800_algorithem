@@ -1,0 +1,11 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "out/test.xdv" "out/test.pdf" "out/test" 0
+  "out/test.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "out/test.pdf"
+["xelatex"] 0 "test.tex" "out/test.xdv" "test" 0
+  "out/test.aux" 1643488990 32 3985256e7290058c681f74d7a3565a19 ""
+  "test.tex" 0 -1 0 ""
+  (generated)
+  "out/test.log"
+  "out/test.xdv"
