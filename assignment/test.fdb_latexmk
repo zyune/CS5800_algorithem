@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1643494488 "/Users/mac/CS5800_algorithem/assignment/test.tex" "test.pdf" "test" 1643494495
-  "/Users/mac/CS5800_algorithem/assignment/test.tex" 1643494488 8314 d64fdda0c3a455e8618d7d79e84e92d3 ""
+["pdflatex"] 1643747576 "/Users/mac/CS5800_algorithem/assignment/test.tex" "test.pdf" "test" 1643747582
+  "/Users/mac/CS5800_algorithem/assignment/test.tex" 1643747576 8311 ca881dfb9eb341c285707510f246ba77 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -87,8 +87,8 @@
   "o big omega.png" 1643424393 339362 dfb099c35c3e7f80c3f0a294f266d07d ""
   "p big O.png" 1643425235 267414 8e60d4e82d602106896fb34d9cc69163 ""
   "q big Omega.png" 1643425495 238371 03fb6e0d29709ed88863843003b8dc40 ""
-  "test.aux" 1643494494 4451 97fc3cd0a4909ba6e93e773780b9c6d7 "pdflatex"
-  "test.tex" 1643494488 8314 d64fdda0c3a455e8618d7d79e84e92d3 ""
+  "test.aux" 1643747582 4451 97fc3cd0a4909ba6e93e773780b9c6d7 "pdflatex"
+  "test.tex" 1643747576 8311 ca881dfb9eb341c285707510f246ba77 ""
   (generated)
   "test.aux"
   "test.log"

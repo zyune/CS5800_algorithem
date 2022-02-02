@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  29 JAN 2022 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  1 FEB 2022 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -413,25 +413,25 @@ Overfull \hbox (2.22221pt too wide) in paragraph at lines 22--31
 <b)big o.png, id=4, 1267.73625pt x 504.88625pt>
 File: b)big o.png Graphic file (type png)
 <use b)big o.png>
-Package pdftex.def Info: b)big o.png  used on input line 39.
+Package pdftex.def Info: b)big o.png  used on input line 40.
 (pdftex.def)             Requested size: 155.23618pt x 113.81021pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 <c)big O.png, id=5, 1158.3275pt x 640.3925pt>
 File: c)big O.png Graphic file (type png)
 <use c)big O.png>
-Package pdftex.def Info: c)big O.png  used on input line 50.
+Package pdftex.def Info: c)big O.png  used on input line 51.
 (pdftex.def)             Requested size: 155.23628pt x 113.80971pt.
 <c) big omega.png, id=6, 1082.0425pt x 573.14125pt>
 File: c) big omega.png Graphic file (type png)
 <use c) big omega.png>
-Package pdftex.def Info: c) big omega.png  used on input line 55.
+Package pdftex.def Info: c) big omega.png  used on input line 56.
 (pdftex.def)             Requested size: 155.24933pt x 113.80414pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 48--59
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 49--60
 []$ $[]$ 
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -439,15 +439,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <d) big O.png, id=7, 1198.4775pt x 500.87125pt>
 File: d) big O.png Graphic file (type png)
 <use d) big O.png>
-Package pdftex.def Info: d) big O.png  used on input line 67.
+Package pdftex.def Info: d) big O.png  used on input line 68.
 (pdftex.def)             Requested size: 155.24063pt x 113.80699pt.
 <d) big omega .png, id=8, 1094.0875pt x 495.8525pt>
 File: d) big omega .png Graphic file (type png)
 <use d) big omega .png>
-Package pdftex.def Info: d) big omega .png  used on input line 72.
+Package pdftex.def Info: d) big omega .png  used on input line 73.
 (pdftex.def)             Requested size: 155.2413pt x 113.80913pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 66--76
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 67--77
 []$[]$ $[]$ 
  []
 
@@ -457,15 +457,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <e) big O.png, id=9, 1172.38pt x 484.81125pt>
 File: e) big O.png Graphic file (type png)
 <use e) big O.png>
-Package pdftex.def Info: e) big O.png  used on input line 84.
+Package pdftex.def Info: e) big O.png  used on input line 85.
 (pdftex.def)             Requested size: 155.24121pt x 113.80489pt.
 <e) big omega.png, id=10, 1395.2125pt x 463.7325pt>
 File: e) big omega.png Graphic file (type png)
 <use e) big omega.png>
-Package pdftex.def Info: e) big omega.png  used on input line 89.
+Package pdftex.def Info: e) big omega.png  used on input line 90.
 (pdftex.def)             Requested size: 155.24084pt x 113.81004pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 82--93
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 83--94
 []$ $[]$ 
  []
 
@@ -473,22 +473,22 @@ Overfull \hbox (2.22221pt too wide) in paragraph at lines 82--93
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 <f) big O.png, id=11, 1234.6125pt x 459.7175pt>
 File: f) big O.png Graphic file (type png)
 <use f) big O.png>
-Package pdftex.def Info: f) big O.png  used on input line 102.
+Package pdftex.def Info: f) big O.png  used on input line 103.
 (pdftex.def)             Requested size: 155.23044pt x 113.80673pt.
 <f) big omega.png, id=12, 1228.59pt x 467.7475pt>
 File: f) big omega.png Graphic file (type png)
 <use f) big omega.png>
-Package pdftex.def Info: f) big omega.png  used on input line 107.
+Package pdftex.def Info: f) big omega.png  used on input line 108.
 (pdftex.def)             Requested size: 155.24182pt x 113.81047pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 101--111
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 102--112
 []$[]$ $[]$ 
  []
 
@@ -498,15 +498,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <g) big O.png, id=13, 1018.80624pt x 338.26375pt>
 File: g) big O.png Graphic file (type png)
 <use g) big O.png>
-Package pdftex.def Info: g) big O.png  used on input line 119.
+Package pdftex.def Info: g) big O.png  used on input line 120.
 (pdftex.def)             Requested size: 155.23947pt x 113.81068pt.
 <g) big omega.png, id=14, 1278.7775pt x 453.695pt>
 File: g) big omega.png Graphic file (type png)
 <use g) big omega.png>
-Package pdftex.def Info: g) big omega.png  used on input line 124.
+Package pdftex.def Info: g) big omega.png  used on input line 125.
 (pdftex.def)             Requested size: 155.24182pt x 113.81114pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 117--128
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 118--129
 []$ $[]$ 
  []
 
@@ -516,7 +516,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <h.big omega.png, id=15, 1264.725pt x 565.11125pt>
 File: h.big omega.png Graphic file (type png)
 <use h.big omega.png>
-Package pdftex.def Info: h.big omega.png  used on input line 136.
+Package pdftex.def Info: h.big omega.png  used on input line 137.
 (pdftex.def)             Requested size: 155.23412pt x 113.80492pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -524,7 +524,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <i) big omega.png, id=16, 911.405pt x 462.72874pt>
 File: i) big omega.png Graphic file (type png)
 <use i) big omega.png>
-Package pdftex.def Info: i) big omega.png  used on input line 148.
+Package pdftex.def Info: i) big omega.png  used on input line 149.
 (pdftex.def)             Requested size: 155.24275pt x 113.81082pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -532,7 +532,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <j) big Omega.png, id=17, 819.06pt x 555.07375pt>
 File: j) big Omega.png Graphic file (type png)
 <use j) big Omega.png>
-Package pdftex.def Info: j) big Omega.png  used on input line 159.
+Package pdftex.def Info: j) big Omega.png  used on input line 160.
 (pdftex.def)             Requested size: 155.24808pt x 113.80779pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -540,7 +540,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <k) big omega.png, id=18, 1144.275pt x 418.56375pt>
 File: k) big omega.png Graphic file (type png)
 <use k) big omega.png>
-Package pdftex.def Info: k) big omega.png  used on input line 170.
+Package pdftex.def Info: k) big omega.png  used on input line 171.
 (pdftex.def)             Requested size: 155.23871pt x 113.80566pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -548,7 +548,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <l) big O.png, id=19, 1280.785pt x 519.9425pt>
 File: l) big O.png Graphic file (type png)
 <use l) big O.png>
-Package pdftex.def Info: l) big O.png  used on input line 182.
+Package pdftex.def Info: l) big O.png  used on input line 183.
 (pdftex.def)             Requested size: 155.23148pt x 113.80855pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -556,7 +556,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <m big O.png, id=20, 988.69376pt x 464.73625pt>
 File: m big O.png Graphic file (type png)
 <use m big O.png>
-Package pdftex.def Info: m big O.png  used on input line 194.
+Package pdftex.def Info: m big O.png  used on input line 195.
 (pdftex.def)             Requested size: 155.23734pt x 113.80818pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -564,15 +564,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <n big O.png, id=21, 1098.1025pt x 490.83376pt>
 File: n big O.png Graphic file (type png)
 <use n big O.png>
-Package pdftex.def Info: n big O.png  used on input line 206.
+Package pdftex.def Info: n big O.png  used on input line 207.
 (pdftex.def)             Requested size: 155.2413pt x 113.8106pt.
 <n big omega.png, id=22, 1108.14pt x 608.2725pt>
 File: n big omega.png Graphic file (type png)
 <use n big omega.png>
-Package pdftex.def Info: n big omega.png  used on input line 211.
+Package pdftex.def Info: n big omega.png  used on input line 212.
 (pdftex.def)             Requested size: 155.23999pt x 113.8095pt.
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 204--215
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 205--216
 []$ $[]$ 
  []
 
@@ -582,7 +582,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <o big omega.png, id=23, 1006.76125pt x 756.8275pt>
 File: o big omega.png Graphic file (type png)
 <use o big omega.png>
-Package pdftex.def Info: o big omega.png  used on input line 223.
+Package pdftex.def Info: o big omega.png  used on input line 224.
 (pdftex.def)             Requested size: 155.24756pt x 113.80792pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -590,7 +590,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <p big O.png, id=24, 1150.2975pt x 663.47874pt>
 File: p big O.png Graphic file (type png)
 <use p big O.png>
-Package pdftex.def Info: p big O.png  used on input line 235.
+Package pdftex.def Info: p big O.png  used on input line 236.
 (pdftex.def)             Requested size: 155.24835pt x 113.80228pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -598,7 +598,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <q big Omega.png, id=25, 978.65625pt x 640.3925pt>
 File: q big Omega.png Graphic file (type png)
 <use q big Omega.png>
-Package pdftex.def Info: q big Omega.png  used on input line 247.
+Package pdftex.def Info: q big Omega.png  used on input line 248.
 (pdftex.def)             Requested size: 155.24422pt x 113.80971pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -617,7 +617,7 @@ Here is how much of TeX's memory you used:
  22178 multiletter control sequences out of 15000+600000
  409336 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,8n,77p,348b,662s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,8n,77p,348b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 Output written on test.pdf (7 pages, 2148071 bytes).
 PDF statistics:
