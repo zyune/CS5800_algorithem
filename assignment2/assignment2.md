@@ -26,7 +26,7 @@ create unorder item using '-','\*','+'
     $\lim_{x \to \infty} f(x)$
     $\displaystyle \lim_{x \to \infty} f(x)$
 
-```
+```python
 def make_a_hashtable(arr):
     memo = {}
     for i in arr:
