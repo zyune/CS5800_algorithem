@@ -160,6 +160,7 @@ def heap_remove_duplicates(iterable):
 - The base case is when len(arr) is 1, Then there are only one number in the array, Then this number must be the number we are looking for.
 - how to do the split? we use the last number of the list as the pivot, and we do the partition first. The left halves of pivot are smaller than pivot the right half of pivot are bigger than pivot.
 - We check if n is bigger or smaller than pivot. If n is bigger than pivot, we recurse the find_median(), the inputs will be the right half of array and (n-pivot). If n is smaller or equal than pivot, we recurse the find_median(), the input will be the left side of array and n
+- The return value of the function has some problem, but I can see the result through print
 
 ```python
 def partition(arr, low, high):
@@ -196,6 +197,8 @@ def find_median(arr, n):
 > ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p3s1.png)
 
 ## solution 2
+
+- The use of heap to solve the smallest/ biggest is very easy to figure out. Because the top element of a max heap is the biggest , and the top element of min heap is the smallest
 
 I solved the same question on leetcode on Dec 6th 2021, where I use heap to solve the problem.https://github.com/zyune/data_structure_python/blob/main/heap/Medianfinder.py
 
