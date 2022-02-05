@@ -10,7 +10,7 @@ I will never use latex again in my life
 
 # problem 1
 
-##solution 1
+## solution 1
 
 The spirit of solution 1 for problem 1 is divide and conquer.
 
@@ -128,7 +128,7 @@ def new_list(arr):
 
 ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s1.png)
 
-##solution2
+## solution2
 
 - This uses heap to solve the problem. The time complicity of heap sort is nlogn.
 - This solution used heapq which is a python module
