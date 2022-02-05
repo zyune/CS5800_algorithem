@@ -25,7 +25,7 @@ def find_median(arr, n):
         pi = partition(arr, low, high)
         print(pi)
 
-        if n > pi:
+        if n >= pi:
             print(arr[pi:])
             find_median(arr[pi:], n-pi)
 
