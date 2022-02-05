@@ -48,7 +48,7 @@ def getMajority(arr, left, right):
         return rightMajority
 ```
 
-# Output of Solution1
+> Output of Solution1
 
 ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png)
 
