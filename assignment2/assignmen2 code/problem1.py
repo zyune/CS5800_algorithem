@@ -1,3 +1,4 @@
+# https: // www.enjoyalgorithms.com/blog/find-the-majority-element-in-an-array
 def getMajorityElement(arr, n):
     return getMajority(arr, 0, n-1)
 

@@ -51,8 +51,8 @@ def quickSort(arr, low, high):
 
         # Separately sort elements before
         # partition and after partition
-        print(pi-1)
-        print(pi+1)
+        # print(pi-1)
+        # print(pi+1)
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 
