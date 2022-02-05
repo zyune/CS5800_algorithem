@@ -193,7 +193,7 @@ def find_median(arr, n):
 ```
 
 > output of solution1
-> [output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p3s1.png)
+> ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p3s1.png)
 
 ## solution 2
 
