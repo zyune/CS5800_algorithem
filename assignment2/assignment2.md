@@ -49,8 +49,7 @@ def getMajority(arr, left, right):
 ```
 
 > Output of Solution1
-
-![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png)
+> ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png)
 
 ## solution 2
 
@@ -81,8 +80,7 @@ def majority_number(arr):
 ```
 
 > Output of Solution2
-
-![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s2.png)
+> ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s2.png)
 
 # problem 2
 
@@ -126,7 +124,9 @@ def new_list(arr):
 
 ```
 
-![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s1.png)
+> # output of solution 1
+>
+> ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s1.png)
 
 ## solution2
 
@@ -150,7 +150,8 @@ def heap_remove_duplicates(iterable):
 
 ```
 
-![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s2.png)
+> output of solution2
+> ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s2.png)
 
 # problem 3
 
