@@ -50,7 +50,7 @@ def getMajority(arr, left, right):
 
 # Output of Solution1
 
-![output]{https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png}
+![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png)
 
 ##solution 2
 This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
