@@ -45,7 +45,10 @@ def getMajority(arr, left, right):
 
 ## solution 2
 
-This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
+- This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
+
+- We create a dictionary memo{} to store the number we had went through, key is the number, value is the frequency of the number.
+- If we had not went through the number before, add it in the memo{} ,and set the value of key to 1.if we had went through it the value of the key +1.
 
 ```python
 def make_a_hashtable(arr):
