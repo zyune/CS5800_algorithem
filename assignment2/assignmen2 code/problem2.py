@@ -33,37 +33,31 @@ def new_list(arr):
     return b
 
 
+print('Use quick sort and add distinct number into a new list')
 arr = [1, 2, 4, 5, 7, 8, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
 quickSort(arr, 1, len(arr)-1)
 print(new_list(arr))
 
 
 print("another method-----------\n",)
+print('push all item in a into a heap, and pop one by one, add distinct item into a new list')
 arr2 = [2, 6, 7, 8, 9, 1, 9, 9, 9, 2, 2, 8, 8]
 heap = heapq.heapify(arr2)
 print(arr2)
 
 
-def heapsort(iterable):
+def heap_remove_duplicates(iterable):
     h = []
     for value in iterable:
         heapq.heappush(h, value)
-    print(h)
     result = []
+    previous = 0
     for i in range(len(h)):
-        result.append(heapq.heappop(h))
+        now = heapq.heappop(h)
+        if now != previous:
+            result.append(now)
+        previous = now
     return result
 
 
-def new_list2(arr):
-    heapsort(arr)
-    b = []
-    previous = None
-    for i in arr:
-        if i != previous:
-            b.append(i)
-        previous = i
-    return b
-
-
-print(new_list(arr2))
+print(heap_remove_duplicates(arr2))

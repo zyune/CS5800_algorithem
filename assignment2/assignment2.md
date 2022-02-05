@@ -52,7 +52,8 @@ def getMajority(arr, left, right):
 
 ![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s1.png)
 
-##solution 2
+## solution 2
+
 This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
 
 ```python
@@ -79,7 +80,18 @@ def majority_number(arr):
 
 ```
 
+> Output of Solution2
+
+![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p1s2.png)
+
 # problem 2
+
+##solution1
+
+- First, use quicksort to sort the array.
+- Second, create a new list b.
+- Third, iterate list a. if the n item of list a doesn't equal to the previous item, add the item into list b
+  > the time complixity of this is T(n)=T(nlogn)+T(n), because n is smaller than nlogn, so O(n log n).
 
 ```python
 def partition(arr, low, high):
@@ -114,7 +126,35 @@ def new_list(arr):
 
 ```
 
+![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s1.png)
+
+##solution2
+
+- This uses heap to solve the problem. The time complicity of heap sort is nlogn.
+- This solution used heapq which is a python module
+- Use a for loop to pop the top element of the heap, if now is not equal to previous ,add the number into a new list b
+
+```python
+def heap_remove_duplicates(iterable):
+    h = []
+    for value in iterable:
+        heapq.heappush(h, value)
+    result = []
+    previous = 0
+    for i in range(len(h)):
+        now = heapq.heappop(h)
+        if now != previous:
+            result.append(now)
+        previous = now
+    return result
+
+```
+
+![output](https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/p2s2.png)
+
 # problem 3
+
+## solution 1
 
 ```python
 def partition(arr, low, high):
@@ -145,4 +185,30 @@ def find_median(arr, n):
         if n <= pi:
             print(arr[:pi+1])
             find_median(arr[:pi], n)
+```
+
+## solution 2
+
+I solved the same question on leetcode on Dec 6th 2021, where I use heap to solve the problem.https://github.com/zyune/data_structure_python/blob/main/heap/Medianfinder.py
+
+```python
+class MedianFinder:
+    def __init__(self):
+        self.min_heap = []
+        self.max_heap = []
+
+    def addNum(self, num: int) -> None:
+        if not self.max_heap or num < -self.max_heap[0]:
+            heapq.heappush(self.max_heap, -num)
+        else:
+            heapq.heappush(self.min_heap, num)
+        if len(self.max_heap) > len(self.min_heap) + 1:
+            heappush(self.min_heap, -heappop(self.max_heap))
+        elif len(self.min_heap) > len(self.max_heap):
+            heappush(self.max_heap, -heappop(self.min_heap))
+
+    def findMedian(self) -> float:
+        if len(self.min_heap) == len(self.max_heap):
+            return (self.min_heap[0] - self.max_heap[0]) / 2
+        return -self.max_heap[0]
 ```
