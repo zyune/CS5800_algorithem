@@ -48,7 +48,7 @@ def getMajority(arr, left, right):
         return rightMajority
 ```
 
-[output]{https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/Screen%20Shot%202022-02-05%20at%202.49.13%20PM.png}
+![output]{https://github.com/zyune/CS5800_algorithem/blob/main/assignment2/screenshoot/Screen%20Shot%202022-02-05%20at%202.49.13%20PM.png}
 ##solution 2
 This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
 
