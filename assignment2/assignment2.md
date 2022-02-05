@@ -86,7 +86,7 @@ def majority_number(arr):
 
 # problem 2
 
-##solution1
+## solution1
 
 - First, use quicksort to sort the array.
 - Second, create a new list b.
