@@ -31,3 +31,9 @@ arr = [6, 13, 13, 2, 13]
 print(getMajorityElement(arr, len(arr)))
 arr2 = [1, 2, 4, 5, 7, 8, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
 print(getMajorityElement(arr2, len(arr2)))
+arr3 = [1, 2, 4, 5, 7, 8, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+
+pi = (len(arr3))//2
+print(pi)
+print(arr3[:pi])
+print(arr3[pi:])

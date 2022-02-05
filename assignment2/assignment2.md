@@ -8,23 +8,16 @@ I will never use latex again in my life
 
 **bold sentense**
 
-create unorder item using '-','\*','+'
-
-- item
-
-* iterm
-
-- iterm
-
 # problem 1
 
-- item
-  - item
-  - item
-    $\sum_{n=1}^{10} n^2$
-    $$\sum_{n=1}^{10} n^2$$
-    $\lim_{x \to \infty} f(x)$
-    $\displaystyle \lim_{x \to \infty} f(x)$
+##solution 1
+
+The spirit of solution 1 for problem 1 is divide and conquer.
+
+- the base case is left=right , left and right are two pointers.when left=right, left and right are pointing the same index of the list which means we are on the least case, no more dividing.
+- the getMajority() first deivide the list in to two part, and try to get the majority number in left half and right half. Then use the countFrequency() to get the frequencies of two number in this array separately. Why it works? Because as long as one of the number show up more than len(arr)/2 times, it show up more than either len(arr[:pi])/2 times on the left half or en(arr[pi:])/2 times on the right half
+- some website gives me idea of how to do the solution:
+  https://www.enjoyalgorithms.com/blog/find-the-majority-element-in-an-array
 
 ```python
 def getMajorityElement(arr, n):
@@ -53,6 +46,34 @@ def getMajority(arr, left, right):
         return leftMajority
     else:
         return rightMajority
+```
+
+[output]{assignment2/screenshoot/Screen Shot 2022-02-05 at 2.49.13 PM.png}
+##solution 2
+This solution uses hashtable to solve the problem which is much easy to understand and the time complexity is O(n)
+
+```python
+def make_a_hashtable(arr):
+    memo = {}
+    for i in arr:
+        if i not in memo:
+            memo[i] = 1
+        else:
+            memo[i] += 1
+    return memo
+
+
+def majority_number(arr):
+    memo = make_a_hashtable(arr)
+    max = 0
+    max_key = ''
+    # this is how we iterate through dict.items() to access the keys and values of a dictionary.
+    for i, j in memo.items():
+        if j > max:
+            max = j
+            max_key = i
+    return max_key
+
 ```
 
 # problem 2
@@ -92,7 +113,7 @@ def new_list(arr):
 
 # problem 3
 
-```
+```python
 def partition(arr, low, high):
     i = low-1
     pi = arr[high]
