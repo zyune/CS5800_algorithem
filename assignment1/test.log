@@ -1,0 +1,628 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.29)  1 FEB 2022 15:32
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/mac/CS5800_algorithem/assignment/test.tex
+(/Users/mac/CS5800_algorithem/assignment/test.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\enitkv@toks@=\toks17
+\labelindent=\skip49
+\enit@outerparindent=\dimen139
+\enit@toks=\toks18
+\enit@inbox=\box47
+\enit@count@id=\count187
+\enitdp@description=\count188
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen140
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen141
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count189
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count190
+\leftroot@=\count191
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count192
+\DOTSCASE@=\count193
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box48
+\strutbox@=\box49
+\big@size=\dimen142
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count194
+\c@MaxMatrixCols=\count195
+\dotsspace@=\muskip16
+\c@parentequation=\count196
+\dspbrk@lvl=\count197
+\tag@help=\toks20
+\row@=\count198
+\column@=\count199
+\maxfields@=\count266
+\andhelp@=\toks21
+\eqnshift@=\dimen143
+\alignsep@=\dimen144
+\tagshift@=\dimen145
+\tagwidth@=\dimen146
+\totwidth@=\dimen147
+\lineht@=\dimen148
+\@envbody=\toks22
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen151
+\captionmargin@=\dimen152
+\captionwidth=\dimen153
+\caption@tempdima=\dimen154
+\caption@indent=\dimen155
+\caption@parindent=\dimen156
+\caption@hangindent=\dimen157
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count267
+\c@continuedfloat=\count268
+)
+\c@subfigure=\count269
+\c@subtable=\count270
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks25
+\XKV@tempa@toks=\toks26
+)
+\XKV@depth=\count271
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box50
+)
+\tc@llx=\dimen158
+\tc@lly=\dimen159
+\tc@urx=\dimen160
+\tc@ury=\dimen161
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen162
+\adjbox@Height=\dimen163
+\adjbox@Depth=\dimen164
+\adjbox@Totalheight=\dimen165
+\adjbox@pwidth=\dimen166
+\adjbox@pheight=\dimen167
+\adjbox@pdepth=\dimen168
+\adjbox@ptotalheight=\dimen169
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count272
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box51
+\sift@deathcycles=\count273
+\@vwid@loff=\dimen170
+\@vwid@roff=\dimen171
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen172
+\WF@size=\dimen173
+\c@WF@wrappedlines=\count274
+\WF@box=\box52
+\WF@everypar=\toks27
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count275
+\l__pdf_internal_box=\box53
+) (./test.aux
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim2' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+
+LaTeX Warning: Label `fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subim1' multiply defined.
+
+
+LaTeX Warning: Label `fig:image2' multiply defined.
+
+)
+\openout1 = `test.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count276
+\scratchdimen=\dimen174
+\scratchbox=\box54
+\nofMPsegments=\count277
+\nofMParguments=\count278
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count279
+\MPscratchDim=\dimen175
+\MPnumerator=\count280
+\makeMPintoPDFobject=\count281
+\everyMPtoPDFconversion=\toks29
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+<a)big O.png, id=1, 902.37125pt x 471.7625pt>
+File: a)big O.png Graphic file (type png)
+<use a)big O.png>
+Package pdftex.def Info: a)big O.png  used on input line 23.
+(pdftex.def)             Requested size: 155.24614pt x 113.80838pt.
+<a) big omega.png, id=3, 1048.91875pt x 442.65375pt>
+File: a) big omega.png Graphic file (type png)
+<use a) big omega.png>
+Package pdftex.def Info: a) big omega.png  used on input line 27.
+(pdftex.def)             Requested size: 155.25034pt x 113.81068pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 22--31
+[]$[]$ $[]$ 
+ []
+
+<b)big o.png, id=4, 1267.73625pt x 504.88625pt>
+File: b)big o.png Graphic file (type png)
+<use b)big o.png>
+Package pdftex.def Info: b)big o.png  used on input line 40.
+(pdftex.def)             Requested size: 155.23618pt x 113.81021pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<c)big O.png, id=5, 1158.3275pt x 640.3925pt>
+File: c)big O.png Graphic file (type png)
+<use c)big O.png>
+Package pdftex.def Info: c)big O.png  used on input line 51.
+(pdftex.def)             Requested size: 155.23628pt x 113.80971pt.
+<c) big omega.png, id=6, 1082.0425pt x 573.14125pt>
+File: c) big omega.png Graphic file (type png)
+<use c) big omega.png>
+Package pdftex.def Info: c) big omega.png  used on input line 56.
+(pdftex.def)             Requested size: 155.24933pt x 113.80414pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 49--60
+[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<d) big O.png, id=7, 1198.4775pt x 500.87125pt>
+File: d) big O.png Graphic file (type png)
+<use d) big O.png>
+Package pdftex.def Info: d) big O.png  used on input line 68.
+(pdftex.def)             Requested size: 155.24063pt x 113.80699pt.
+<d) big omega .png, id=8, 1094.0875pt x 495.8525pt>
+File: d) big omega .png Graphic file (type png)
+<use d) big omega .png>
+Package pdftex.def Info: d) big omega .png  used on input line 73.
+(pdftex.def)             Requested size: 155.2413pt x 113.80913pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 67--77
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<e) big O.png, id=9, 1172.38pt x 484.81125pt>
+File: e) big O.png Graphic file (type png)
+<use e) big O.png>
+Package pdftex.def Info: e) big O.png  used on input line 85.
+(pdftex.def)             Requested size: 155.24121pt x 113.80489pt.
+<e) big omega.png, id=10, 1395.2125pt x 463.7325pt>
+File: e) big omega.png Graphic file (type png)
+<use e) big omega.png>
+Package pdftex.def Info: e) big omega.png  used on input line 90.
+(pdftex.def)             Requested size: 155.24084pt x 113.81004pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 83--94
+[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+<f) big O.png, id=11, 1234.6125pt x 459.7175pt>
+File: f) big O.png Graphic file (type png)
+<use f) big O.png>
+Package pdftex.def Info: f) big O.png  used on input line 103.
+(pdftex.def)             Requested size: 155.23044pt x 113.80673pt.
+<f) big omega.png, id=12, 1228.59pt x 467.7475pt>
+File: f) big omega.png Graphic file (type png)
+<use f) big omega.png>
+Package pdftex.def Info: f) big omega.png  used on input line 108.
+(pdftex.def)             Requested size: 155.24182pt x 113.81047pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 102--112
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<g) big O.png, id=13, 1018.80624pt x 338.26375pt>
+File: g) big O.png Graphic file (type png)
+<use g) big O.png>
+Package pdftex.def Info: g) big O.png  used on input line 120.
+(pdftex.def)             Requested size: 155.23947pt x 113.81068pt.
+<g) big omega.png, id=14, 1278.7775pt x 453.695pt>
+File: g) big omega.png Graphic file (type png)
+<use g) big omega.png>
+Package pdftex.def Info: g) big omega.png  used on input line 125.
+(pdftex.def)             Requested size: 155.24182pt x 113.81114pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 118--129
+[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<h.big omega.png, id=15, 1264.725pt x 565.11125pt>
+File: h.big omega.png Graphic file (type png)
+<use h.big omega.png>
+Package pdftex.def Info: h.big omega.png  used on input line 137.
+(pdftex.def)             Requested size: 155.23412pt x 113.80492pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<i) big omega.png, id=16, 911.405pt x 462.72874pt>
+File: i) big omega.png Graphic file (type png)
+<use i) big omega.png>
+Package pdftex.def Info: i) big omega.png  used on input line 149.
+(pdftex.def)             Requested size: 155.24275pt x 113.81082pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<j) big Omega.png, id=17, 819.06pt x 555.07375pt>
+File: j) big Omega.png Graphic file (type png)
+<use j) big Omega.png>
+Package pdftex.def Info: j) big Omega.png  used on input line 160.
+(pdftex.def)             Requested size: 155.24808pt x 113.80779pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<k) big omega.png, id=18, 1144.275pt x 418.56375pt>
+File: k) big omega.png Graphic file (type png)
+<use k) big omega.png>
+Package pdftex.def Info: k) big omega.png  used on input line 171.
+(pdftex.def)             Requested size: 155.23871pt x 113.80566pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<l) big O.png, id=19, 1280.785pt x 519.9425pt>
+File: l) big O.png Graphic file (type png)
+<use l) big O.png>
+Package pdftex.def Info: l) big O.png  used on input line 183.
+(pdftex.def)             Requested size: 155.23148pt x 113.80855pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<m big O.png, id=20, 988.69376pt x 464.73625pt>
+File: m big O.png Graphic file (type png)
+<use m big O.png>
+Package pdftex.def Info: m big O.png  used on input line 195.
+(pdftex.def)             Requested size: 155.23734pt x 113.80818pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<n big O.png, id=21, 1098.1025pt x 490.83376pt>
+File: n big O.png Graphic file (type png)
+<use n big O.png>
+Package pdftex.def Info: n big O.png  used on input line 207.
+(pdftex.def)             Requested size: 155.2413pt x 113.8106pt.
+<n big omega.png, id=22, 1108.14pt x 608.2725pt>
+File: n big omega.png Graphic file (type png)
+<use n big omega.png>
+Package pdftex.def Info: n big omega.png  used on input line 212.
+(pdftex.def)             Requested size: 155.23999pt x 113.8095pt.
+
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 205--216
+[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<o big omega.png, id=23, 1006.76125pt x 756.8275pt>
+File: o big omega.png Graphic file (type png)
+<use o big omega.png>
+Package pdftex.def Info: o big omega.png  used on input line 224.
+(pdftex.def)             Requested size: 155.24756pt x 113.80792pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<p big O.png, id=24, 1150.2975pt x 663.47874pt>
+File: p big O.png Graphic file (type png)
+<use p big O.png>
+Package pdftex.def Info: p big O.png  used on input line 236.
+(pdftex.def)             Requested size: 155.24835pt x 113.80228pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<q big Omega.png, id=25, 978.65625pt x 640.3925pt>
+File: q big Omega.png Graphic file (type png)
+<use q big Omega.png>
+Package pdftex.def Info: q big Omega.png  used on input line 248.
+(pdftex.def)             Requested size: 155.24422pt x 113.80971pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./a)big O.png> <./a) big omega.png>] [2 <./b)big o.png> <./c)big O.png> <./c) big omega.png> <./d) big O.png> <./d) big omega .png>] [3 <./e) big O.png> <./e) big omega.png> <./f) big O.png> <./f) big omega.png>] [4 <./g) big O.png> <./g) big omega.png> <./h.big omega.png> <./i) big omega.png>] [5 <./j) big Omega.png> <./k) big omega.png> <./l) big O.png>] [6 <./m big O.png> <./n big O.png> <./n big omega.png> <./o big omega.png>] [7 <./p big O.png> <./q big Omega.png>] (./test.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4753 strings out of 478994
+ 77642 string characters out of 5858184
+ 383191 words of memory out of 5000000
+ 22178 multiletter control sequences out of 15000+600000
+ 409336 words of font info for 48 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 69i,8n,77p,348b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on test.pdf (7 pages, 2148071 bytes).
+PDF statistics:
+ 113 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+
