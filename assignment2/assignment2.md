@@ -1,5 +1,10 @@
 # This is document for assignment 2
 
+divide and conque video,
+
+**_important_**
+https://www.youtube.com/watch?v=11V7Ik0IBHU
+
 # problem 1
 
 ## solution 1
