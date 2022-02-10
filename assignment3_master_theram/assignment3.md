@@ -145,4 +145,5 @@ def kth_element(arr1, arr2, k):
         return kth_element(arr1[k//2:], arr2[:k//2], k-k//2)
 ```
 
-![output of my code](https://github.com/zyune/CS5800_algorithem/blob/main/assignment3_master_theram/screenshot_of_output/Screen%20Shot%202022-02-09%20at%205.24.51%20PM.png)
+<!-- ![output of my code](assignment3_master_theram/screenshot_of_output/problem3_find_kth_smallest_in_two_sorted_array.png) -->
+![problem3_find_kth_smallest_in_two_sorted_array](/assets/problem3_find_kth_smallest_in_two_sorted_array.png)

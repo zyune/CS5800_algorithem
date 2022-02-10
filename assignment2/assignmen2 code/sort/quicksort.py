@@ -10,26 +10,15 @@
 def partition(arr, low, high):
     i = (low-1)		 # index of smaller element
     pivot = arr[high]	 # pivot
-    # print("now the pivot is", pivot)
-    # print('low is', low)
-    # print('high is', high)
+
     for j in range(low, high):
-        #     print('i equals to', i)
-        #     print('j equals to', j)
-        # If current element is smaller than or
-        # equal to pivot
         if arr[j] <= pivot:  # 判断条件是 当遇到第一个比pivot小的函数的时候 i=i+1 并把 arr[i]和arr[j]交换
-
-            # increment index of smaller element
             i = i+1
-            # print(arr[j], "have been put in front, and",
-            #       arr[i], "have been put behind")
-
             arr[i], arr[j] = arr[j], arr[i]
 
     arr[i+1], arr[high] = arr[high], arr[i+1]  # 然后把i的下一个和high像交换
-    # print("-----the array changed is ", arr)
-    # print('the next pivot will be', arr[i+1], 'which is located in', i+1, )
+    print("-----the array changed is ", arr)
+    print('the next pivot will be', arr[i+1], 'which is located in', i+1, )
     return (i+1)
 
 # The main function that implements QuickSort
