@@ -58,14 +58,14 @@ If we cut the arr into ```arr[:pi1],arr[pi1:pi2] and arr[pi2:]``` Then $ b=3$
 Actually, $O(n^d)$ identify how long it takes to put all branch back again.We cannot find a exact embodiment in code.
 ![picture of master theorem](/assets/picture_of_master_theorem.png) 
 
-**exercise:**
+### **exercise:**
 At the top level we use n - 1 comparisons and then have to sort the buckets A< and A> which have approximately (n - 1)/2 elements each. To make the arithmetic simpler, let’s say that we use n comparisons and end up with two buckets of size n/2.
 Please give the Derived formula for the best case for quicksort.
 Let f(n) denote the number of comparisons needed by Quicksort in the best case. We then have the recurrence relation:
 f(n) = n + 2f(n/2)
-**solution:**
+### **solution:**
 
-3.3 **using Master Theorem to analyze a recursive algorithm**
+## 3.3 **using Master Theorem to analyze a recursive algorithm**
 ```python
 def partition(arr, low, high):
     i = (low-1)
