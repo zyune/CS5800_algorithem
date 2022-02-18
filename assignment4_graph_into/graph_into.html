@@ -1,0 +1,657 @@
+<!DOCTYPE html><html><head>
+      <title>graph_into</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.1/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header" id="34">3.4.</h2>
+
+<p>Run the strongly connected components algorithm on the following directed graphs G. When doing DFS on GR: whenever there is a choice of vertices to explore, always pick the one that is alphabetically first.<br>
+<img src="image/problem1.png" alt="imge"><br>
+In each case answer the following questions.</p>
+<ul>
+<li><strong>(a) In what order are the strongly connected components (SCCs) found?</strong><br>
+<strong>(i)</strong> Step1: Dfs on GR and order it in descending postvisit order<br>
+<img src="image/gri.png" alt="GR"></li>
+</ul>
+<p>If we write the GR in adjaceny list form it would be like, and the previst and post visit number would be like</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">GR<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;J&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;I&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+previsit_number_GR<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">7</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">9</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">14</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">12</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">13</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token number">8</span>
+<span class="token punctuation">}</span>
+postvisit_number_GR<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">20</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">11</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">18</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">15</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">17</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">16</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token number">19</span>
+<span class="token punctuation">}</span>
+descending_order_of_post_visit<span class="token operator">=</span><span class="token punctuation">[</span>C<span class="token punctuation">,</span>J<span class="token punctuation">,</span>F<span class="token punctuation">,</span>H<span class="token punctuation">,</span>I<span class="token punctuation">,</span>G<span class="token punctuation">,</span>D<span class="token punctuation">,</span>A<span class="token punctuation">,</span>E<span class="token punctuation">,</span>B<span class="token punctuation">]</span>
+</pre><p>Step2. run dfs on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span></span></span></span> the input of order of vertex would be <code>[C,J,F,H,I,G,D,A,E,B]</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">previsit_number_G<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">14</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">18</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">16</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">9</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">11</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token punctuation">}</span>
+postvisit_number_G<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">15</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">19</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">8</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">7</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">17</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">13</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">14</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">12</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token punctuation">}</span>
+</pre><p>The order of how we find strongly connected components (SCCs) would be {<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>F</mi><mo separator="true">,</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">C,D,F,J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo separator="true">,</mo><mi>G</mi><mo separator="true">,</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">H,G,I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">G</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>}</p>
+<blockquote>
+<p><strong>(ii)</strong><br>
+Step1 Dfs on GR and order it in descending postvisit order</p>
+</blockquote>
+<p><img src="image/GRII.png" alt="GR"><br>
+If we write the GR in adjaceny list form it would be like, and the previsit and postvisit number is</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">GR<span class="token operator">=</span> <span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;I&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">}</span>
+previsit_number_GR<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">8</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">12</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">9</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">11</span>
+<span class="token punctuation">}</span>
+postvisit_number_GR<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">7</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">17</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">13</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">16</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">15</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">14</span>
+<span class="token punctuation">}</span>
+descending_order_of_post_visit<span class="token operator">=</span><span class="token punctuation">[</span>D<span class="token punctuation">,</span>G<span class="token punctuation">,</span>H<span class="token punctuation">,</span>I<span class="token punctuation">,</span>F<span class="token punctuation">,</span>C<span class="token punctuation">,</span>A<span class="token punctuation">,</span>E<span class="token punctuation">,</span>B<span class="token punctuation">]</span>
+</pre><p>Step2: run dfs on <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span></span></span></span> the input of order of vertex would be <code>[D,G,H,I,F,C,A,E,B]</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">previsit_number_G<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">13</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">14</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">11</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">15</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">7</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">2</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token punctuation">}</span>
+postvisit_number_G<span class="token operator">=</span><span class="token punctuation">{</span>
+<span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token number">18</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token number">17</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token number">12</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token number">10</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token number">16</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token number">6</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token number">8</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token number">9</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token punctuation">}</span>
+</pre><p>The order of how we find strongly connected components (SCCs) would be {<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo separator="true">,</mo><mi>H</mi><mo separator="true">,</mo><mi>F</mi><mo separator="true">,</mo><mi>I</mi><mo separator="true">,</mo><mi>G</mi></mrow><annotation encoding="application/x-tex">D,H,F,I,G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">G</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">A,B,E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>}</p>
+<ul>
+<li>
+<p>(b) Which are source SCCs and which are sink SCCs?<br>
+<strong>(i)</strong></p>
+<blockquote>
+<p>source SCCs:{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>},{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>}<br>
+sink SCCs: {<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>F</mi><mo separator="true">,</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">C,D,F,J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span></span></span></span>}</p>
+</blockquote>
+<p><strong>(ii)</strong></p>
+<blockquote>
+<p>source SCCs:{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">A,B,E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>}<br>
+sink SCCs:{<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo separator="true">,</mo><mi>H</mi><mo separator="true">,</mo><mi>F</mi><mo separator="true">,</mo><mi>I</mi><mo separator="true">,</mo><mi>G</mi></mrow><annotation encoding="application/x-tex">D,H,F,I,G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">G</span></span></span></span>}</p>
+</blockquote>
+</li>
+<li>
+<p>(c) Draw the &#x201C;metagraph&#x201D; (each meta-node is an SCC of G).<br>
+<strong>(i)</strong><br>
+<img src="image/metagraph(I).png" alt="metagraphi"><br>
+<strong>(ii)</strong><br>
+<img src="image/metagraph(ii).png" alt="metagraphii"></p>
+</li>
+</ul>
+<h2 class="mume-header" id="35">3.5.</h2>
+
+<p>The reverse of a directed graph G = (V,E) is another directed graph GR = (V,ER) on the same vertex set, but with all edges reversed; that is, ER = {(v, u) : (u, v) &#x2208; E}.</p>
+<h3 class="mume-header" id="test-graph">test graph:</h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python">graph <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         <span class="token string">&apos;D&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+         <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</pre><p>My solution: this solution define a new dictionary which is graphr to store the new order. I use adjacency list here<br>
+First, create graphr with keys but empty adjacency list.<br>
+<code>graphr = {key: [] for key in graph}</code><br>
+Second for each node in the graph, scan it&apos;s adjacency list and append the node into the adjacency list of the node it&apos;s edge leads to in graphr. Time complexity is log(m+n) here.</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">reverse_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-global">global</span> t
+    t <span class="token operator">=</span> <span class="token number">0</span>
+    graphr <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+    <span class="token comment"># print(graphr)</span>
+    <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            graphr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+            t <span class="token operator">=</span> t<span class="token operator">+</span><span class="token number">1</span>
+
+    <span class="token keyword keyword-return">return</span> graphr
+</pre><p><img src="image/reverse_graph.png" alt="output"></p>
+<h2>3.7.</h2>
+<p>A bipartite graph is a graph G=(V,E) whose vertices can be partitioned into two sets(V = V1 &#x222A; V2 and V1 &#x2229; V2 = &#x2205;) such that there are no edges between vertices in the same set (for instance, if u, v &#x2208; V1, then there is no edge between u and v).</p>
+<ul>
+<li>(a) Give a linear-time algorithm to determine whether an undirected graph is bipartite.</li>
+</ul>
+<blockquote>
+<p>Here&apos;s my solution. I use a color dictionary to store color for each node.</p>
+<ul>
+<li>At first the value for each node is Null.</li>
+<li>Then we do the dfs on the graph. If the node is in color dictionary.</li>
+<li>check if the input node_color is correspond to the node&apos;s value in the dictionary. If yes return True, else return False.</li>
+<li>Then do dfs on the nodes that current node&apos;s edges lead to, the input corrent color is the opposite of the currentcolor.<br>
+The time complexity is O(n+m)</li>
+</ul>
+</blockquote>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">isBipartite</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    color <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">check_node_color</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> node_color<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> color<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">==</span> node_color
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>curr_node<span class="token punctuation">,</span> curr_color<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> curr_node <span class="token operator">not</span> <span class="token keyword keyword-in">in</span> color<span class="token punctuation">:</span>
+            <span class="token comment"># if node is not in color ,update dictionary color</span>
+            color<span class="token punctuation">[</span>curr_node<span class="token punctuation">]</span> <span class="token operator">=</span> curr_color
+        <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+            <span class="token comment"># if node is already in the colormap check if current color is correspond to colormap</span>
+            <span class="token keyword keyword-if">if</span> check_node_color<span class="token punctuation">(</span>curr_node<span class="token punctuation">,</span> curr_color<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span> <span class="token boolean">True</span>
+            <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span> <span class="token boolean">False</span>
+        <span class="token comment"># seach each edge of the current node</span>
+        <span class="token keyword keyword-for">for</span> neighbour_nodes <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>curr_node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token operator">not</span> dfs<span class="token punctuation">(</span>neighbour_nodes<span class="token punctuation">,</span> <span class="token operator">not</span> curr_color<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span> <span class="token boolean">False</span>
+        <span class="token keyword keyword-return">return</span> <span class="token boolean">True</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> node <span class="token operator">not</span> <span class="token keyword keyword-in">in</span> color<span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token operator">not</span> dfs<span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span> <span class="token boolean">False</span>
+    <span class="token keyword keyword-return">return</span> <span class="token boolean">True</span>
+</pre><p><em><strong>test case</strong></em></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">graph1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;D&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</pre><p><img src="image/NON_BIPARTITLE.NPG.png" alt="output"></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;D&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span>
+</pre><p><img src="image/bipartitle.png" alt="output"><br>
+<img src="image/bipartitleoutput.png" alt="output"></p>
+<ul>
+<li>(b) There are many other ways to formulate this property. For instance, an undirected graph is bipartite if and only if it can be colored with just two colors.<br>
+Prove the following formulation: an undirected graph is bipartite if and only if it contains no cycles of odd length.</li>
+</ul>
+<blockquote>
+<p>First, let&apos;s make one thing clear. In a bipartitle graph, every odd edge brings the cycle to set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>,every even edge bring cycle back to set <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span><br>
+<img src="image/erfentuB.png" alt="output"></p>
+<ul>
+<li>let&apos;s prove by contradiction. Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>:</mo><mo stretchy="false">(</mo><mi>V</mi><mn>1</mn><mo separator="true">,</mo><mi>V</mi><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>V</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C:(V1,V2,...Vn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">...</span><span class="mord mathnormal">Vn</span><span class="mclose">)</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is a odd number.there is an odd cycle in our graph which we will call C and let&apos;s just say this cycle starts with the vertex v1 then goes to v2 ,all the way to some last vertex VN before returning to v1 since we assumed that this is an odd cycle we know the N  has to be odd.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">V1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">1</span></span></span></span> brings cycle to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">V2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">2</span></span></span></span> brings cycle back to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">V3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">3</span></span></span></span> brings cycle to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">V4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">4</span></span></span></span> brings cycle back to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span></li>
+<li>Let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>i</mi><mo>&#x2208;</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Vi \in X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">Vi</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> is odd,let <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>i</mi><mo>&#x2208;</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">Vi \in Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">Vi</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> is even</li>
+<li>we know that n is odd, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>n</mi><mo>&#x2208;</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Vn \in X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">Vn</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>.</li>
+<li>Then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>n</mi><mo separator="true">,</mo><mi>V</mi><mn>1</mn><mo>&#x2208;</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Vn, V1 \in X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Vn</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&#x2208;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> ,but because Vn bring back to V1 which means they are adjacent. In a bipartitle graph, two adjacency vertex  cannot be in one set. Then the Graph C is not a bipartitle</li>
+</ul>
+</blockquote>
+<ul>
+<li>(c) At most how many colors are needed to color in an undirected graph with exactly one odd- length cycle?<br>
+<strong>Answer</strong>: 3</li>
+</ul>
+<h2>3.13. Undirected vs. directed connectivity.</h2>
+<ul>
+<li>(a) Prove that in any connected undirected graph G = (V,E) there is a vertex v &#x2208; V whose removal leaves G connected. (Hint: Consider the DFS search tree for G.)</li>
+</ul>
+<blockquote>
+<p><em><strong>First, let&apos;s talk about what is the definition for connected undirected graph</strong></em><br>
+An undirected graph is connected if there is a path between any pair of vertices.<br>
+Then look at the dfs_graph code. The recursion function is explore. if we carefully look at the explore() function, the base case for it is that we reach a node <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">Vn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">Vn</span></span></span></span> that all node its edge connects has been visited. We can remove this edge, and G is still connected, because there are edge from other nodes that leads to the nodes that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">Vn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">Vn</span></span></span></span>&apos;s edge leads.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-global">global</span> clockb
+    clock <span class="token operator">=</span> <span class="token number">0</span>
+    visited <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span> <span class="token boolean">False</span> <span class="token keyword keyword-for">for</span> a <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">explore</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+        <span class="token keyword keyword-for">for</span> nodei <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> visited<span class="token punctuation">[</span>nodei<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+                explore<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> nodei<span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+            explore<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+</pre><ul>
+<li>(b) Give an example of a strongly connected directed graph G = (V,E) such that, for every v &#x2208; V , removing v from G leaves a directed graph that is not strongly connected.</li>
+</ul>
+<blockquote>
+<p>For every two nodes in a strongly connected directed graph, we say node v1,v2 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2208;</mo></mrow><annotation encoding="application/x-tex">\in</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&#x2208;</span></span></span></span> V , there is a path from v1 to v2, and a path from v2 to v1. The following graph is an example of a strongly connected directed graph. It is actually a cycle if we remove any one of the node, it became a line. It&apos;s not strong connected</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="python" class="language-python">graph1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;D&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</pre><p><img src="image/directed_graph_example2.png" alt="directed"></p>
+<ul>
+<li>(c) In an undirected graph with 2 connected components it is always possible to make the graph connected by adding only one edge. Give an example of a directed graph with two strongly connected components such that no addition of one edge can make the graph strongly connected.</li>
+</ul>
+<p><img src="image/directed_graph_example.png" alt="directed"></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">graph1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;G&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</pre><h2>3.16.</h2>
+<p>Suppose a CS curriculum consists of n courses, all of them mandatory. The prerequisite graph G has a node for each course, and an edge from course v to course w if and only if v is a prerequisite for w. Find an algorithm that works directly with this graph representation, and computes the minimum number of semesters necessary to complete the curriculum (assume that a student can take any number of courses in one semester). The running time of your algorithm should be linear.</p>
+<ul>
+<li>Let&apos;s say this is a dag (directed acyclic graph) with n node, we have to complete the parent of a node the graph then we can move on&#xFF0C;a dag at least has one source and one sink. The problem turns into finding the longest path from one source to a sink in the dag.<br>
+Here&apos;s my example data</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python">Graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token string">&apos;a&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;e&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;e&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;f&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;g&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;f&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;g&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;h&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   <span class="token string">&apos;h&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><p><img src="image/316.png" alt="image"></p>
+<ul>
+<li>First find source nodes in a dag, let len(node)=n,len(edge)=m, this function equals to m</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">find_source</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    not_source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;m&#x6B21;</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> edge <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            not_source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>edge<span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> node <span class="token operator">not</span> <span class="token keyword keyword-in">in</span> not_source<span class="token punctuation">:</span>
+            source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> source
+</pre><ul>
+<li>build a function to caculate the longest path from  source node to a sink&#xFF0C; I use bellford algorithem here. The time complicity is m here</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">find_longest_path_in_source_bellford</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    dist <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token builtin">max</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword keyword-for">for</span> v <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10000</span>  
+        p<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    dist<span class="token punctuation">[</span>source<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-for">for</span> u <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> v <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">&lt;</span> dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>
+                dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+            p<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> u  
+    all_values <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>dist<span class="token punctuation">.</span> values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">sorted</span><span class="token punctuation">(</span>all_values<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> all_values<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</pre><ul>
+<li>make a dictionary<code>python {sourse1:longest_path, source2:longest_path}</code> , Then pick the max value of the dictionary. And plus 1 to the max number you will get the semester number</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    longest_path_for_each_source <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment"># this dictionary stores longest path from each node to sink</span>
+    source <span class="token operator">=</span> find_source<span class="token punctuation">(</span>graph<span class="token punctuation">)</span>  <span class="token comment"># m </span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> source<span class="token punctuation">:</span>  <span class="token comment"># len(source)*m</span>
+        longest_path_for_each_source<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> find_longest_path_in_source_bellford<span class="token punctuation">(</span>
+            graph<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    longest <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>longest_path_for_each_source<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">sorted</span><span class="token punctuation">(</span>longest<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> longest<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+</pre><p><img src="image/316output.png" alt="output"></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

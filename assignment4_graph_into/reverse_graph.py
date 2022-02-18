@@ -22,6 +22,6 @@ def reverse_graph(graph):
     return graphr
 
 
-# print(reverse_graph(graph))
-# len(edge)=m len(node)=n    T=O(n+m)
+print(reverse_graph(graph))
+# len(edge) = m len(node) = n    T = O(n+m)
 # t=8 which is the number of edge apparently, It's linear time
