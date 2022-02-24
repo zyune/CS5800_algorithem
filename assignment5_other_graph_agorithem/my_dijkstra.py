@@ -22,11 +22,15 @@ Graph = {
     'A': {'B': 4, 'C': 2}, 'B': {'C': 3, 'D': 2, 'E': 3}, 'C': {'B': 1, 'D': 4, 'E': 5}, 'D': {}, 'E': {'D': 1}
 }
 
+Graph2 = {
+    'A': {'B': 5, 'C': 6}, 'B': {}, 'C': {'B': -3}
+}
 
-def dijkstra_adjacency_list(Graph):
+
+def dijkstra_adjacency_list(Graph, source):
     def deap_pop_min(heap):  # remember the input should be an dictionary
         min_key = None
-        min_num = 100000
+        min_num = 1000000
         for i, j in heap.items():
             if j < min_num:
                 min_num = j
@@ -34,14 +38,15 @@ def dijkstra_adjacency_list(Graph):
         heap.pop(min_key)
         return min_key
 
-    # def update_heap(heap,dist):
-    #     for
     previous = {i: None for i in Graph}
 
     dist = {i: 100000 for i in Graph}
-    dist['A'] = 0
+    dist[source] = 0
     heap_dist = {}
     heap_dist = {i: j for i, j in dist.items()}
+    print(previous)
+    print(dist)
+    print(heap_dist)
     while len(heap_dist) != 0:
         u = deap_pop_min(heap_dist)
 
@@ -51,9 +56,10 @@ def dijkstra_adjacency_list(Graph):
             if dist[v] > dist[u] + edge_length:
                 dist[v] = dist[u] + edge_length
                 previous[v] = u
-            # decreasekey(H, v),其实就是update heap_dist
                 heap_dist[v] = dist[u] + edge_length
+        # print(dist)
+    print(previous)
     return dist
 
 
-print(dijkstra_adjacency_list(Graph))
+print(dijkstra_adjacency_list(Graph2, 'A'))
