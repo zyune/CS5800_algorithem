@@ -35,7 +35,43 @@ def dfs(graph):
             explore(graph, node)
 
 
-graph2R = reverse_graph.reverse_graph(graph2)
-print(graph2R)
+def dfs_v2(graph):
+    global clock
+    clock = 0
+    visited = {a: False for a in graph}
+    previsit_num = {i: 0 for i in graph}
+    postvisit_num = {i: 0 for i in graph}
 
-dfs(graph2R)
+    def explore(graph, node):
+        global clock
+        clock = clock + 1
+        previsit_num[node] = clock
+        visited[node] = True
+        print(node)
+        for nodei in graph[node]:
+            if visited[nodei] == False:
+                explore(graph, nodei)
+        clock = clock + 1
+        postvisit_num[node] = clock
+    for node in graph:
+        if visited[node] == False:
+            explore(graph, node)
+
+    print(previsit_num)
+    print(postvisit_num)
+
+
+GR = {
+    'A': ['E'],
+    'B': ['A'],
+    'C': ['B'],
+    'D': ['A', 'G'],
+    'E': ['B'],
+    'F': ['C', 'H'],
+    'G': ['H'],
+    'H': ['D', 'E', 'I'],
+    'I': ['F', 'H'],
+
+}
+
+dfs_v2(GR)
