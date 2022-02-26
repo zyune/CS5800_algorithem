@@ -1,5 +1,8 @@
-5 **Graph Algorithms**
-5.1 **Dijkstra’s Algorithm**
+#5 **Graph Algorithms**
+##5.1 **Dijkstra’s Algorithm**
+  ![output](/synthesis/image_for_symthesis/ga2.png)
+
+####Steps Dijkstra’s Algorithm take to calculate the shortest distance in the following graph
 ![output](/synthesis/image_for_symthesis/ga1.png)
 - > Step1 : we make prev,dist and heap make the distance for the node where we start to 0
   > ```prev={{'A': None, 'B': None, 'C': None, 'D': None, 'E': None}}```
@@ -44,7 +47,7 @@
 - > step 7. Now heap is empty
   > return dist={'A': 0, 'B': 3, 'C': 2, 'D': 5, 'E': 6}
 
-
+#### How to implement a Dijkstra’s Algorithm
 - Input : (Graph,source)
 Graph is a  dictionary and source is a vertex. The data type of graph is dictionary, and the data type of source is string. actually source is a vertex here. You can use 'A','B' or any letter in the ```Graph```
 ```python
@@ -93,7 +96,7 @@ def dijkstra_adjacency_list(Graph, source):
         heap.pop(min_key)
         return min_key
 
-
+    visited=[]
     previous = {i: None for i in Graph}
 
     dist = {i: 100000 for i in Graph}
@@ -102,15 +105,15 @@ def dijkstra_adjacency_list(Graph, source):
     heap_dist = {i: j for i, j in dist.items()}
     while len(heap_dist) != 0:
         u = deap_pop_min(heap_dist)
-
+        visited.append(u)
         for v in Graph[u]:
-
-            edge_length = Graph[u][v]
-            if dist[v] > dist[u] + edge_length:
-                dist[v] = dist[u] + edge_length
-                previous[v] = u
-            # decreasekey(H, v),其实就是update heap_dist
-                heap_dist[v] = dist[u] + edge_length
+            if v not in visited:
+                edge_length = Graph[u][v]
+                if dist[v] > dist[u] + edge_length:
+                    dist[v] = dist[u] + edge_length
+                    previous[v] = u
+                # decreasekey(H, v),其实就是update heap_dist
+                    heap_dist[v] = dist[u] + edge_length
         # print(dist)
     print(previous)
     return dist
@@ -118,14 +121,48 @@ def dijkstra_adjacency_list(Graph, source):
 
 print(dijkstra_adjacency_list(Graph, 'A'))
 ```
-5.2 **Bellman-Ford Algorithm**
-
+Apparently, the time complexity of dijkstra_adjacency_list is $O(v^2) $, v is the number of node in the graph
+##5.2 **Bellman-Ford Algorithm**
+**Lester Ford also published the algorithm in 1956. Therefore this algorithm is called the Bellman-Ford algorithm. In fact, Edward F. Moore published the same algorithm in 1957, so this algorithm is also called Bellman-Ford-Moore algorithm.**
+#### Why we need bellmanford?
+- Bellmanford is much easy to implement than dijkstra. and it can apply to the graph whose's edge weight can be a negative number.
+- Why we canot use Dijkstra when there's negative weighted edge in a graph?
+Here's the answer in the geekforgeeks. Since Dijkstra follows a Greedy Approach, once a node is marked as visited it cannot be reconsidered even if there is another path with less cost or distance. This issue arises only if there exists a negative weight or edge in the graph. This is when bellmanford become really handy because it ca nbe used to detect negative cycles ad determine where they occur.
+Finding negative cycles can be useful in many types of applications. One particularly neat application arises in finance when performing an arbitrage between two or more markets
+- However, BF is not ideal for most SSSP problems because it has a time  complexity of O(EV). It is better to use Diikstra  algorithm which is much faster. It is on the order of 0 ( (E+V) log(V)) when using a binary heap priority queue.
+#### how to implement a bellmanford algorithem?
+- Bellman ford simply update all the edges, |V | − 1 times. Code for this function is much quick and dirty to implement compare to dijkstra.
+- Then it need to check if there is negative cycle in the graph and the nodes being afected by the negative cycle and make the distant of those nodes to infinity.
+  ![output](/synthesis/image_for_symthesis/ga3.png)
 **exercise:**
-<your write up goes here>
+Implement a Bellman-Ford Algorithm by python.
 **solution:**
-<your write up goes here>
+```python
+def bellman_ford(graph, source):
+    dist = {}
+    p = {}
+    max = 10000
+    for v in graph:
+        dist[v] = max  # 赋值为负无穷完成初始化
+        p[v] = None
+    dist[source] = 0
+
+    for i in range(len(graph) - 1):
+        for u in graph:
+            for v in graph[u]:
+                if dist[v] > graph[u][v] + dist[u]:
+                    dist[v] = graph[u][v] + dist[u]
+                    p[v] = u  # 完成松弛操作，p为前驱节点
+
+    for u in graph:
+        for v in graph[u]:
+            if dist[v] > dist[u] + graph[u][v]:
+                return None, None  # 判断是否存在环路
+
+    return dist, p
+```
 5.3 **Matchings**
-<your write up goes here>
+
 **exercise:**
 <your write up goes here>
 **solution:**

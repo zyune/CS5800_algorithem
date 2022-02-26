@@ -11,11 +11,35 @@ This is a sentense in dasgupta
 The embodiment of a closed-form solution in the code is the base case.
 
 ### **exercise:**
+**Give the recurrence relationship of following function**
+```
+function mergesort(a[1 . . . n])
+Input: An array of numbers a[1...n]
+Output: A sorted version of this array
+if n > 1:
+    left=mergesort(a[1 . . . ⌊n/2⌋])
+    right= mergesort(a[⌊n/2⌋ + 1 . . . n])
+    return  merge(mergesort(left, right)
+else:
+    return a
 
-<your write up goes here>
+
+function merge(x[1 . . . k], y[1 . . . l]) 
+if k = 0: return y[1...l]
+if l = 0: return x[1...k]
+if x[1] ≤ y[1]:
+    return x[1]◦merge(x[2...k],y[1...l]) 
+else:
+    return y[1]◦merge(x[1...k],y[2...l])
+```
+Here ◦ denotes concatenation. This merge procedure does a constant amount of work per recursive call (provided the required array space is allocated in advance), for a total running time of O(k + l).
 
 ### **solution:**
-<your write up goes here>
+ - In function mergesort(), mergesort() is called twice in each level of recursion, so a=2
+ - Each time the array is divided into two parts so b=2
+ - The function merge procedure does a constant amount of work per recursive call. It have to must traverse all elements in x and y.So O(l+k)=O(n)
+ - Then the recurrence relationship is T(n)= 2T(n/2)+O(n)
+
 
 ##3.2 **Master Theorem**
 In the book of Dasgupta, it only give master theorem2 
@@ -59,11 +83,30 @@ Actually, $O(n^d)$ identify how long it takes to put all branch back again.We ca
 ![picture of master theorem](/assets/picture_of_master_theorem.png) 
 
 ### **exercise:**
-At the top level we use n - 1 comparisons and then have to sort the buckets A< and A> which have approximately (n - 1)/2 elements each. To make the arithmetic simpler, let’s say that we use n comparisons and end up with two buckets of size n/2.
-Please give the Derived formula for the best case for quicksort.
-Let f(n) denote the number of comparisons needed by Quicksort in the best case. We then have the recurrence relation:
-f(n) = n + 2f(n/2)
+
+Solve the following recurrence relations and give a Θ bound for each of them.
+(a) $T(n) = 2T(n/2) + 1$
+
+(b) $T(n) = 16T(n/4) + n^2$
+
+(c) $T(n) = 25T(n/5) + n^3$
+
 ### **solution:**
+
+(a) 
+- a = 2 b=2 ,
+- $log{_b}{a}=1$ > $d=0$
+- T(n)=$O(n)$
+
+(b) 
+- a = 16 b=4 ,
+- $log{_b}{a}=2$ = $d=2$
+- T(n)=$O(n^2 \log{_2}{n})$
+
+(c) 
+- a = 25 b=5 ,
+- $log{_b}{a}=2$ > $d=3$
+- T(n)=$O(n^3)$
 
 ## 3.3 **using Master Theorem to analyze a recursive algorithm**
 ```python
@@ -114,9 +157,10 @@ In this function a=2,b=2 and the best case for f(n) is log
 
 ### **solution:**
 - In this code we have two array.  Every time I call the function recursely only once, so a=1
-- I divide two list which are arr1 and arr2 into two parts separately. We should treat the two lists as a whole, so I still divide the whole data into two parts
+- I divide two list which are arr1 and arr2 into two parts separately. Let's say len(arr1)=m, len(arr2)=n
 - $f(n)=O(1)$, here because I only made 1 comparison here which is  $arr1[k//2-1] >= arr2[k//2-1]$
-- recurrence relation for this code is $T(n)=T(n/2)+O(1)$
+- recurrence relation for this code is $T(n+m)=T((n+m)/2)+O(1)$
 - In the recurrence relationship $a=1,b=2,d=0$
 - because $log{_b}{a}=log{_2}{1}=0$
-- so $T(n)=O(logn)$
+- so $T(n+m)=O(n^0*log(n+m))= O(log(n+m))$
+  

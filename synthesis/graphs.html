@@ -1,0 +1,649 @@
+<!DOCTYPE html><html><head>
+      <title>graphs</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.1/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="4-graphs">4 <strong>Graphs</strong></h1>
+
+<h2 class="mume-header" id="41-basic-definition">4.1 <strong>basic definition</strong></h2>
+
+<h4 class="mume-header" id="411-what-is-dag">4.1.1 what is dag&#xFF1F;</h4>
+
+<p>Directed acyclic graphs, or dags for short, come up all the time. They are good for modeling relations like causalities, hierarchies, and temporal dependencies&#x3002;</p>
+<ul>
+<li>In a dag, every edge leads to a vertex with a lower post number.</li>
+<li>Every dag has at least one source and at least one sink.</li>
+<li>Every directed graph is a dag of its strongly connected components.</li>
+<li>So every metagraph is a dag. Because each node is a strongly connected components</li>
+</ul>
+<h4 class="mume-header" id="412-what-is-directed-and-undirected-graph">4.1.2 what is directed and undirected graph</h4>
+
+<p>undirected graph</p>
+<p>directed graph</p>
+<h4 class="mume-header" id="413-what-is-sink-what-is-source">4.1.3 what is sink what is source</h4>
+
+<ul>
+<li><strong>sink</strong></li>
+</ul>
+<blockquote>
+<p>First, I want to make it clear that sink and source only exists in directed graph.<br>
+<em><strong>A sink is a node of a directed graph with no exiting edges.</strong></em></p>
+</blockquote>
+<p align="center">
+    <img align="center" src="data:image/svg+xml;charset=utf-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjA5LjEzcHQiIGhlaWdodD0iMTEwLjk1cHQiIHZpZXdCb3g9IjAgMCAyMDkuMTMgMTEwLjk1IiB2ZXJzaW9uPSIxLjIiPgo8ZGVmcz4KPGc+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtMCI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gOS4xNzE4NzUgMCBMIDkuMTcxODc1IC03Ljc5Njg3NSBMIC0wLjEwOTM3NSAtNy43OTY4NzUgTCAtMC4xMDkzNzUgMCBaIE0gMC45Njg3NSAtMS4wNzgxMjUgTCAwLjk2ODc1IC02LjcxODc1IEwgOC4wOTM3NSAtNi43MTg3NSBMIDguMDkzNzUgLTEuMDc4MTI1IFogTSAwLjk2ODc1IC0xLjA3ODEyNSAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtMSI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMC42NDA2MjUgLTEuMjUgQyAwLjU3ODEyNSAtMS4xMDkzNzUgMC41NjI1IC0xIDAuNTMxMjUgLTAuOTA2MjUgQyAwLjUgLTAuNzM0Mzc1IDAuNDg0Mzc1IC0wLjYwOTM3NSAwLjQ4NDM3NSAtMC41MTU2MjUgQyAwLjQ4NDM3NSAtMC4yNjU2MjUgMC41NzgxMjUgLTAuMDc4MTI1IDAuNzM0Mzc1IDAuMDMxMjUgQyAwLjg0Mzc1IDAuMDkzNzUgMC45ODQzNzUgMC4xMjUgMS4xMDkzNzUgMC4xMjUgQyAxLjQ1MzEyNSAwLjEyNSAxLjc2NTYyNSAtMC4wMzEyNSAyLjA5Mzc1IC0wLjM1OTM3NSBDIDIuMjgxMjUgLTAuNTQ2ODc1IDIuNTQ2ODc1IC0wLjg5MDYyNSAyLjg3NSAtMS4zOTA2MjUgTCAyLjcxODc1IC0xLjUgQyAyLjU2MjUgLTEuMjUgMi4zNzUgLTEuMDE1NjI1IDIuMTU2MjUgLTAuNzY1NjI1IEMgMS45MjE4NzUgLTAuNTE1NjI1IDEuNzM0Mzc1IC0wLjM5MDYyNSAxLjYwOTM3NSAtMC4zOTA2MjUgQyAxLjUxNTYyNSAtMC4zOTA2MjUgMS40Njg3NSAtMC40MjE4NzUgMS40NTMxMjUgLTAuNDg0Mzc1IEMgMS40MjE4NzUgLTAuNTMxMjUgMS40MDYyNSAtMC41NzgxMjUgMS40MDYyNSAtMC42NTYyNSBDIDEuNDA2MjUgLTAuNjg3NSAxLjQwNjI1IC0wLjczNDM3NSAxLjQyMTg3NSAtMC43NjU2MjUgQyAxLjQyMTg3NSAtMC43OTY4NzUgMS40NTMxMjUgLTAuOTA2MjUgMS41IC0xLjA3ODEyNSBMIDMuNDM3NSAtOC4wOTM3NSBDIDMuNDA2MjUgLTguMTI1IDMuMzc1IC04LjE1NjI1IDMuMzU5Mzc1IC04LjE1NjI1IEMgMy4wMzEyNSAtOC4wNjI1IDIuNzY1NjI1IC04LjAxNTYyNSAyLjU2MjUgLTcuOTY4NzUgQyAyLjQ4NDM3NSAtNy45NTMxMjUgMi4zMjgxMjUgLTcuOTM3NSAyLjEwOTM3NSAtNy45MDYyNSBDIDEuODc1IC03Ljg3NSAxLjY3MTg3NSAtNy44NTkzNzUgMS41IC03LjgyODEyNSBMIDEuNSAtNy42NDA2MjUgQyAxLjgxMjUgLTcuNjQwNjI1IDIuMDE1NjI1IC03LjYyNSAyLjEyNSAtNy42MDkzNzUgQyAyLjIxODc1IC03LjU2MjUgMi4yODEyNSAtNy40ODQzNzUgMi4yODEyNSAtNy4zNDM3NSBDIDIuMjgxMjUgLTcuMzI4MTI1IDIuMjgxMjUgLTcuMjgxMjUgMi4yNjU2MjUgLTcuMjM0Mzc1IEMgMi4yNjU2MjUgLTcuMTg3NSAyLjI2NTYyNSAtNy4xMjUgMi4yNSAtNy4wNzgxMjUgWiBNIDAuNjQwNjI1IC0xLjI1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMC0yIj4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxLjMxMjUgLTEuMjUgQyAxLjMxMjUgLTIuMDYyNSAxLjU2MjUgLTIuODc1IDIuMDYyNSAtMy43MDMxMjUgQyAyLjU2MjUgLTQuNjA5Mzc1IDMuMTI1IC01LjA0Njg3NSAzLjczNDM3NSAtNS4wNDY4NzUgQyA0LjA5Mzc1IC01LjA0Njg3NSA0LjM0Mzc1IC00Ljg3NSA0LjQ2ODc1IC00LjU0Njg3NSBDIDQuNTQ2ODc1IC00LjM1OTM3NSA0LjU3ODEyNSAtNC4xMjUgNC41NzgxMjUgLTMuODI4MTI1IEMgNC41NzgxMjUgLTMuMTQwNjI1IDQuMzc1IC0yLjM5MDYyNSAzLjk1MzEyNSAtMS41NjI1IEMgMy40Njg3NSAtMC42MDkzNzUgMi45MDYyNSAtMC4xMjUgMi4yNjU2MjUgLTAuMTI1IEMgMS45NTMxMjUgLTAuMTI1IDEuNzE4NzUgLTAuMjM0Mzc1IDEuNTQ2ODc1IC0wLjQ1MzEyNSBDIDEuNDA2MjUgLTAuNjU2MjUgMS4zMTI1IC0wLjkzNzUgMS4zMTI1IC0xLjI1IFogTSAzLjc5Njg3NSAtNS4yOTY4NzUgQyAyLjkzNzUgLTUuMjk2ODc1IDIuMTQwNjI1IC00LjkwNjI1IDEuNDA2MjUgLTQuMDkzNzUgQyAwLjY3MTg3NSAtMy4zMjgxMjUgMC4zMTI1IC0yLjUgMC4zMTI1IC0xLjY1NjI1IEMgMC4zMTI1IC0xLjA5Mzc1IDAuNDg0Mzc1IC0wLjY0MDYyNSAwLjc5Njg3NSAtMC4zMjgxMjUgQyAxLjEyNSAtMC4wMzEyNSAxLjU0Njg3NSAwLjEyNSAyLjA3ODEyNSAwLjEyNSBDIDIuOTM3NSAwLjEyNSAzLjczNDM3NSAtMC4yODEyNSA0LjUgLTEuMTA5Mzc1IEMgNS4yMTg3NSAtMS45MDYyNSA1LjU3ODEyNSAtMi43MTg3NSA1LjU3ODEyNSAtMy41MzEyNSBDIDUuNTc4MTI1IC00LjAxNTYyNSA1LjQ1MzEyNSAtNC40MjE4NzUgNS4xNzE4NzUgLTQuNzY1NjI1IEMgNC45MDYyNSAtNS4xMDkzNzUgNC40NTMxMjUgLTUuMjk2ODc1IDMuNzk2ODc1IC01LjI5Njg3NSBaIE0gMy43OTY4NzUgLTUuMjk2ODc1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMC0zIj4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAzLjczNDM3NSAtNS4yNjU2MjUgQyAyLjkwNjI1IC01LjI2NTYyNSAyLjE0MDYyNSAtNC45MDYyNSAxLjQyMTg3NSAtNC4xNTYyNSBDIDAuNzAzMTI1IC0zLjQyMTg3NSAwLjM0Mzc1IC0yLjYwOTM3NSAwLjM0Mzc1IC0xLjczNDM3NSBDIDAuMzQzNzUgLTEuMTQwNjI1IDAuNTE1NjI1IC0wLjY4NzUgMC44NDM3NSAtMC4zNzUgQyAxLjE1NjI1IC0wLjAzMTI1IDEuNTc4MTI1IDAuMTI1IDIuMTA5Mzc1IDAuMTI1IEMgMi42NDA2MjUgMC4xMjUgMy4xNDA2MjUgLTAuMDMxMjUgMy41NzgxMjUgLTAuMzU5Mzc1IEMgMy44NDM3NSAtMC41MzEyNSA0LjA5Mzc1IC0wLjc5Njg3NSA0LjM3NSAtMS4xNDA2MjUgTCA0LjIwMzEyNSAtMS4yODEyNSBMIDQuMTcxODc1IC0xLjIzNDM3NSBDIDMuOTM3NSAtMC45Njg3NSAzLjY3MTg3NSAtMC43MzQzNzUgMy4zNzUgLTAuNTc4MTI1IEMgMy4xMDkzNzUgLTAuMzkwNjI1IDIuODEyNSAtMC4zMTI1IDIuNTE1NjI1IC0wLjMxMjUgQyAyLjE0MDYyNSAtMC4zMTI1IDEuODU5Mzc1IC0wLjQzNzUgMS42NzE4NzUgLTAuNjg3NSBDIDEuNDg0Mzc1IC0wLjkzNzUgMS4zOTA2MjUgLTEuMjgxMjUgMS4zOTA2MjUgLTEuNzE4NzUgQyAxLjM5MDYyNSAtMi41IDEuNjA5Mzc1IC0zLjIzNDM3NSAyLjA3ODEyNSAtMy45NTMxMjUgQyAyLjU0Njg3NSAtNC42NTYyNSAzLjA3ODEyNSAtNS4wMTU2MjUgMy43MTg3NSAtNS4wMTU2MjUgQyAzLjg5MDYyNSAtNS4wMTU2MjUgNC4wMTU2MjUgLTUgNC4wOTM3NSAtNC45NTMxMjUgQyA0LjE4NzUgLTQuOTA2MjUgNC4yMTg3NSAtNC44NDM3NSA0LjIxODc1IC00Ljc2NTYyNSBDIDQuMjE4NzUgLTQuNzM0Mzc1IDQuMTg3NSAtNC42NTYyNSA0LjEyNSAtNC41NDY4NzUgQyA0LjA2MjUgLTQuNDIxODc1IDQuMDMxMjUgLTQuMzEyNSA0LjAzMTI1IC00LjIxODc1IEMgNC4wMzEyNSAtNC4wOTM3NSA0LjA3ODEyNSAtMy45ODQzNzUgNC4xNzE4NzUgLTMuODkwNjI1IEMgNC4yNjU2MjUgLTMuNzk2ODc1IDQuMzkwNjI1IC0zLjc1IDQuNTMxMjUgLTMuNzUgQyA0LjY4NzUgLTMuNzUgNC44MTI1IC0zLjc5Njg3NSA0LjkwNjI1IC0zLjkwNjI1IEMgNS4wMTU2MjUgLTQgNS4wNzgxMjUgLTQuMTQwNjI1IDUuMDc4MTI1IC00LjMyODEyNSBDIDUuMDc4MTI1IC00LjUzMTI1IDQuOTY4NzUgLTQuNzM0Mzc1IDQuNzY1NjI1IC00Ljk1MzEyNSBDIDQuNTQ2ODc1IC01LjE1NjI1IDQuMjAzMTI1IC01LjI2NTYyNSAzLjczNDM3NSAtNS4yNjU2MjUgWiBNIDMuNzM0Mzc1IC01LjI2NTYyNSAiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtNCI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gNC4zNzUgLTQuMjE4NzUgQyA0LjM3NSAtMy41MzEyNSA0LjEyNSAtMi43NSAzLjU5Mzc1IC0xLjg5MDYyNSBDIDMuMDYyNSAtMC45Mzc1IDIuNDg0Mzc1IC0wLjQ2ODc1IDEuOTA2MjUgLTAuNDY4NzUgQyAxLjcwMzEyNSAtMC40Njg3NSAxLjU0Njg3NSAtMC41MzEyNSAxLjQwNjI1IC0wLjY4NzUgQyAxLjI4MTI1IC0wLjgyODEyNSAxLjIwMzEyNSAtMS4wNDY4NzUgMS4yMDMxMjUgLTEuMzU5Mzc1IEMgMS4yMDMxMjUgLTEuOTg0Mzc1IDEuNDUzMTI1IC0yLjcxODc1IDEuOTM3NSAtMy41NzgxMjUgQyAyLjQ2ODc1IC00LjU0Njg3NSAzLjA3ODEyNSAtNS4wMzEyNSAzLjcxODc1IC01LjAzMTI1IEMgMy44OTA2MjUgLTUuMDMxMjUgNC4wNDY4NzUgLTQuOTUzMTI1IDQuMTg3NSAtNC44MjgxMjUgQyA0LjMxMjUgLTQuNzAzMTI1IDQuMzc1IC00LjUgNC4zNzUgLTQuMjE4NzUgWiBNIDMuNjU2MjUgLTUuMjk2ODc1IEMgMi44MjgxMjUgLTUuMjk2ODc1IDIuMDQ2ODc1IC00LjgyODEyNSAxLjI5Njg3NSAtMy45MDYyNSBDIDAuNTQ2ODc1IC0zLjAzMTI1IDAuMTcxODc1IC0yLjE3MTg3NSAwLjE3MTg3NSAtMS4zNDM3NSBDIDAuMTcxODc1IC0wLjg5MDYyNSAwLjMxMjUgLTAuNTE1NjI1IDAuNTYyNSAtMC4yNSBDIDAuODI4MTI1IDAgMS4xMDkzNzUgMC4xMjUgMS40MjE4NzUgMC4xMjUgQyAxLjYwOTM3NSAwLjEyNSAxLjgxMjUgMC4wOTM3NSAyLjAxNTYyNSAwLjAzMTI1IEMgMi4yNjU2MjUgLTAuMDc4MTI1IDIuNTMxMjUgLTAuMjY1NjI1IDIuODI4MTI1IC0wLjUxNTYyNSBDIDMuMDYyNSAtMC43MTg3NSAzLjI2NTYyNSAtMC45Mzc1IDMuNDM3NSAtMS4xNTYyNSBDIDMuNTkzNzUgLTEuMzkwNjI1IDMuNzAzMTI1IC0xLjU0Njg3NSAzLjc4MTI1IC0xLjY3MTg3NSBDIDMuNzM0Mzc1IC0xLjUgMy42ODc1IC0xLjI2NTYyNSAzLjYyNSAtMSBDIDMuNTc4MTI1IC0wLjc1IDMuNTQ2ODc1IC0wLjU0Njg3NSAzLjU0Njg3NSAtMC40MDYyNSBDIDMuNTQ2ODc1IC0wLjI2NTYyNSAzLjU3ODEyNSAtMC4xMjUgMy42NzE4NzUgLTAuMDMxMjUgQyAzLjczNDM3NSAwLjA3ODEyNSAzLjg1OTM3NSAwLjEyNSA0IDAuMTI1IEMgNC4yMzQzNzUgMC4xMjUgNC40Njg3NSAwLjAzMTI1IDQuNzE4NzUgLTAuMTU2MjUgQyA0Ljk2ODc1IC0wLjM0Mzc1IDUuMzEyNSAtMC42ODc1IDUuNzE4NzUgLTEuMjAzMTI1IEwgNS41OTM3NSAtMS4zNDM3NSBMIDUuMjE4NzUgLTAuOTUzMTI1IEMgNS4xNTYyNSAtMC45MDYyNSA1LjEwOTM3NSAtMC44NTkzNzUgNS4wNjI1IC0wLjgyODEyNSBDIDUuMDE1NjI1IC0wLjc4MTI1IDQuOTg0Mzc1IC0wLjc1IDQuOTUzMTI1IC0wLjczNDM3NSBMIDQuODQzNzUgLTAuNjQwNjI1IEMgNC43ODEyNSAtMC41OTM3NSA0LjczNDM3NSAtMC41NjI1IDQuNjg3NSAtMC41MzEyNSBDIDQuNjU2MjUgLTAuNTE1NjI1IDQuNjA5Mzc1IC0wLjUgNC41NzgxMjUgLTAuNSBDIDQuNTMxMjUgLTAuNSA0LjUgLTAuNTE1NjI1IDQuNDY4NzUgLTAuNTMxMjUgQyA0LjQzNzUgLTAuNTYyNSA0LjQyMTg3NSAtMC42MDkzNzUgNC40MjE4NzUgLTAuNjU2MjUgQyA0LjQyMTg3NSAtMC43MzQzNzUgNC41IC0xLjA5Mzc1IDQuNjQwNjI1IC0xLjY4NzUgQyA0LjcxODc1IC0yLjAxNTYyNSA0LjgyODEyNSAtMi40MDYyNSA0Ljk1MzEyNSAtMi44NTkzNzUgTCA1LjUzMTI1IC00Ljk1MzEyNSBDIDUuNTYyNSAtNSA1LjU2MjUgLTUuMDQ2ODc1IDUuNTYyNSAtNS4wNjI1IEMgNS41NzgxMjUgLTUuMTA5Mzc1IDUuNTkzNzUgLTUuMTQwNjI1IDUuNjA5Mzc1IC01LjE4NzUgQyA1LjYyNSAtNS4yMTg3NSA1LjYyNSAtNS4yNSA1LjYyNSAtNS4yNjU2MjUgQyA1LjYwOTM3NSAtNS4yNjU2MjUgNS41NzgxMjUgLTUuMjgxMjUgNS41NDY4NzUgLTUuMjgxMjUgTCA0Ljg3NSAtNS4yMTg3NSBDIDQuODI4MTI1IC01LjIwMzEyNSA0Ljc5Njg3NSAtNS4xODc1IDQuNzgxMjUgLTUuMTcxODc1IEMgNC43NjU2MjUgLTUuMTU2MjUgNC43NSAtNS4xMjUgNC43NSAtNS4wNzgxMjUgTCA0LjYwOTM3NSAtNC42NDA2MjUgTCA0LjU3ODEyNSAtNC43MTg3NSBDIDQuNTMxMjUgLTQuODU5Mzc1IDQuNDUzMTI1IC00Ljk2ODc1IDQuMzc1IC01LjA2MjUgQyA0LjIwMzEyNSAtNS4yMTg3NSAzLjk2ODc1IC01LjI5Njg3NSAzLjY1NjI1IC01LjI5Njg3NSBaIE0gMy42NTYyNSAtNS4yOTY4NzUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTUiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSIiLz4KPC9zeW1ib2w+CjxzeW1ib2wgb3ZlcmZsb3c9InZpc2libGUiIGlkPSJnbHlwaDAtNiI+CjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTsiIGQ9Ik0gMC4xNzE4NzUgMC4xNTYyNSBMIDAuMzc1IDAuMTU2MjUgQyAwLjQwNjI1IDAuMDc4MTI1IDAuNDM3NSAwLjAzMTI1IDAuNDg0Mzc1IDAuMDE1NjI1IEMgMC41MTU2MjUgLTAuMDMxMjUgMC41NzgxMjUgLTAuMDQ2ODc1IDAuNjQwNjI1IC0wLjA0Njg3NSBDIDAuNjg3NSAtMC4wNDY4NzUgMC44NTkzNzUgLTAuMDE1NjI1IDEuMTU2MjUgMC4wNjI1IEMgMS40NTMxMjUgMC4xMjUgMS42ODc1IDAuMTU2MjUgMS44NTkzNzUgMC4xNTYyNSBDIDIuMzQzNzUgMC4xNTYyNSAyLjc2NTYyNSAwLjAxNTYyNSAzLjEyNSAtMC4yODEyNSBDIDMuNDg0Mzc1IC0wLjU2MjUgMy42NzE4NzUgLTAuOTIxODc1IDMuNjcxODc1IC0xLjM0Mzc1IEMgMy42NzE4NzUgLTEuNTYyNSAzLjYyNSAtMS43NjU2MjUgMy41MzEyNSAtMS45NTMxMjUgQyAzLjQzNzUgLTIuMTU2MjUgMy4yODEyNSAtMi40MDYyNSAzLjA3ODEyNSAtMi43MTg3NSBMIDIuNjU2MjUgLTMuMzEyNSBDIDIuNDM3NSAtMy42MDkzNzUgMi4zMTI1IC0zLjgyODEyNSAyLjI1IC0zLjkzNzUgQyAyLjE4NzUgLTQuMDYyNSAyLjE1NjI1IC00LjIwMzEyNSAyLjE1NjI1IC00LjM1OTM3NSBDIDIuMTU2MjUgLTQuNTc4MTI1IDIuMjE4NzUgLTQuNzM0Mzc1IDIuMzU5Mzc1IC00Ljg0Mzc1IEMgMi40ODQzNzUgLTQuOTUzMTI1IDIuNjQwNjI1IC01IDIuODI4MTI1IC01IEMgMy4yMzQzNzUgLTUgMy41MzEyNSAtNC44MTI1IDMuNzE4NzUgLTQuNDUzMTI1IEMgMy44MTI1IC00LjI2NTYyNSAzLjg5MDYyNSAtNCAzLjkzNzUgLTMuNjA5Mzc1IEwgNC4xNDA2MjUgLTMuNjA5Mzc1IEwgNC4zNzUgLTUuMjY1NjI1IEwgNC4yMDMxMjUgLTUuMjY1NjI1IEMgNC4xNzE4NzUgLTUuMjAzMTI1IDQuMTI1IC01LjE1NjI1IDQuMDc4MTI1IC01LjEwOTM3NSBDIDQuMDMxMjUgLTUuMDc4MTI1IDMuOTUzMTI1IC01LjA2MjUgMy44NTkzNzUgLTUuMDYyNSBDIDMuNzgxMjUgLTUuMDYyNSAzLjU5Mzc1IC01LjA5Mzc1IDMuMzU5Mzc1IC01LjE1NjI1IEMgMy4xMDkzNzUgLTUuMjM0Mzc1IDIuODkwNjI1IC01LjI2NTYyNSAyLjcwMzEyNSAtNS4yNjU2MjUgQyAyLjI1IC01LjI2NTYyNSAxLjkwNjI1IC01LjE0MDYyNSAxLjY1NjI1IC00Ljg5MDYyNSBDIDEuNDA2MjUgLTQuNjI1IDEuMjk2ODc1IC00LjMyODEyNSAxLjI5Njg3NSAtNCBDIDEuMjk2ODc1IC0zLjc2NTYyNSAxLjM0Mzc1IC0zLjU0Njg3NSAxLjQ1MzEyNSAtMy4zMjgxMjUgQyAxLjUzMTI1IC0zLjE3MTg3NSAxLjcxODc1IC0yLjg5MDYyNSAyLjAxNTYyNSAtMi40NTMxMjUgTCAyLjUgLTEuNzM0Mzc1IEMgMi41NjI1IC0xLjY1NjI1IDIuNjA5Mzc1IC0xLjU0Njg3NSAyLjY1NjI1IC0xLjQ1MzEyNSBDIDIuNjg3NSAtMS4zMjgxMjUgMi43MTg3NSAtMS4xODc1IDIuNzE4NzUgLTEuMDE1NjI1IEMgMi43MTg3NSAtMC43MzQzNzUgMi42MjUgLTAuNTMxMjUgMi40Njg3NSAtMC4zNTkzNzUgQyAyLjMxMjUgLTAuMTg3NSAyLjEwOTM3NSAtMC4xMDkzNzUgMS44NzUgLTAuMTA5Mzc1IEMgMS40NTMxMjUgLTAuMTA5Mzc1IDEuMTI1IC0wLjMxMjUgMC45MDYyNSAtMC43MTg3NSBDIDAuNzk2ODc1IC0wLjkzNzUgMC42ODc1IC0xLjI4MTI1IDAuNjA5Mzc1IC0xLjc1IEwgMC40MjE4NzUgLTEuNzUgWiBNIDAuMTcxODc1IDAuMTU2MjUgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTciPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDIuNTYyNSAtNi41NjI1IEMgMi43MTg3NSAtNi41NjI1IDIuODU5Mzc1IC02LjYyNSAyLjk2ODc1IC02LjczNDM3NSBDIDMuMDc4MTI1IC02Ljg3NSAzLjE0MDYyNSAtNy4wMTU2MjUgMy4xNDA2MjUgLTcuMjAzMTI1IEMgMy4xNDA2MjUgLTcuMzc1IDMuMDc4MTI1IC03LjUzMTI1IDIuOTY4NzUgLTcuNjU2MjUgQyAyLjg1OTM3NSAtNy43ODEyNSAyLjcxODc1IC03Ljg0Mzc1IDIuNTYyNSAtNy44NDM3NSBDIDIuNDA2MjUgLTcuODQzNzUgMi4yNjU2MjUgLTcuNzgxMjUgMi4xNTYyNSAtNy42NTYyNSBDIDIuMDQ2ODc1IC03LjUzMTI1IDEuOTg0Mzc1IC03LjM3NSAxLjk4NDM3NSAtNy4yMDMxMjUgQyAxLjk4NDM3NSAtNy4wMzEyNSAyLjA0Njg3NSAtNi44NzUgMi4xNTYyNSAtNi43NSBDIDIuMjY1NjI1IC02LjYyNSAyLjQwNjI1IC02LjU2MjUgMi41NjI1IC02LjU2MjUgWiBNIDIuNDIxODc1IC01LjI1IEMgMi4yNjU2MjUgLTUuMjE4NzUgMi4wNzgxMjUgLTUuMTcxODc1IDEuOTA2MjUgLTUuMTQwNjI1IEMgMS43NSAtNS4xMDkzNzUgMS42MDkzNzUgLTUuMDkzNzUgMS40ODQzNzUgLTUuMDc4MTI1IEMgMS4zNDM3NSAtNS4wNjI1IDEuMTA5Mzc1IC01LjAxNTYyNSAwLjc4MTI1IC00Ljk4NDM3NSBMIDAuNzgxMjUgLTQuNzk2ODc1IEMgMS4wOTM3NSAtNC43OTY4NzUgMS4yOTY4NzUgLTQuNzgxMjUgMS40MDYyNSAtNC43NSBDIDEuNSAtNC43MDMxMjUgMS41NDY4NzUgLTQuNjI1IDEuNTQ2ODc1IC00LjQ4NDM3NSBDIDEuNTQ2ODc1IC00LjQ1MzEyNSAxLjU0Njg3NSAtNC40MDYyNSAxLjU0Njg3NSAtNC4zNTkzNzUgQyAxLjUzMTI1IC00LjMyODEyNSAxLjUxNTYyNSAtNC4yOTY4NzUgMS41IC00LjI1IEwgMC42ODc1IC0xLjI1IEMgMC42NDA2MjUgLTEuMDc4MTI1IDAuNjA5Mzc1IC0wLjk1MzEyNSAwLjU5Mzc1IC0wLjg3NSBDIDAuNTc4MTI1IC0wLjc4MTI1IDAuNTc4MTI1IC0wLjY4NzUgMC41NzgxMjUgLTAuNTc4MTI1IEMgMC41NzgxMjUgLTAuMzc1IDAuNjI1IC0wLjIxODc1IDAuNzM0Mzc1IC0wLjA3ODEyNSBDIDAuODQzNzUgMC4wNjI1IDAuOTg0Mzc1IDAuMTI1IDEuMTQwNjI1IDAuMTI1IEMgMS40Mzc1IDAuMTI1IDEuNzM0Mzc1IC0wLjAxNTYyNSAyLjAzMTI1IC0wLjI4MTI1IEMgMi4yMTg3NSAtMC40Njg3NSAyLjQ2ODc1IC0wLjc2NTYyNSAyLjc1IC0xLjE3MTg3NSBMIDIuODEyNSAtMS4yNSBMIDIuNjcxODc1IC0xLjM5MDYyNSBDIDIuNDY4NzUgLTEuMTI1IDIuMzEyNSAtMC45Mzc1IDIuMTg3NSAtMC43OTY4NzUgQyAxLjk2ODc1IC0wLjU3ODEyNSAxLjc5Njg3NSAtMC40NTMxMjUgMS42NTYyNSAtMC40NTMxMjUgQyAxLjU3ODEyNSAtMC40NTMxMjUgMS41MzEyNSAtMC40ODQzNzUgMS41MTU2MjUgLTAuNTMxMjUgQyAxLjUgLTAuNTYyNSAxLjQ4NDM3NSAtMC42MjUgMS40ODQzNzUgLTAuNjg3NSBDIDEuNDg0Mzc1IC0wLjcxODc1IDEuNSAtMC44NDM3NSAxLjU2MjUgLTEuMDc4MTI1IEwgMi43MTg3NSAtNS4yMzQzNzUgQyAyLjczNDM3NSAtNS4yNjU2MjUgMi43MTg3NSAtNS4yNjU2MjUgMi43MDMxMjUgLTUuMjgxMjUgQyAyLjY3MTg3NSAtNS4yOTY4NzUgMi41NzgxMjUgLTUuMjgxMjUgMi40MjE4NzUgLTUuMjUgWiBNIDIuNDIxODc1IC01LjI1ICIvPgo8L3N5bWJvbD4KPHN5bWJvbCBvdmVyZmxvdz0idmlzaWJsZSIgaWQ9ImdseXBoMC04Ij4KPHBhdGggc3R5bGU9InN0cm9rZTpub25lOyIgZD0iTSAxLjEwOTM3NSAwIEMgMS4zNTkzNzUgLTAuODQzNzUgMS41NDY4NzUgLTEuNDM3NSAxLjY1NjI1IC0xLjc1IEMgMS43ODEyNSAtMi4wNjI1IDEuOTUzMTI1IC0yLjQwNjI1IDIuMTU2MjUgLTIuNzM0Mzc1IEMgMi40MjE4NzUgLTMuMTcxODc1IDIuNjg3NSAtMy41NDY4NzUgMi45NTMxMjUgLTMuODU5Mzc1IEMgMy40MDYyNSAtNC4zOTA2MjUgMy43ODEyNSAtNC42NTYyNSA0LjA2MjUgLTQuNjU2MjUgQyA0LjE4NzUgLTQuNjU2MjUgNC4yNSAtNC42MDkzNzUgNC4yOTY4NzUgLTQuNTQ2ODc1IEMgNC4zNDM3NSAtNC40ODQzNzUgNC4zNzUgLTQuNDA2MjUgNC4zNzUgLTQuMjk2ODc1IEMgNC4zNzUgLTQuMjY1NjI1IDQuMzU5Mzc1IC00LjIwMzEyNSA0LjM0Mzc1IC00LjA5Mzc1IEMgNC4zNDM3NSAtNCA0LjMxMjUgLTMuODc1IDQuMjY1NjI1IC0zLjcxODc1IEwgMy41MTU2MjUgLTAuODkwNjI1IEMgMy41IC0wLjgyODEyNSAzLjQ4NDM3NSAtMC43NjU2MjUgMy40ODQzNzUgLTAuNjg3NSBDIDMuNDY4NzUgLTAuNjA5Mzc1IDMuNDY4NzUgLTAuNTMxMjUgMy40Njg3NSAtMC40ODQzNzUgQyAzLjQ2ODc1IC0wLjI1IDMuNTMxMjUgLTAuMDc4MTI1IDMuNjQwNjI1IDAgQyAzLjc2NTYyNSAwLjA3ODEyNSAzLjg5MDYyNSAwLjEyNSA0LjAzMTI1IDAuMTI1IEMgNC4zMTI1IDAuMTI1IDQuNjA5Mzc1IC0wLjAzMTI1IDQuOTIxODc1IC0wLjMyODEyNSBDIDUuMTA5Mzc1IC0wLjUgNS4zNTkzNzUgLTAuODEyNSA1LjY3MTg3NSAtMS4yNSBMIDUuNTE1NjI1IC0xLjQwNjI1IEMgNS4yMTg3NSAtMSA1LjAxNTYyNSAtMC43NSA0Ljg5MDYyNSAtMC42NDA2MjUgQyA0Ljc1IC0wLjUxNTYyNSA0LjY1NjI1IC0wLjQ1MzEyNSA0LjU0Njg3NSAtMC40NTMxMjUgQyA0LjUgLTAuNDUzMTI1IDQuNDUzMTI1IC0wLjQ4NDM3NSA0LjQyMTg3NSAtMC41MzEyNSBDIDQuNDA2MjUgLTAuNTc4MTI1IDQuMzkwNjI1IC0wLjYyNSA0LjM5MDYyNSAtMC42ODc1IEMgNC4zOTA2MjUgLTAuNzE4NzUgNC4zOTA2MjUgLTAuNzgxMjUgNC40MDYyNSAtMC44NTkzNzUgQyA0LjQzNzUgLTAuOTM3NSA0LjQ1MzEyNSAtMS4wMTU2MjUgNC40NTMxMjUgLTEuMDc4MTI1IEwgNS4yMzQzNzUgLTMuODU5Mzc1IEMgNS4yNjU2MjUgLTMuOTg0Mzc1IDUuMjgxMjUgLTQuMDkzNzUgNS4zMTI1IC00LjE4NzUgQyA1LjMyODEyNSAtNC4yOTY4NzUgNS4zMjgxMjUgLTQuMzkwNjI1IDUuMzI4MTI1IC00LjQ4NDM3NSBDIDUuMzI4MTI1IC00LjgxMjUgNS4yMTg3NSAtNS4wNDY4NzUgNC45Njg3NSAtNS4xNzE4NzUgQyA0Ljg1OTM3NSAtNS4yMzQzNzUgNC43MDMxMjUgLTUuMjY1NjI1IDQuNTMxMjUgLTUuMjY1NjI1IEMgNC4wOTM3NSAtNS4yNjU2MjUgMy41NzgxMjUgLTQuOTUzMTI1IDMuMDMxMjUgLTQuMzQzNzUgQyAyLjcwMzEyNSAtMy45ODQzNzUgMi4yOTY4NzUgLTMuNDM3NSAxLjgyODEyNSAtMi43MTg3NSBMIDIuNTc4MTI1IC01LjIxODc1IEMgMi41NjI1IC01LjIzNDM3NSAyLjU2MjUgLTUuMjY1NjI1IDIuNTMxMjUgLTUuMjY1NjI1IEwgMS41IC01LjA0Njg3NSBDIDEuMzc1IC01LjAxNTYyNSAxLjI2NTYyNSAtNSAxLjE1NjI1IC00Ljk2ODc1IEMgMS4wNDY4NzUgLTQuOTUzMTI1IDAuODc1IC00LjkyMTg3NSAwLjY0MDYyNSAtNC44OTA2MjUgTCAwLjY0MDYyNSAtNC43MDMxMjUgQyAwLjY4NzUgLTQuNzAzMTI1IDAuNzM0Mzc1IC00LjcwMzEyNSAwLjc4MTI1IC00LjcxODc1IEMgMC44MjgxMjUgLTQuNzE4NzUgMC44NTkzNzUgLTQuNzE4NzUgMC45MDYyNSAtNC43MTg3NSBDIDEuMDkzNzUgLTQuNzE4NzUgMS4yMTg3NSAtNC43MDMxMjUgMS4yOTY4NzUgLTQuNjI1IEMgMS4zNDM3NSAtNC41NjI1IDEuMzkwNjI1IC00LjQ4NDM3NSAxLjM5MDYyNSAtNC4zNTkzNzUgQyAxLjM5MDYyNSAtNC4yOTY4NzUgMS4zNzUgLTQuMjE4NzUgMS4zNTkzNzUgLTQuMTU2MjUgQyAxLjM0Mzc1IC00LjA5Mzc1IDEuMjk2ODc1IC0zLjkwNjI1IDEuMjE4NzUgLTMuNTkzNzUgTCAwLjIxODc1IDAgWiBNIDEuMTA5Mzc1IDAgIi8+Cjwvc3ltYm9sPgo8c3ltYm9sIG92ZXJmbG93PSJ2aXNpYmxlIiBpZD0iZ2x5cGgwLTkiPgo8cGF0aCBzdHlsZT0ic3Ryb2tlOm5vbmU7IiBkPSJNIDEuMDYyNSAwIEwgMS42MDkzNzUgLTIuMTU2MjUgTCAyLjIxODc1IC0yLjU5Mzc1IEMgMi4zNDM3NSAtMi4yNSAyLjQ2ODc1IC0xLjkzNzUgMi41NzgxMjUgLTEuNjU2MjUgQyAyLjcwMzEyNSAtMS4zOTA2MjUgMi43OTY4NzUgLTEuMTQwNjI1IDIuODc1IC0wLjk2ODc1IEMgMy4xMDkzNzUgLTAuNDg0Mzc1IDMuMjgxMjUgLTAuMTg3NSAzLjQwNjI1IC0wLjA2MjUgQyAzLjUzMTI1IDAuMDc4MTI1IDMuNjg3NSAwLjEyNSAzLjg0Mzc1IDAuMTI1IEMgNC4wOTM3NSAwLjEyNSA0LjI5Njg3NSAwLjAzMTI1IDQuNSAtMC4xNzE4NzUgQyA0LjY4NzUgLTAuMzkwNjI1IDQuOTA2MjUgLTAuNzM0Mzc1IDUuMTQwNjI1IC0xLjE4NzUgTCA0Ljk1MzEyNSAtMS4yOTY4NzUgQyA0LjgxMjUgLTEuMDMxMjUgNC42ODc1IC0wLjg0Mzc1IDQuNjA5Mzc1IC0wLjczNDM3NSBDIDQuNDg0Mzc1IC0wLjU3ODEyNSA0LjM1OTM3NSAtMC40ODQzNzUgNC4yNSAtMC40ODQzNzUgQyA0LjEyNSAtMC40ODQzNzUgNCAtMC42MjUgMy44NTkzNzUgLTAuODc1IEMgMy43MzQzNzUgLTEuMTI1IDMuNDIxODc1IC0xLjg5MDYyNSAyLjkwNjI1IC0zLjE0MDYyNSBDIDMuODU5Mzc1IC0zLjk4NDM3NSA0LjQ1MzEyNSAtNC40ODQzNzUgNC43MDMxMjUgLTQuNjU2MjUgQyA0Ljk1MzEyNSAtNC44MjgxMjUgNS4yMTg3NSAtNC45MjE4NzUgNS41MTU2MjUgLTQuOTM3NSBMIDUuNTE1NjI1IC01LjEyNSBMIDMuMzEyNSAtNS4xMjUgTCAzLjMxMjUgLTQuOTM3NSBDIDMuNTkzNzUgLTQuOTIxODc1IDMuNzgxMjUgLTQuOTA2MjUgMy44NTkzNzUgLTQuODkwNjI1IEMgMy45Mzc1IC00Ljg1OTM3NSAzLjk4NDM3NSAtNC44MTI1IDMuOTg0Mzc1IC00LjcwMzEyNSBDIDMuOTg0Mzc1IC00LjU2MjUgMy44MjgxMjUgLTQuMzU5Mzc1IDMuNTE1NjI1IC00LjA3ODEyNSBDIDMuMjAzMTI1IC0zLjc5Njg3NSAyLjYwOTM3NSAtMy4zMjgxMjUgMS43MzQzNzUgLTIuNjI1IEwgMy4zMTI1IC04LjA5Mzc1IEwgMy4yOTY4NzUgLTguMTU2MjUgQyAzLjI4MTI1IC04LjE1NjI1IDMuMTQwNjI1IC04LjEyNSAyLjkwNjI1IC04LjA3ODEyNSBDIDIuNjcxODc1IC04LjAxNTYyNSAyLjUzMTI1IC04IDIuNTE1NjI1IC03Ljk4NDM3NSBDIDIuMzkwNjI1IC03Ljk2ODc1IDIuMjM0Mzc1IC03Ljk1MzEyNSAyLjAxNTYyNSAtNy45MDYyNSBDIDEuODEyNSAtNy44OTA2MjUgMS42MDkzNzUgLTcuODU5Mzc1IDEuMzc1IC03LjgyODEyNSBMIDEuMzc1IC03LjY0MDYyNSBDIDEuNzAzMTI1IC03LjY1NjI1IDEuOTA2MjUgLTcuNjQwNjI1IDIuMDE1NjI1IC03LjYwOTM3NSBDIDIuMTA5Mzc1IC03LjU2MjUgMi4xNTYyNSAtNy40NTMxMjUgMi4xNTYyNSAtNy4yODEyNSBDIDIuMTU2MjUgLTcuMjUgMi4xNTYyNSAtNy4yMDMxMjUgMi4xNTYyNSAtNy4xODc1IEMgMi4xNTYyNSAtNy4xNDA2MjUgMi4xNDA2MjUgLTcuMTA5Mzc1IDIuMTI1IC03LjA3ODEyNSBMIDAuMTcxODc1IDAgWiBNIDEuMDYyNSAwICIvPgo8L3N5bWJvbD4KPC9nPgo8Y2xpcFBhdGggaWQ9ImNsaXAxIj4KICA8cGF0aCBkPSJNIDIwIDAuMjAzMTI1IEwgMTA4IDAuMjAzMTI1IEwgMTA4IDc5IEwgMjAgNzkgWiBNIDIwIDAuMjAzMTI1ICIvPgo8L2NsaXBQYXRoPgo8Y2xpcFBhdGggaWQ9ImNsaXAyIj4KICA8cGF0aCBkPSJNIDE4IDAuMjAzMTI1IEwgMzIgMC4yMDMxMjUgTCAzMiA4MSBMIDE4IDgxIFogTSAxOCAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMyI+CiAgPHBhdGggZD0iTSAxOSAwLjIwMzEyNSBMIDEwMSAwLjIwMzEyNSBMIDEwMSAxMiBMIDE5IDEyIFogTSAxOSAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNCI+CiAgPHBhdGggZD0iTSAxMDQgMC4yMDMxMjUgTCAxMjAgMC4yMDMxMjUgTCAxMjAgNzUgTCAxMDQgNzUgWiBNIDEwNCAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNSI+CiAgPHBhdGggZD0iTSAyMyAwLjIwMzEyNSBMIDMwIDAuMjAzMTI1IEwgMzAgOCBMIDIzIDggWiBNIDIzIDAuMjAzMTI1ICIvPgo8L2NsaXBQYXRoPgo8Y2xpcFBhdGggaWQ9ImNsaXA2Ij4KICA8cGF0aCBkPSJNIDE3IDAuMjAzMTI1IEwgMzYgMC4yMDMxMjUgTCAzNiAxNCBMIDE3IDE0IFogTSAxNyAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwNyI+CiAgPHBhdGggZD0iTSAxNDEgMC4yMDMxMjUgTCAxNjAgMC4yMDMxMjUgTCAxNjAgMTYgTCAxNDEgMTYgWiBNIDE0MSAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwOCI+CiAgPHBhdGggZD0iTSAxOTUgMC4yMDMxMjUgTCAyMDguMjYxNzE5IDAuMjAzMTI1IEwgMjA4LjI2MTcxOSAxOCBMIDE5NSAxOCBaIE0gMTk1IDAuMjAzMTI1ICIvPgo8L2NsaXBQYXRoPgo8Y2xpcFBhdGggaWQ9ImNsaXA5Ij4KICA8cGF0aCBkPSJNIDE3MyAwLjIwMzEyNSBMIDE5MiAwLjIwMzEyNSBMIDE5MiAxOCBMIDE3MyAxOCBaIE0gMTczIDAuMjAzMTI1ICIvPgo8L2NsaXBQYXRoPgo8Y2xpcFBhdGggaWQ9ImNsaXAxMCI+CiAgPHBhdGggZD0iTSAxMDEgMC4yMDMxMjUgTCAxMjAgMC4yMDMxMjUgTCAxMjAgMTYgTCAxMDEgMTYgWiBNIDEwMSAwLjIwMzEyNSAiLz4KPC9jbGlwUGF0aD4KPGNsaXBQYXRoIGlkPSJjbGlwMTEiPgogIDxwYXRoIGQ9Ik0gMTkzIDIgTCAyMDguMjYxNzE5IDIgTCAyMDguMjYxNzE5IDMzIEwgMTkzIDMzIFogTSAxOTMgMiAiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8ZyBpZD0ic3VyZmFjZTEiPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDEpIiBjbGlwLXJ1bGU9Im5vbnplcm8iPgo8cGF0aCBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoxMDtzdHJva2UtbGluZWNhcDpzcXVhcmU7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMjY2LjI1OTMyNCAxMDY5LjUwODYwNyBMIDEwMjQuNDAwMTk0IDM3OC42Mzg2MTkgWiBNIDI2Ni4yNTkzMjQgMTA2OS41MDg2MDcgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8L2c+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7ZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAyMC4xMzI4MTIgNzUuNTQyOTY5IEMgMjIuODkwNjI1IDc0LjU5NzY1NiAyNS41ODU5MzggNzQuNjQ0NTMxIDI4LjMwODU5NCA3NS42ODc1IEMgMjYuMTY3OTY5IDgxLjI2NTYyNSAyNi4xNjc5NjkgODEuMjY1NjI1IDI0LjAyMzQzOCA4Ni44NDM3NSBMIDIwLjEzMjgxMiA3NS41NDI5NjkgIi8+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMikiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOnNxdWFyZTtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAyNjEuMjM4NTI0IDEwNTkuNTA2MjMxIEwgMjQ0LjEzNjQyMiAzNTYuOTg2NDE3ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPC9nPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMzguOTI1NzgxIDg0Ljk2ODc1IEMgNDAuMTA5Mzc1IDg3LjYzMjgxMiA0MC4yOTY4NzUgOTAuMzI0MjE5IDM5LjQ5NjA5NCA5My4xMjUgQyAzMy43NTM5MDYgOTEuNDc2NTYyIDMzLjc1MzkwNiA5MS40NzY1NjIgMjguMDA3ODEyIDg5LjgzMjAzMSBMIDM4LjkyNTc4MSA4NC45Njg3NSAiLz4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2U6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1taXRlcmxpbWl0OjQ7IiBkPSJNIDExNDYuMjMzMDU1IDI2OS41MTQ2NTkgTCAzOTguNDg2ODExIDIxNy42NTkyMDQgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gOTUuMzgyODEyIDEwLjA3MDMxMiBDIDk0LjQzMzU5NCA3LjMxMjUgOTQuNDgwNDY5IDQuNjE3MTg4IDk1LjUyMzQzOCAxLjg5NDUzMSBDIDEwMS4xMDE1NjIgNC4wMzUxNTYgMTAxLjEwMTU2MiA0LjAzNTE1NiAxMDYuNjc5Njg4IDYuMTc5Njg4IEwgOTUuMzgyODEyIDEwLjA3MDMxMiAiLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAzKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2U6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1taXRlcmxpbWl0OjQ7IiBkPSJNIDI1MS4yMzYxNDggMTA2OS41MDg2MDcgTCA5NTMuNzk1MTg3IDEwNTIuMzY3MjgxICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPC9nPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTA5Ljc4OTA2MiA2OS45NDkyMTkgQyAxMTIuNDQ5MjE5IDY4Ljc2NTYyNSAxMTUuMTQwNjI1IDY4LjU3ODEyNSAxMTcuOTQxNDA2IDY5LjM3ODkwNiBDIDExNi4yOTY4NzUgNzUuMTI1IDExNi4yOTY4NzUgNzUuMTI1IDExNC42NDg0MzggODAuODY3MTg4IEwgMTA5Ljc4OTA2MiA2OS45NDkyMTkgIi8+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwNCkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOnNxdWFyZTtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxMTAxLjI0MTk3NiAxMDQ5LjUwMzg1NSBMIDExNDMuNDQ4MDggNDE2Ljc2NTMyMiAiIHRyYW5zZm9ybT0ibWF0cml4KDAuMDk5NTg1NywwLDAsLTAuMDk5NTg1NywwLDExMC42OTUyNzkpIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA1KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDMwIDQuMTg3NSBDIDMwIDYuMDk3NjU2IDI4LjQyNTc4MSA3LjY3MTg3NSAyNi41MTU2MjUgNy42NzE4NzUgQyAyNC42MDE1NjIgNy42NzE4NzUgMjMuMDI3MzQ0IDYuMDk3NjU2IDIzLjAyNzM0NCA0LjE4NzUgQyAyMy4wMjczNDQgMi4yNzM0MzggMjQuNjAxNTYyIDAuNzAzMTI1IDI2LjUxNTYyNSAwLjcwMzEyNSBDIDI4LjQyNTc4MSAwLjcwMzEyNSAzMCAyLjI3MzQzOCAzMCA0LjE4NzUgIi8+CjwvZz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA2KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAzMDEuMjQ4MDI4IDEwNjkuNTA4NjA3IEMgMzAxLjI0ODAyOCAxMDUwLjMyNzU4IDI4NS40NDAzNTEgMTAzNC41MTk5MDQgMjY2LjI1OTMyNCAxMDM0LjUxOTkwNCBDIDI0Ny4wMzkwNzMgMTAzNC41MTk5MDQgMjMxLjIzMTM5NiAxMDUwLjMyNzU4IDIzMS4yMzEzOTYgMTA2OS41MDg2MDcgQyAyMzEuMjMxMzk2IDEwODguNzI4ODU5IDI0Ny4wMzkwNzMgMTEwNC40OTczMSAyNjYuMjU5MzI0IDExMDQuNDk3MzEgQyAyODUuNDQwMzUxIDExMDQuNDk3MzEgMzAxLjI0ODAyOCAxMDg4LjcyODg1OSAzMDEuMjQ4MDI4IDEwNjkuNTA4NjA3IFogTSAzMDEuMjQ4MDI4IDEwNjkuNTA4NjA3ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPC9nPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTk5Ljc5Mjk2OSAzNi4wNTQ2ODggQyAxOTkuNzkyOTY5IDM3Ljk2NDg0NCAxOTguMjE4NzUgMzkuNTM5MDYyIDE5Ni4zMDg1OTQgMzkuNTM5MDYyIEMgMTk0LjM5NDUzMSAzOS41MzkwNjIgMTkyLjgyNDIxOSAzNy45NjQ4NDQgMTkyLjgyNDIxOSAzNi4wNTQ2ODggQyAxOTIuODI0MjE5IDM0LjE0NDUzMSAxOTQuMzk0NTMxIDMyLjU3MDMxMiAxOTYuMzA4NTk0IDMyLjU3MDMxMiBDIDE5OC4yMTg3NSAzMi41NzAzMTIgMTk5Ljc5Mjk2OSAzNC4xNDQ1MzEgMTk5Ljc5Mjk2OSAzNi4wNTQ2ODggIi8+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMjAwNi4yNDEyNTggNzQ5LjUxMTAyOCBDIDIwMDYuMjQxMjU4IDczMC4zMzAwMDEgMTk5MC40MzM1ODIgNzE0LjUyMjMyNSAxOTcxLjI1MjU1NSA3MTQuNTIyMzI1IEMgMTk1Mi4wMzIzMDMgNzE0LjUyMjMyNSAxOTM2LjI2Mzg1MiA3MzAuMzMwMDAxIDE5MzYuMjYzODUyIDc0OS41MTEwMjggQyAxOTM2LjI2Mzg1MiA3NjguNjkyMDU1IDE5NTIuMDMyMzAzIDc4NC40OTk3MzEgMTk3MS4yNTI1NTUgNzg0LjQ5OTczMSBDIDE5OTAuNDMzNTgyIDc4NC40OTk3MzEgMjAwNi4yNDEyNTggNzY4LjY5MjA1NSAyMDA2LjI0MTI1OCA3NDkuNTExMDI4IFogTSAyMDA2LjI0MTI1OCA3NDkuNTExMDI4ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE3My45MDIzNDQgMzUuNTU4NTk0IEMgMTczLjkwMjM0NCAzNy40Njg3NSAxNzIuMzI4MTI1IDM5LjA0Mjk2OSAxNzAuNDE3OTY5IDM5LjA0Mjk2OSBDIDE2OC41MDM5MDYgMzkuMDQyOTY5IDE2Ni45Mjk2ODggMzcuNDY4NzUgMTY2LjkyOTY4OCAzNS41NTg1OTQgQyAxNjYuOTI5Njg4IDMzLjY0NDUzMSAxNjguNTAzOTA2IDMyLjA3MDMxMiAxNzAuNDE3OTY5IDMyLjA3MDMxMiBDIDE3Mi4zMjgxMjUgMzIuMDcwMzEyIDE3My45MDIzNDQgMzMuNjQ0NTMxIDE3My45MDIzNDQgMzUuNTU4NTk0ICIvPgo8cGF0aCBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoxMDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2U6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1taXRlcmxpbWl0OjQ7IiBkPSJNIDE3NDYuMjU3OTM1IDc1NC40OTI2MDMgQyAxNzQ2LjI1NzkzNSA3MzUuMzExNTc3IDE3MzAuNDUwMjU4IDcxOS41MDM5IDE3MTEuMjY5MjMxIDcxOS41MDM5IEMgMTY5Mi4wNDg5OCA3MTkuNTAzOSAxNjc2LjI0MTMwMyA3MzUuMzExNTc3IDE2NzYuMjQxMzAzIDc1NC40OTI2MDMgQyAxNjc2LjI0MTMwMyA3NzMuNzEyODU1IDE2OTIuMDQ4OTggNzg5LjUyMDUzMSAxNzExLjI2OTIzMSA3ODkuNTIwNTMxIEMgMTczMC40NTAyNTggNzg5LjUyMDUzMSAxNzQ2LjI1NzkzNSA3NzMuNzEyODU1IDE3NDYuMjU3OTM1IDc1NC40OTI2MDMgWiBNIDE3NDYuMjU3OTM1IDc1NC40OTI2MDMgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTUzLjk4NDM3NSA2LjY3NTc4MSBDIDE1My45ODQzNzUgOC41ODk4NDQgMTUyLjQxMDE1NiAxMC4xNjQwNjIgMTUwLjUgMTAuMTY0MDYyIEMgMTQ4LjU4NTkzOCAxMC4xNjQwNjIgMTQ3LjAxMTcxOSA4LjU4OTg0NCAxNDcuMDExNzE5IDYuNjc1NzgxIEMgMTQ3LjAxMTcxOSA0Ljc2NTYyNSAxNDguNTg1OTM4IDMuMTkxNDA2IDE1MC41IDMuMTkxNDA2IEMgMTUyLjQxMDE1NiAzLjE5MTQwNiAxNTMuOTg0Mzc1IDQuNzY1NjI1IDE1My45ODQzNzUgNi42NzU3ODEgIi8+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwNykiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMTU0Ni4yNDk2NDEgMTA0NC41MjIyOCBDIDE1NDYuMjQ5NjQxIDEwMjUuMzAyMDI4IDE1MzAuNDQxOTY1IDEwMDkuNDk0MzUyIDE1MTEuMjYwOTM4IDEwMDkuNDk0MzUyIEMgMTQ5Mi4wNDA2ODYgMTAwOS40OTQzNTIgMTQ3Ni4yMzMwMSAxMDI1LjMwMjAyOCAxNDc2LjIzMzAxIDEwNDQuNTIyMjggQyAxNDc2LjIzMzAxIDEwNjMuNzAzMzA3IDE0OTIuMDQwNjg2IDEwNzkuNTEwOTgzIDE1MTEuMjYwOTM4IDEwNzkuNTEwOTgzIEMgMTUzMC40NDE5NjUgMTA3OS41MTA5ODMgMTU0Ni4yNDk2NDEgMTA2My43MDMzMDcgMTU0Ni4yNDk2NDEgMTA0NC41MjIyOCBaIE0gMTU0Ni4yNDk2NDEgMTA0NC41MjIyOCAiIHRyYW5zZm9ybT0ibWF0cml4KDAuMDk5NTg1NywwLDAsLTAuMDk5NTg1NywwLDExMC42OTUyNzkpIi8+CjwvZz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE5Mi44MjQyMTkgODYuMzQzNzUgQyAxOTIuODI0MjE5IDg4LjI1NzgxMiAxOTEuMjUgODkuODMyMDMxIDE4OS4zMzU5MzggODkuODMyMDMxIEMgMTg3LjQyNTc4MSA4OS44MzIwMzEgMTg1Ljg1MTU2MiA4OC4yNTc4MTIgMTg1Ljg1MTU2MiA4Ni4zNDM3NSBDIDE4NS44NTE1NjIgODQuNDMzNTk0IDE4Ny40MjU3ODEgODIuODU5Mzc1IDE4OS4zMzU5MzggODIuODU5Mzc1IEMgMTkxLjI1IDgyLjg1OTM3NSAxOTIuODI0MjE5IDg0LjQzMzU5NCAxOTIuODI0MjE5IDg2LjM0Mzc1ICIvPgo8cGF0aCBzdHlsZT0iZmlsbDpub25lO3N0cm9rZS13aWR0aDoxMDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2U6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1taXRlcmxpbWl0OjQ7IiBkPSJNIDE5MzYuMjYzODUyIDI0NC41MjgzMzIgQyAxOTM2LjI2Mzg1MiAyMjUuMzA4MDggMTkyMC40NTYxNzYgMjA5LjUwMDQwMyAxOTAxLjIzNTkyNCAyMDkuNTAwNDAzIEMgMTg4Mi4wNTQ4OTcgMjA5LjUwMDQwMyAxODY2LjI0NzIyMSAyMjUuMzA4MDggMTg2Ni4yNDcyMjEgMjQ0LjUyODMzMiBDIDE4NjYuMjQ3MjIxIDI2My43MDkzNTggMTg4Mi4wNTQ4OTcgMjc5LjUxNzAzNSAxOTAxLjIzNTkyNCAyNzkuNTE3MDM1IEMgMTkyMC40NTYxNzYgMjc5LjUxNzAzNSAxOTM2LjI2Mzg1MiAyNjMuNzA5MzU4IDE5MzYuMjYzODUyIDI0NC41MjgzMzIgWiBNIDE5MzYuMjYzODUyIDI0NC41MjgzMzIgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTg2LjM1MTU2MiA1OS40NTcwMzEgQyAxODYuMzUxNTYyIDYxLjM3MTA5NCAxODQuNzc3MzQ0IDYyLjk0MTQwNiAxODIuODYzMjgxIDYyLjk0MTQwNiBDIDE4MC45NTMxMjUgNjIuOTQxNDA2IDE3OS4zNzg5MDYgNjEuMzcxMDk0IDE3OS4zNzg5MDYgNTkuNDU3MDMxIEMgMTc5LjM3ODkwNiA1Ny41NDY4NzUgMTgwLjk1MzEyNSA1NS45NzI2NTYgMTgyLjg2MzI4MSA1NS45NzI2NTYgQyAxODQuNzc3MzQ0IDU1Ljk3MjY1NiAxODYuMzUxNTYyIDU3LjU0Njg3NSAxODYuMzUxNTYyIDU5LjQ1NzAzMSAiLz4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxODcxLjI2ODAyMSA1MTQuNTE0MDMxIEMgMTg3MS4yNjgwMjEgNDk1LjI5Mzc4IDE4NTUuNDYwMzQ1IDQ3OS41MjUzMjggMTgzNi4yNDAwOTMgNDc5LjUyNTMyOCBDIDE4MTcuMDU5MDY2IDQ3OS41MjUzMjggMTgwMS4yNTEzOSA0OTUuMjkzNzggMTgwMS4yNTEzOSA1MTQuNTE0MDMxIEMgMTgwMS4yNTEzOSA1MzMuNjk1MDU4IDE4MTcuMDU5MDY2IDU0OS41MDI3MzUgMTgzNi4yNDAwOTMgNTQ5LjUwMjczNSBDIDE4NTUuNDYwMzQ1IDU0OS41MDI3MzUgMTg3MS4yNjgwMjEgNTMzLjY5NTA1OCAxODcxLjI2ODAyMSA1MTQuNTE0MDMxIFogTSAxODcxLjI2ODAyMSA1MTQuNTE0MDMxICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDIwNy43NjE3MTkgOC4xNzE4NzUgQyAyMDcuNzYxNzE5IDEwLjA4MjAzMSAyMDYuMTg3NSAxMS42NTYyNSAyMDQuMjczNDM4IDExLjY1NjI1IEMgMjAyLjM2MzI4MSAxMS42NTYyNSAyMDAuNzg5MDYyIDEwLjA4MjAzMSAyMDAuNzg5MDYyIDguMTcxODc1IEMgMjAwLjc4OTA2MiA2LjI1NzgxMiAyMDIuMzYzMjgxIDQuNjgzNTk0IDIwNC4yNzM0MzggNC42ODM1OTQgQyAyMDYuMTg3NSA0LjY4MzU5NCAyMDcuNzYxNzE5IDYuMjU3ODEyIDIwNy43NjE3MTkgOC4xNzE4NzUgIi8+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwOCkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMjA4Ni4yNjAyNjYgMTAyOS40OTkxMDMgQyAyMDg2LjI2MDI2NiAxMDEwLjMxODA3NyAyMDcwLjQ1MjU4OSA5OTQuNTEwNCAyMDUxLjIzMjMzOCA5OTQuNTEwNCBDIDIwMzIuMDUxMzExIDk5NC41MTA0IDIwMTYuMjQzNjM0IDEwMTAuMzE4MDc3IDIwMTYuMjQzNjM0IDEwMjkuNDk5MTAzIEMgMjAxNi4yNDM2MzQgMTA0OC43MTkzNTUgMjAzMi4wNTEzMTEgMTA2NC41MjcwMzIgMjA1MS4yMzIzMzggMTA2NC41MjcwMzIgQyAyMDcwLjQ1MjU4OSAxMDY0LjUyNzAzMiAyMDg2LjI2MDI2NiAxMDQ4LjcxOTM1NSAyMDg2LjI2MDI2NiAxMDI5LjQ5OTEwMyBaIE0gMjA4Ni4yNjAyNjYgMTAyOS40OTkxMDMgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8L2c+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7ZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAxODYuMzUxNTYyIDguMTcxODc1IEMgMTg2LjM1MTU2MiAxMC4wODIwMzEgMTg0Ljc3NzM0NCAxMS42NTYyNSAxODIuODYzMjgxIDExLjY1NjI1IEMgMTgwLjk1MzEyNSAxMS42NTYyNSAxNzkuMzc4OTA2IDEwLjA4MjAzMSAxNzkuMzc4OTA2IDguMTcxODc1IEMgMTc5LjM3ODkwNiA2LjI1NzgxMiAxODAuOTUzMTI1IDQuNjgzNTk0IDE4Mi44NjMyODEgNC42ODM1OTQgQyAxODQuNzc3MzQ0IDQuNjgzNTk0IDE4Ni4zNTE1NjIgNi4yNTc4MTIgMTg2LjM1MTU2MiA4LjE3MTg3NSAiLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA5KSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxODcxLjI2ODAyMSAxMDI5LjQ5OTEwMyBDIDE4NzEuMjY4MDIxIDEwMTAuMzE4MDc3IDE4NTUuNDYwMzQ1IDk5NC41MTA0IDE4MzYuMjQwMDkzIDk5NC41MTA0IEMgMTgxNy4wNTkwNjYgOTk0LjUxMDQgMTgwMS4yNTEzOSAxMDEwLjMxODA3NyAxODAxLjI1MTM5IDEwMjkuNDk5MTAzIEMgMTgwMS4yNTEzOSAxMDQ4LjcxOTM1NSAxODE3LjA1OTA2NiAxMDY0LjUyNzAzMiAxODM2LjI0MDA5MyAxMDY0LjUyNzAzMiBDIDE4NTUuNDYwMzQ1IDEwNjQuNTI3MDMyIDE4NzEuMjY4MDIxIDEwNDguNzE5MzU1IDE4NzEuMjY4MDIxIDEwMjkuNDk5MTAzIFogTSAxODcxLjI2ODAyMSAxMDI5LjQ5OTEwMyAiIHRyYW5zZm9ybT0ibWF0cml4KDAuMDk5NTg1NywwLDAsLTAuMDk5NTg1NywwLDExMC42OTUyNzkpIi8+CjwvZz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDExMy42NTIzNDQgNi42NzU3ODEgQyAxMTMuNjUyMzQ0IDguNTg5ODQ0IDExMi4wNzgxMjUgMTAuMTY0MDYyIDExMC4xNjc5NjkgMTAuMTY0MDYyIEMgMTA4LjI1MzkwNiAxMC4xNjQwNjIgMTA2LjY3OTY4OCA4LjU4OTg0NCAxMDYuNjc5Njg4IDYuNjc1NzgxIEMgMTA2LjY3OTY4OCA0Ljc2NTYyNSAxMDguMjUzOTA2IDMuMTkxNDA2IDExMC4xNjc5NjkgMy4xOTE0MDYgQyAxMTIuMDc4MTI1IDMuMTkxNDA2IDExMy42NTIzNDQgNC43NjU2MjUgMTEzLjY1MjM0NCA2LjY3NTc4MSAiLz4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAxMCkiIGNsaXAtcnVsZT0ibm9uemVybyI+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMTE0MS4yNTE0NzkgMTA0NC41MjIyOCBDIDExNDEuMjUxNDc5IDEwMjUuMzAyMDI4IDExMjUuNDQzODAzIDEwMDkuNDk0MzUyIDExMDYuMjYyNzc2IDEwMDkuNDk0MzUyIEMgMTA4Ny4wNDI1MjQgMTAwOS40OTQzNTIgMTA3MS4yMzQ4NDggMTAyNS4zMDIwMjggMTA3MS4yMzQ4NDggMTA0NC41MjIyOCBDIDEwNzEuMjM0ODQ4IDEwNjMuNzAzMzA3IDEwODcuMDQyNTI0IDEwNzkuNTEwOTgzIDExMDYuMjYyNzc2IDEwNzkuNTEwOTgzIEMgMTEyNS40NDM4MDMgMTA3OS41MTA5ODMgMTE0MS4yNTE0NzkgMTA2My43MDMzMDcgMTE0MS4yNTE0NzkgMTA0NC41MjIyOCBaIE0gMTE0MS4yNTE0NzkgMTA0NC41MjIyOCAiIHRyYW5zZm9ybT0ibWF0cml4KDAuMDk5NTg1NywwLDAsLTAuMDk5NTg1NywwLDExMC42OTUyNzkpIi8+CjwvZz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDExOC4xMzI4MTIgODQuMzU1NDY5IEMgMTE4LjEzMjgxMiA4Ni4yNjU2MjUgMTE2LjU1ODU5NCA4Ny44Mzk4NDQgMTE0LjY0ODQzOCA4Ny44Mzk4NDQgQyAxMTIuNzM0Mzc1IDg3LjgzOTg0NCAxMTEuMTY0MDYyIDg2LjI2NTYyNSAxMTEuMTY0MDYyIDg0LjM1NTQ2OSBDIDExMS4xNjQwNjIgODIuNDQxNDA2IDExMi43MzQzNzUgODAuODY3MTg4IDExNC42NDg0MzggODAuODY3MTg4IEMgMTE2LjU1ODU5NCA4MC44NjcxODggMTE4LjEzMjgxMiA4Mi40NDE0MDYgMTE4LjEzMjgxMiA4NC4zNTU0NjkgIi8+CjxwYXRoIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMTE4Ni4yNDI1NTggMjY0LjQ5Mzg1OCBDIDExODYuMjQyNTU4IDI0NS4zMTI4MzIgMTE3MC40MzQ4ODIgMjI5LjUwNTE1NSAxMTUxLjI1Mzg1NSAyMjkuNTA1MTU1IEMgMTEzMi4wMzM2MDQgMjI5LjUwNTE1NSAxMTE2LjI2NTE1MiAyNDUuMzEyODMyIDExMTYuMjY1MTUyIDI2NC40OTM4NTggQyAxMTE2LjI2NTE1MiAyODMuNzE0MTEgMTEzMi4wMzM2MDQgMjk5LjUyMTc4NyAxMTUxLjI1Mzg1NSAyOTkuNTIxNzg3IEMgMTE3MC40MzQ4ODIgMjk5LjUyMTc4NyAxMTg2LjI0MjU1OCAyODMuNzE0MTEgMTE4Ni4yNDI1NTggMjY0LjQ5Mzg1OCBaIE0gMTE4Ni4yNDI1NTggMjY0LjQ5Mzg1OCAiIHRyYW5zZm9ybT0ibWF0cml4KDAuMDk5NTg1NywwLDAsLTAuMDk5NTg1NywwLDExMC42OTUyNzkpIi8+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7ZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAyNy4wMTE3MTkgOTAuODI4MTI1IEMgMjcuMDExNzE5IDkyLjczODI4MSAyNS40Mzc1IDk0LjMxMjUgMjMuNTI3MzQ0IDk0LjMxMjUgQyAyMS42MTMyODEgOTQuMzEyNSAyMC4wNDI5NjkgOTIuNzM4MjgxIDIwLjA0Mjk2OSA5MC44MjgxMjUgQyAyMC4wNDI5NjkgODguOTE0MDYyIDIxLjYxMzI4MSA4Ny4zMzk4NDQgMjMuNTI3MzQ0IDg3LjMzOTg0NCBDIDI1LjQzNzUgODcuMzM5ODQ0IDI3LjAxMTcxOSA4OC45MTQwNjIgMjcuMDExNzE5IDkwLjgyODEyNSAiLz4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAyNzEuMjQwOSAxOTkuNDk4MDI4IEMgMjcxLjI0MDkgMTgwLjMxNzAwMSAyNTUuNDMzMjIzIDE2NC41MDkzMjQgMjM2LjI1MjE5NyAxNjQuNTA5MzI0IEMgMjE3LjAzMTk0NSAxNjQuNTA5MzI0IDIwMS4yNjM0OTMgMTgwLjMxNzAwMSAyMDEuMjYzNDkzIDE5OS40OTgwMjggQyAyMDEuMjYzNDkzIDIxOC43MTgyNzkgMjE3LjAzMTk0NSAyMzQuNTI1OTU2IDIzNi4yNTIxOTcgMjM0LjUyNTk1NiBDIDI1NS40MzMyMjMgMjM0LjUyNTk1NiAyNzEuMjQwOSAyMTguNzE4Mjc5IDI3MS4yNDA5IDE5OS40OTgwMjggWiBNIDI3MS4yNDA5IDE5OS40OTgwMjggIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTEiIHg9IjAiIHk9IjEwNS43NjQ2MjEiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTIiIHg9IjMuMzIwMTY4IiB5PSIxMDUuNzY0NjIxIi8+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTMiIHg9IjkuMjk1MzExIiB5PSIxMDUuNzY0NjIxIi8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC00IiB4PSIxNC41OTk0MTYiIHk9IjEwNS43NjQ2MjEiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtMSIgeD0iMjAuNTc0NTU5IiB5PSIxMDUuNzY0NjIxIi8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC01IiB4PSIyMy44OTQ3MjYiIHk9IjEwNS43NjQ2MjEiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtNiIgeD0iMjYuODgyMjk4IiB5PSIxMDUuNzY0NjIxIi8+CjwvZz4KPGcgc3R5bGU9ImZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC03IiB4PSIzMS41MzI4NzEiIHk9IjEwNS43NjQ2MjEiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTgiIHg9IjM0Ljg1MzA0MSIgeT0iMTA1Ljc2NDYyMSIvPgogIDx1c2UgeGxpbms6aHJlZj0iI2dseXBoMC05IiB4PSI0MC44MjgxODQiIHk9IjEwNS43NjQ2MjEiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTYiIHg9IjE3OC43NTU5OTIiIHk9IjEwNS43NjQ2MjEiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTciIHg9IjE4My40MDY1NjEiIHk9IjEwNS43NjQ2MjEiLz4KPC9nPgo8ZyBzdHlsZT0iZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyI+CiAgPHVzZSB4bGluazpocmVmPSIjZ2x5cGgwLTgiIHg9IjE4Ni43MjY3MjMiIHk9IjEwNS43NjQ2MjEiLz4KICA8dXNlIHhsaW5rOmhyZWY9IiNnbHlwaDAtOSIgeD0iMTkyLjcwMTg2NiIgeT0iMTA1Ljc2NDYyMSIvPgo8L2c+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7ZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSA5OS41ODU5MzggNzYuMzkwNjI1IEMgMTAwLjY3NTc4MSA3My42OTE0MDYgMTAyLjQ4MDQ2OSA3MS42ODM1OTQgMTA1LjA1NDY4OCA3MC4zMTY0MDYgQyAxMDcuODU5Mzc1IDc1LjU5Mzc1IDEwNy44NTkzNzUgNzUuNTkzNzUgMTEwLjY2NDA2MiA4MC44NjcxODggTCA5OS41ODU5MzggNzYuMzkwNjI1ICIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMzEuNzUzOTA2IDc3LjU5NzY1NiBDIDM0LjM3MTA5NCA3OC44NzUgMzYuMjQ2MDk0IDgwLjgxNjQwNiAzNy40MzM1OTQgODMuNDc2NTYyIEMgMzEuOTcyNjU2IDg1LjkwNjI1IDMxLjk3MjY1NiA4NS45MDYyNSAyNi41MTU2MjUgODguMzM1OTM4IEwgMzEuNzUzOTA2IDc3LjU5NzY1NiAiLz4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2U6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtzdHJva2Utb3BhY2l0eToxO3N0cm9rZS1taXRlcmxpbWl0OjQ7IiBkPSJNIDExMDEuMjQxOTc2IDEwMzkuNTAxNDc5IEwgMzUwLjMxODUwNyAzMDYuNTgyMjg3ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxNTExLjI2MDkzOCAxMDM5LjUwMTQ3OSBDIDE1MTEuMjYwOTM4IDEwMzkuNTAxNDc5IDE2MzYuMjMxOCA4NTkuNDk3OTM4IDE2NTEuMjU0OTc2IDgzOS40OTMxODYgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTY2LjY2Nzk2OSAyOC4zNTkzNzUgQyAxNjYuMDc4MTI1IDI2Ljc0NjA5NCAxNjUuODA0Njg4IDI1LjYxMzI4MSAxNjUuNDMzNTk0IDI0LjIzODI4MSBMIDE2MS40MTQwNjIgMjcuMjUzOTA2IEMgMTYxLjg3ODkwNiAyNy40OTYwOTQgMTYzLjY0MDYyNSAyOC41NzQyMTkgMTY1LjAyNzM0NCAyOS41OTM3NSBDIDE2Ni41MDc4MTIgMzAuNjgzNTk0IDE2Ny43NjE3MTkgMzEuNzQyMTg4IDE2OC40ODQzNzUgMzIuNDkyMTg4IEMgMTY3Ljk2ODc1IDMxLjU4NTkzOCAxNjcuMzAwNzgxIDMwLjA4OTg0NCAxNjYuNjY3OTY5IDI4LjM1OTM3NSAiLz4KPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxODI2LjIzNzcxNyAxMDI0LjUxNzUyOCBMIDE3NTYuMjYwMzExIDg0NC41MTM5ODcgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTc0Ljk5NjA5NCAyOS4xNTYyNSBDIDE3Ni4wNTQ2ODggMjcuODAwNzgxIDE3Ni44NzEwOTQgMjYuOTY4NzUgMTc3Ljg0Mzc1IDI1LjkzMzU5NCBMIDE3My4xNjQwNjIgMjQuMTA5Mzc1IEMgMTczLjE5OTIxOSAyNC42MzI4MTIgMTczLjIxODc1IDI2LjY5OTIxOSAxNzMuMDgyMDMxIDI4LjQxNDA2MiBDIDE3Mi45NDE0MDYgMzAuMjQ2MDk0IDE3Mi43MDMxMjUgMzEuODY3MTg4IDE3Mi40NDUzMTIgMzIuODgyODEyIEMgMTcyLjk0MTQwNiAzMS45NjQ4NDQgMTczLjg2MzI4MSAzMC42MDU0NjkgMTc0Ljk5NjA5NCAyOS4xNTYyNSAiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDIwMy43NzczNDQgNy42NzE4NzUgTCAxOTguNzk2ODc1IDI2LjU5Mzc1ICIvPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDExKSIgY2xpcC1ydWxlPSJub256ZXJvIj4KPHBhdGggc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAyMDQ2LjI1MDc2MiAxMDM0LjUxOTkwNCBMIDE5OTYuMjM4ODgzIDg0NC41MTM5ODcgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8L2c+CjxwYXRoIHN0eWxlPSIgc3Ryb2tlOm5vbmU7ZmlsbC1ydWxlOm5vbnplcm87ZmlsbDpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO2ZpbGwtb3BhY2l0eToxOyIgZD0iTSAxOTkuMTg3NSAyOS4xMjg5MDYgQyAyMDAuMDg1OTM4IDI3LjY2NDA2MiAyMDAuODAwNzgxIDI2Ljc0NjA5NCAyMDEuNjQ4NDM4IDI1LjYwMTU2MiBMIDE5Ni43OTI5NjkgMjQuMzI0MjE5IEMgMTk2Ljg5MDYyNSAyNC44MzU5MzggMTk3LjE0MDYyNSAyNi44ODY3MTkgMTk3LjE5OTIxOSAyOC42MDU0NjkgQyAxOTcuMjY5NTMxIDMwLjQ0NTMxMiAxOTcuMjE0ODQ0IDMyLjA4MjAzMSAxOTcuMDc0MjE5IDMzLjExNzE4OCBDIDE5Ny40NjQ4NDQgMzIuMTQ4NDM4IDE5OC4yMjI2NTYgMzAuNjk1MzEyIDE5OS4xODc1IDI5LjEyODkwNiAiLz4KPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxNzExLjI2OTIzMSA3NDkuNTExMDI4IEwgMTc4Ni4yNjc0MzggNjA0LjQ5NjE5ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE3OS44NzEwOTQgNTIuMTEzMjgxIEMgMTc5LjU1ODU5NCA1MC40MjE4NzUgMTc5LjQ3MjY1NiA0OS4yNjE3MTkgMTc5LjMzNTkzOCA0Ny44NDc2NTYgTCAxNzQuODc1IDUwLjE1MjM0NCBDIDE3NS4yOTI5NjkgNTAuNDcyNjU2IDE3Ni44NTE1NjIgNTEuODI0MjE5IDE3OC4wNTA3ODEgNTMuMDU4NTk0IEMgMTc5LjMzMjAzMSA1NC4zNzg5MDYgMTgwLjM5MDYyNSA1NS42Mjg5MDYgMTgwLjk4MDQ2OSA1Ni40OTIxODggQyAxODAuNjIxMDk0IDU1LjUxMTcxOSAxODAuMjEwOTM4IDUzLjkyNTc4MSAxNzkuODcxMDk0IDUyLjExMzI4MSAiLz4KPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtbWl0ZXJsaW1pdDo0OyIgZD0iTSAxOTY2LjIzMTc1NSA3NDkuNTExMDI4IEwgMTg5MS4yMzM1NDggNjA5LjUxNjk5ICIgdHJhbnNmb3JtPSJtYXRyaXgoMC4wOTk1ODU3LDAsMCwtMC4wOTk1ODU3LDAsMTEwLjY5NTI3OSkiLz4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDE4OC4xMjg5MDYgNTIuNTUwNzgxIEMgMTg5LjM0NzY1NiA1MS4zMzU5MzggMTkwLjI1MzkwNiA1MC42MDkzNzUgMTkxLjM0NzY1NiA0OS42OTUzMTIgTCAxODYuOTE3OTY5IDQ3LjMyNDIxOSBDIDE4Ni44OTQ1MzEgNDcuODQzNzUgMTg2LjY2MDE1NiA0OS44OTg0MzggMTg2LjMyMDMxMiA1MS41ODIwMzEgQyAxODUuOTU3MDMxIDUzLjM4NjcxOSAxODUuNTIzNDM4IDU0Ljk2ODc1IDE4NS4xNDg0MzggNTUuOTQxNDA2IEMgMTg1Ljc1MzkwNiA1NS4wODk4NDQgMTg2LjgyODEyNSA1My44NTU0NjkgMTg4LjEyODkwNiA1Mi41NTA3ODEgIi8+CjxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtmaWxsOnJnYigxMy43Mjk4NTglLDEyLjE1OTcyOSUsMTIuNTQ4ODI4JSk7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlLXdpZHRoOjEwO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZTpyZ2IoMTMuNzI5ODU4JSwxMi4xNTk3MjklLDEyLjU0ODgyOCUpO3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLW1pdGVybGltaXQ6NDsiIGQ9Ik0gMTgzMS4yNTg1MTcgNTE0LjUxNDAzMSBMIDE4NzEuMjY4MDIxIDM0OS40OTQ0NDEgIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA5OTU4NTcsMCwwLC0wLjA5OTU4NTcsMCwxMTAuNjk1Mjc5KSIvPgo8cGF0aCBzdHlsZT0iIHN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6cmdiKDEzLjcyOTg1OCUsMTIuMTU5NzI5JSwxMi41NDg4MjglKTtmaWxsLW9wYWNpdHk6MTsiIGQ9Ik0gMTg3Ljg5NDUzMSA3Ny45MzM1OTQgQyAxODcuOTkyMTg4IDc2LjIxODc1IDE4OC4xODM1OTQgNzUuMDcwMzEyIDE4OC4zODY3MTkgNzMuNjYwMTU2IEwgMTgzLjUwNzgxMiA3NC44NDM3NSBDIDE4My44MzU5MzggNzUuMjUgMTg1LjAzMTI1IDc2LjkzMzU5NCAxODUuOTAyMzQ0IDc4LjQxNzk2OSBDIDE4Ni44MzIwMzEgODAuMDAzOTA2IDE4Ny41NjY0MDYgODEuNDcyNjU2IDE4Ny45MzM1OTQgODIuNDQ5MjE5IEMgMTg3LjgxNjQwNiA4MS40MTAxNTYgMTg3Ljc5Mjk2OSA3OS43NzM0MzggMTg3Ljg5NDUzMSA3Ny45MzM1OTQgIi8+CjwvZz4KPC9zdmc+Cg==">
+</p>
+<ul>
+<li><strong>source</strong></li>
+</ul>
+<blockquote>
+<p>A source is a node of a directed graph that don&apos;t have parent node.  In the picture below <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is source node.</p>
+</blockquote>
+<p align="center">
+    <img align="center" src="image_for_symthesis/graph2.png">
+</p>
+<h4 class="mume-header" id="what-is-metagraph">what is metagraph</h4>
+
+<ul>
+<li>metagraph is a graph to describe the strong connection relationship in a directed graph.</li>
+<li>Nodes in a metagraph can contain more than one node.</li>
+<li>Every node in a metagraph is a strongly connected components.</li>
+<li>metagraph is a dag</li>
+</ul>
+<p align="center">
+    <img align="center" src="image_for_symthesis/graph3.png">
+</p>
+<h3 class="mume-header" id="exercise"><strong>exercise:</strong></h3>
+
+<h4 class="mume-header" id="develop-a-function-to-find-a-source-in-an-directed-graph">develop a function to find a source in an directed graph.</h4>
+
+<pre data-role="codeBlock" data-info="python" class="language-python">Graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">&apos;a&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;e&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;e&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;f&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;g&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;f&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;g&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;h&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;h&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+</pre><h3 class="mume-header" id="solution"><strong>solution:</strong></h3>
+
+<ul>
+<li>Iterate the node u in the graph, find the node v that its edge leads to.</li>
+<li>Add v into a set called not_source</li>
+<li>Iterate the node u in the graph again, check if the node is in set not_source</li>
+<li>If u is not in not_source, then it&apos;s source. Add u into a set() source</li>
+<li>if the length of source set is not 0,return source. Else return &quot;there&apos;s no source in the graph&quot;</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">find_source</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    not_source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;m&#x6B21;</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> edge <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            not_source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>edge<span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> node <span class="token keyword keyword-not">not</span> <span class="token keyword keyword-in">in</span> not_source<span class="token punctuation">:</span>
+            source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+    <span class="token keyword keyword-if">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span> <span class="token keyword keyword-is">is</span> <span class="token keyword keyword-not">not</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> source
+    <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> <span class="token string">&quot;there&apos;s no source in the graph&quot;</span>
+</pre><h2 class="mume-header" id="42-graph-representations">4.2 graph representations</h2>
+
+<p>There are two way to build a graph</p>
+<h4 class="mume-header" id="421-adjacency-list">4.2.1 adjacency list</h4>
+
+<p align="center">
+    <img align="center" src="image_for_symthesis/graph5.png">
+</p>
+ an unweighted directed graph with python
+<pre data-role="codeBlock" data-info="python" class="language-python">graph2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;D&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;E&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;I&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;F&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;J&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;G&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;I&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;H&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;I&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&apos;J&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+</pre><p>an weighted directed graph with python</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">    graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">&apos;a&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span>  <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span>  <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span>  <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&apos;e&apos;</span><span class="token punctuation">:</span>  <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span>  <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span>  <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">&apos;e&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="422-adjacency-matrix">4.2.2. adjacency matrix</h4>
+
+<p>In python an adjacency matrix is implemented like a 2-dimensional matrix <code>[[0,1,1,1][1,0,1,0][1,1,0,0][1,0,0,0]]</code></p>
+<p align="center">
+    <img align="center" src="image_for_symthesis/graph4.png">
+</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-class">class</span> <span class="token class-name">Graph</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token comment"># Initialize the matrix</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>adjMatrix <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>size <span class="token operator">=</span> size
+
+    <span class="token comment"># Add edges</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">add_edge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> v1 <span class="token operator">==</span> v2<span class="token punctuation">:</span>
+            <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">&quot;Same vertex %d and %d&quot;</span> <span class="token operator">%</span> <span class="token punctuation">(</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">[</span>v1<span class="token punctuation">]</span><span class="token punctuation">[</span>v2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">[</span>v2<span class="token punctuation">]</span><span class="token punctuation">[</span>v1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token comment"># Remove edges</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">remove_edge</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">[</span>v1<span class="token punctuation">]</span><span class="token punctuation">[</span>v2<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">&quot;No edge between %d and %d&quot;</span> <span class="token operator">%</span> <span class="token punctuation">(</span>v1<span class="token punctuation">,</span> v2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-return">return</span>
+        self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">[</span>v1<span class="token punctuation">]</span><span class="token punctuation">[</span>v2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+        self<span class="token punctuation">.</span>adjMatrix<span class="token punctuation">[</span>v2<span class="token punctuation">]</span><span class="token punctuation">[</span>v1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>size
+</pre><h3 class="mume-header" id="exercise-1"><strong>exercise:</strong></h3>
+
+<p>Develop a function to find the longtest Path in a dag(directed acyclic graph ), use adjacency list.<br>
+<img src="image_for_symthesis/graph9.png" alt="output"></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">Graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">&apos;a&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;b&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;c&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;d&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;e&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;e&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;f&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;g&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;f&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;g&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;h&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;h&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="solution-1"><strong>solution:</strong></h3>
+
+<ul>
+<li>find the source nodes in one graph</li>
+<li>for each source find its longest path and put the result in a dictionary<code>{sourse1:longest_path, source2:longest_path}</code></li>
+<li>pick up the longest path in the dictionary</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">find_source</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    not_source <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x662F;m&#x6B21;</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> edge <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            not_source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>edge<span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> Graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> node <span class="token keyword keyword-not">not</span> <span class="token keyword keyword-in">in</span> not_source<span class="token punctuation">:</span>
+            source<span class="token punctuation">.</span>add<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> source
+
+<span class="token keyword keyword-def">def</span> <span class="token function">find_longest_path_in_source_bellford</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    dist <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token builtin">max</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword keyword-for">for</span> v <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">10000</span>  
+        p<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    dist<span class="token punctuation">[</span>source<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-for">for</span> u <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> v <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">&lt;</span> dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>
+                dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+            p<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> u  
+    all_values <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>dist<span class="token punctuation">.</span> values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">sorted</span><span class="token punctuation">(</span>all_values<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> all_values<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    longest_path_for_each_source <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment"># this dictionary stores longest path from each source to sink</span>
+    source <span class="token operator">=</span> find_source<span class="token punctuation">(</span>graph<span class="token punctuation">)</span>  <span class="token comment"># find the source nodes in one graph</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> source<span class="token punctuation">:</span>  <span class="token comment"># for each source find its longest path and put the result in a dictioanry</span>
+        longest_path_for_each_source<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> find_longest_path_in_source_bellford<span class="token punctuation">(</span>
+            graph<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    longest <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>longest_path_for_each_source<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">sorted</span><span class="token punctuation">(</span>longest<span class="token punctuation">)</span> <span class="token comment"># pick up the longest path</span>
+    <span class="token keyword keyword-return">return</span> longest<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</pre><p><img src="image_for_symthesis/graph10.png" alt="output"></p>
+<h2 class="mume-header" id="43-graph-traversal-algorithms">4.3 <strong>graph traversal algorithms</strong></h2>
+
+<h4 class="mume-header" id="431-depth-first-search">4.3.1 depth first search</h4>
+
+<p><em><strong>Presocode in Dasgupta</strong></em><br>
+<img src="image_for_symthesis/graph6.png" alt="output"><br>
+<em><strong>a refined method for dfs with previsit and post visit number</strong></em></p>
+<pre data-role="codeBlock" data-info class="language-"><code>function dfs(G):
+Input: G = (V, E) is a graph, v in V
+Output: visited(u) is set to true for all nodes u reachable from v
+for all v in V:
+  visited(v) = false
+for all v in V:
+  if not visited(v): explore(G, v)
+function explore(G, v):
+  visited(v) = true
+  previsit(v)
+  for each edge (v,u) in E:
+    if not visited(u): explore(G, u)
+  postvisit(v)
+</code></pre><h4 class="mume-header" id="432-breath-first-search">4.3.2 breath first search</h4>
+
+<pre data-role="codeBlock" data-info="python" class="language-python">    <span class="token keyword keyword-def">def</span> <span class="token function">BFS</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 
+        <span class="token comment"># Mark all the vertices as not visited</span>
+        visited <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>graph<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+ 
+        <span class="token comment"># Create a queue for BFS</span>
+        queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+ 
+        <span class="token comment"># Mark the source node as</span>
+        <span class="token comment"># visited and enqueue it</span>
+        queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+        visited<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+ 
+        <span class="token keyword keyword-while">while</span> queue<span class="token punctuation">:</span>
+ 
+            <span class="token comment"># Dequeue a vertex from</span>
+            <span class="token comment"># queue and print it</span>
+            s <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-print">print</span> <span class="token punctuation">(</span>s<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">&quot; &quot;</span><span class="token punctuation">)</span>
+ 
+            <span class="token comment"># Get all adjacent vertices of the</span>
+            <span class="token comment"># dequeued vertex s. If a adjacent</span>
+            <span class="token comment"># has not been visited, then mark it</span>
+            <span class="token comment"># visited and enqueue it</span>
+            <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>graph<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-if">if</span> visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                    visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+</pre><h3 class="mume-header" id="exercise-2"><strong>exercise:</strong></h3>
+
+<p>Develop the dfs version 2 with previsit and post visit number according to the Presocode. Run the code on Graph.</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">GR<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;A&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;B&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;C&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;J&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;D&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;C&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;E&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;F&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;D&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;G&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;H&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;H&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;A&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;I&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;I&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;E&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;G&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token string">&apos;J&apos;</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&apos;F&apos;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><p>Check if the out put is</p>
+<pre data-role="codeBlock" data-info class="language-"><code>previsit_number_GR={
+&apos;A&apos;=1
+&apos;B&apos;=2
+&apos;C&apos;=7
+&apos;D&apos;=10
+&apos;E&apos;=4
+&apos;F&apos;=9
+&apos;G&apos;=14
+&apos;H&apos;=12
+&apos;I&apos;=13
+&apos;J&apos;=8
+}
+postvisit_number_GR={
+&apos;A&apos;=6
+&apos;B&apos;=3
+&apos;C&apos;=20
+&apos;D&apos;=11
+&apos;E&apos;=5
+&apos;F&apos;=18
+&apos;G&apos;=15
+&apos;H&apos;=17
+&apos;I&apos;=16
+&apos;J&apos;=19
+}
+</code></pre><h3 class="mume-header" id="solution-2"><strong>solution:</strong></h3>
+
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">dfs2</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-global">global</span> clock
+    clock <span class="token operator">=</span> <span class="token number">0</span>
+    visited <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span> <span class="token boolean">False</span> <span class="token keyword keyword-for">for</span> a <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+    previsit_num <span class="token operator">=</span> <span class="token punctuation">{</span>i<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+    postvisit_num <span class="token operator">=</span> <span class="token punctuation">{</span>i<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">explore</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-global">global</span> clock
+        clock <span class="token operator">=</span> clock <span class="token operator">+</span> <span class="token number">1</span>
+        previsit_num<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">=</span> clock
+        visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+        <span class="token keyword keyword-for">for</span> nodei <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> visited<span class="token punctuation">[</span>nodei<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+                explore<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> nodei<span class="token punctuation">)</span>
+        clock <span class="token operator">=</span> clock <span class="token operator">+</span> <span class="token number">1</span>
+        postvisit_num<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">=</span> clock
+    <span class="token keyword keyword-for">for</span> node <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> visited<span class="token punctuation">[</span>node<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>
+            explore<span class="token punctuation">(</span>graph<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>previsit_num<span class="token punctuation">)</span>
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>postvisit_num<span class="token punctuation">)</span>
+</pre><p><img src="image_for_symthesis/graph8.png" alt="output"><br>
+Apparently, it works.</p>
+<h2 class="mume-header" id="44-connectivity-and-strongly-connected-regions">4.4 connectivity and strongly connected regions</h2>
+
+<h4 class="mume-header" id="441-connectivity-in-undirected-graph">4.4.1 connectivity in undirected graph</h4>
+
+<ul>
+<li>A graph that is not connected can be decomposed in a natural and obvious manner into several connected components</li>
+<li>In directed graph Two nodes u and v of a directed graph are connected if there is a path from u to v and a path from v to u.</li>
+<li>An undirected graph is connected if there is a path between any pair of vertices.</li>
+</ul>
+<h4 class="mume-header" id="442-an-algorithem-to-check-connectivity-on-a-directed-graph">4.4.2 an algorithem to check connectivity on a directed graph</h4>
+
+<ol>
+<li>Run depth-first search on GR.</li>
+<li>Run the undirected connected components algorithm (from Section 3.2.3) on G, and dur- ing the depth-first search, process the vertices in decreasing order of their post numbers from step 1.</li>
+</ol>
+<h3 class="mume-header" id="exercise-3"><strong>exercise:</strong></h3>
+
+<p>The first step of the algorithem to check connectivity on a directed graph is Run depth-first search on a reversed graph.Please write a function to reverse a graph. Then run the dfs_v2 on the reversed graph.</p>
+<h3 class="mume-header" id="solution-3"><strong>solution:</strong></h3>
+
+<ul>
+<li>how to reverse create a new dictionary graphr , iterate on the vertex u, if u&apos;s edge leads to v, then add in graphr[v]:u</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">reverse_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-global">global</span> t
+    t <span class="token operator">=</span> <span class="token number">0</span>
+    graphr <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">}</span>
+    <span class="token comment"># print(graphr)</span>
+    <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            graphr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+            t <span class="token operator">=</span> t<span class="token operator">+</span><span class="token number">1</span>
+
+    <span class="token keyword keyword-return">return</span> graphr
+
+<span class="token keyword keyword-def">def</span> <span class="token function">step1_strongly_connected_components</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    GR <span class="token operator">=</span> reverse_graph<span class="token punctuation">(</span>graph<span class="token punctuation">)</span>
+
+    post_number <span class="token operator">=</span> dfs_v2<span class="token punctuation">(</span>GR<span class="token punctuation">)</span>
+
+    sort_orders <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>post_number<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    List <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> sort_orders<span class="token punctuation">:</span>
+        List<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> List
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
