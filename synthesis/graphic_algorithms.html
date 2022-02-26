@@ -261,9 +261,14 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <p>5 <strong>Graph Algorithms</strong><br>
-5.1 <strong>Dijkstra&#x2019;s Algorithm</strong><br>
-<img src="image_for_symthesis/ga1.png" alt="output"></p>
+      <h1 class="mume-header" id="5-graph-algorithms">5 <strong>Graph Algorithms</strong></h1>
+
+<h2 class="mume-header" id="51-dijkstras-algorithm">5.1 <strong>Dijkstra&#x2019;s Algorithm</strong></h2>
+
+<p><img src="image_for_symthesis/ga2.png" alt="output"></p>
+<h4 class="mume-header" id="511-steps-dijkstras-algorithm-take-to-calculate-the-shortest-distance-in-the-following-graph">5.1.1 Steps Dijkstra&#x2019;s Algorithm take to calculate the shortest distance in the following graph</h4>
+
+<p><img src="image_for_symthesis/ga1.png" alt="output"></p>
 <ul>
 <li>
 <blockquote>
@@ -332,10 +337,12 @@ C&apos;s edges are <code>&apos;E&apos;: {&apos;D&apos;: 1}</code><br>
 return dist={&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 2, &apos;D&apos;: 5, &apos;E&apos;: 6}</p>
 </blockquote>
 </li>
-<li>
-<p>Input : (Graph,source)<br>
-Graph is a  dictionary and source is a vertex. The data type of graph is dictionary, and the data type of source is string. actually source is a vertex here. You can use &apos;A&apos;,&apos;B&apos; or any letter in the <code>Graph</code></p>
-</li>
+</ul>
+<h4 class="mume-header" id="512-how-to-implement-a-dijkstras-algorithm">5.1.2  How to implement a Dijkstra&#x2019;s Algorithm</h4>
+
+<ul>
+<li>Input : (Graph,source)<br>
+Graph is a  dictionary and source is a vertex. The data type of graph is dictionary, and the data type of source is string. actually source is a vertex here. You can use &apos;A&apos;,&apos;B&apos; or any letter in the <code>Graph</code></li>
 </ul>
 <pre data-role="codeBlock" data-info="python" class="language-python">Graph <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&apos;B&apos;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">&apos;C&apos;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
@@ -415,30 +422,30 @@ while H is not empty:
 
 
 <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span>dijkstra_adjacency_list<span class="token punctuation">(</span>Graph<span class="token punctuation">,</span> <span class="token string">&apos;A&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</pre><p>Apparently, the time complexity of dijkstra_adjacency_list os <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>v</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(v^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><br>
-5.2 <strong>Bellman-Ford Algorithm</strong><br>
-<strong>Lester Ford also published the algorithm in 1956. Therefore this algorithm is called the Bellman-Ford algorithm. In fact, Edward F. Moore published the same algorithm in 1957, so this algorithm is also called Bellman-Ford-Moore algorithm.</strong></p>
+</pre><p>Apparently, the time complexity of dijkstra_adjacency_list is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>v</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(v^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>, v is the number of node in the graph</p>
+<h2 class="mume-header" id="52-bellman-ford-algorithm">5.2 <strong>Bellman-Ford Algorithm</strong></h2>
+
+<h4 class="mume-header" id="521-background-of-bellman-ford-algorithm">5.2.1 Background of Bellman-Ford Algorithm</h4>
+
+<p><strong>Lester Ford also published the algorithm in 1956. Therefore this algorithm is called the Bellman-Ford algorithm. In fact, Edward F. Moore published the same algorithm in 1957, so this algorithm is also called Bellman-Ford-Moore algorithm.</strong></p>
+<h4 class="mume-header" id="522-why-we-need-bellmanford">5.2.2 Why we need bellmanford?</h4>
+
 <ul>
-<li>
-<p>Bellmanford is much easy to implement than dijkstra. and it can apply to the graph whose&apos;s edge weight can be a negative number.</p>
-</li>
-<li>
-<p>Why we canot use Dijkstra when there&apos;s negative weighted edge in a graph?<br>
+<li>Bellmanford is much easy to implement than dijkstra. and it can apply to the graph whose&apos;s edge weight can be a negative number.</li>
+<li>Why we canot use Dijkstra when there&apos;s negative weighted edge in a graph?<br>
 Here&apos;s the answer in the geekforgeeks. Since Dijkstra follows a Greedy Approach, once a node is marked as visited it cannot be reconsidered even if there is another path with less cost or distance. This issue arises only if there exists a negative weight or edge in the graph. This is when bellmanford become really handy because it ca nbe used to detect negative cycles ad determine where they occur.<br>
-Finding negative cycles can be useful in many types of applications. One particularly neat application arises in finance when performing an arbitrage between two or more markets</p>
-</li>
-<li>
-<p>However, BF is not ideal for most SSSP problems because it has a time  complexity of O(EV). It is better to use Diikstra  algorithm which is much faster. It is on the order of 0 ( (E+V) log(V)) when using a binary heap priority queue.</p>
-</li>
-<li>
-<p>Bellman ford simply update all the edges, |V | &#x2212; 1 times. Code for this function is much quick and dirty to implement compare to dijkstra.</p>
-</li>
-<li>
-<p>Then it need to check if there is negative cycle in the graph if there is<br>
+Finding negative cycles can be useful in many types of applications. One particularly neat application arises in finance when performing an arbitrage between two or more markets</li>
+<li>However, BF is not ideal for most SSSP problems because it has a time  complexity of O(EV). It is better to use Diikstra  algorithm which is much faster. It is on the order of 0 ( (E+V) log(V)) when using a binary heap priority queue.</li>
+</ul>
+<h4 class="mume-header" id="523-how-to-implement-a-bellmanford-algorithem">5.2.3 how to implement a bellmanford algorithem?</h4>
+
+<ul>
+<li>Bellman ford simply update all the edges, |V | &#x2212; 1 times. Code for this function is much quick and dirty to implement compare to dijkstra.</li>
+<li>Then it need to check if there is negative cycle in the graph and the nodes being afected by the negative cycle and make the distant of those nodes to infinity.<br>
+<img src="image_for_symthesis/ga3.png" alt="output"><br>
 <strong>exercise:</strong><br>
 Implement a Bellman-Ford Algorithm by python.<br>
-<strong>solution:</strong></p>
-</li>
+<strong>solution:</strong></li>
 </ul>
 <pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-def">def</span> <span class="token function">bellman_ford</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">:</span>
     dist <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -462,18 +469,158 @@ Implement a Bellman-Ford Algorithm by python.<br>
                 <span class="token keyword keyword-return">return</span> <span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token boolean">None</span>  <span class="token comment"># &#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x73AF;&#x8DEF;</span>
 
     <span class="token keyword keyword-return">return</span> dist<span class="token punctuation">,</span> p
-</pre><p>5.3 <strong>Matchings</strong></p>
-<p><strong>exercise:</strong><br>
-<your write up goes here><br>
-<strong>solution:</strong><br>
-<your write up goes here><br>
-5.3 <strong>Domination</strong><br>
-<your write up goes here><br>
-<strong>exercise:</strong><br>
-<your write up goes here><br>
-<strong>solution:</strong><br>
-<your write up goes here></your></your></your></your></your></p>
+</pre><h2 class="mume-header" id="53-matchings">5.3 <strong>Matchings</strong></h2>
 
+<h4 class="mume-header" id="531-definition-of-matching-from-wikipedia">5.3.1 Definition of matching from Wikipedia</h4>
+
+<ul>
+<li>
+<p>A matching or independent edge set in an undirected graph is a set of edges without common vertices.</p>
+</li>
+<li>
+<p>A vertex is matched (or saturated) if it is an endpoint of one of the edges in the matching. Otherwise the vertex is unmatched (or unsaturated).</p>
+</li>
+<li>
+<p>A maximal matching is a matching M of a graph G that is not a subset of any other matching. A matching M of a graph G is maximal if every edge in G has a non-empty intersection with at least one edge in M. The following figure shows examples of maximal matchings (red) in three graphs.</p>
+</li>
+</ul>
+<p><strong>Matching</strong><br>
+<img src="image_for_symthesis/matching.svg.png" alt="output"><br>
+<strong>Maximum Matching</strong><br>
+<img src="image_for_symthesis/Maximum-matching-labels.svg.png" alt="output"></p>
+<h4 class="mume-header" id="532-blossom-algorithemsteps-to-find-matching-in-a-gemeral-graph">5.3.2 Blossom algorithem:Steps to find matching in a gemeral graph:</h4>
+
+<ul>
+<li>If v has been matched, continue bfs from v</li>
+<li>If v does not matched, find an augment path<br>
+If v has visited, a cycle is found:</li>
+<li>If cycle is an even cycle, ignore it directly and skip the current node</li>
+<li>If it is an odd cycle, shrink the current ring violently and shrink the ring into one blossom</li>
+</ul>
+<h4 class="mume-header" id="533-hungarian-algorithm-bipartite-matching">5.3.3 Hungarian algorithm, bipartite matching</h4>
+
+<ul>
+<li>
+<p>Subtract the smallest entry in each row from all the other entries in the row. This will make the smallest entry in the row now equal to 0.</p>
+</li>
+<li>
+<p>Subtract the smallest entry in each column from all the other entries in the column. This will make the smallest entry in the column now equal to 0.</p>
+</li>
+<li>
+<p>Draw lines through the row and columns that have the 0 entries such that the fewest lines possible are drawn.</p>
+</li>
+<li>
+<p>If there are nn lines drawn, an optimal assignment of zeros is possible and the algorithm is finished. If the number of lines is less than nn, then the optimal number of zeroes is not yet reached. Go to the next step.</p>
+</li>
+<li>
+<p>Find the smallest entry not covered by any line. Subtract this entry from each row that isn&#x2019;t crossed out, and then add it to each column that is crossed out. Then, go back to Step 3.<br>
+<strong>exercise:</strong><br>
+Develop the Hungarian algorithm<br>
+<strong>solution:</strong></p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword keyword-class">class</span> <span class="token class-name">DFS_hungary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nx<span class="token punctuation">,</span> ny<span class="token punctuation">,</span> edge<span class="token punctuation">,</span> cx<span class="token punctuation">,</span> cy<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>nx<span class="token punctuation">,</span> self<span class="token punctuation">.</span>ny<span class="token operator">=</span>nx<span class="token punctuation">,</span> ny
+        self<span class="token punctuation">.</span>edge <span class="token operator">=</span> edge
+        self<span class="token punctuation">.</span>cx<span class="token punctuation">,</span> self<span class="token punctuation">.</span>cy<span class="token operator">=</span>cx<span class="token punctuation">,</span>cy
+        self<span class="token punctuation">.</span>visited<span class="token operator">=</span>visited
+ 
+    <span class="token keyword keyword-def">def</span> <span class="token function">max_match</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        res<span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>nx<span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>cx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-for">for</span> key <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>ny<span class="token punctuation">:</span>         <span class="token comment"># &#x5C06;visited&#x7F6E;0&#x8868;&#x793A;&#x672A;&#x8BBF;&#x95EE;&#x8FC7;</span>
+                    self<span class="token punctuation">.</span>visited<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
+                res<span class="token operator">+=</span>self<span class="token punctuation">.</span>path<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                <span class="token keyword keyword-return">return</span> res
+ 
+    <span class="token keyword keyword-def">def</span> <span class="token function">path</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> v <span class="token keyword keyword-in">in</span> self<span class="token punctuation">.</span>ny<span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>edge<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token keyword keyword-and">and</span> <span class="token punctuation">(</span><span class="token keyword keyword-not">not</span> self<span class="token punctuation">.</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span>
+                <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>cy<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>cx<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> v
+                    self<span class="token punctuation">.</span>cy<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> u
+                    M<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword keyword-return">return</span> <span class="token number">1</span>
+                <span class="token keyword keyword-else">else</span><span class="token punctuation">:</span>
+                    M<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>cy<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>path<span class="token punctuation">(</span>self<span class="token punctuation">.</span>cy<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        self<span class="token punctuation">.</span>cx<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> v
+                        self<span class="token punctuation">.</span>cy<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> u
+                        M<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token keyword keyword-return">return</span> <span class="token number">1</span>
+        <span class="token keyword keyword-return">return</span> <span class="token number">0</span>
+</pre><h2 class="mume-header" id="54-domination">5.4 <strong>Domination</strong></h2>
+
+<h4 class="mume-header" id="541-defination-of-domination-set">5.4.1 defination of Domination set</h4>
+
+<p>The dominating set of a graph G = (V, E) is a subset D of V such that every vertex not in D is adjacent to at least one member of D. The dominating number &#x3B3;(G) is the smallest dominating set of the number of vertices G in a.<br>
+<img src="image_for_symthesis/800px-Dominating-set.svg.png" alt="output"></p>
+<h4 class="mume-header" id="542-how-to-find-domination-set-in-graph-quote-from-geeksforgeeks">5.4.2 How to find domination set in graph ,quote from geeksforgeeks</h4>
+
+<ul>
+<li>First we have to initialize a set &#x2018;S&#x2019; as empty</li>
+<li>Take any edge &#x2018;e&#x2019; of the graph connecting the vertices ( say A and B )</li>
+<li>Add one vertex between A and B ( let say A ) to our set S</li>
+<li>Delete all the edges in the graph connected to A</li>
+<li>Go back to step 2 and repeat, if some edge is still left in the graph</li>
+<li>The final set S is a Dominant Set of the graph<br>
+<strong>exercise:</strong><br>
+Using greedy algorithem to develop a method to find the Minimum dominant set in a Graph</li>
+</ul>
+<blockquote>
+<p>Minimum dominant set: The greedy strategy is to first select a point as the root, obtain the traversal sequence according to depth-first traversal, and perform greedy in the order of the reverse sequence of the obtained sequence.<br>
+For a point that neither belongs to the dominating set nor is connected to a point in the dominating set, if its parent node does not belong to the dominating set, add its parent node to the dominating set.<br>
+The order of greed in the greedy strategy is very important. According to the depth-first traversal to get the reverse direction of the traversal sequence, it can be guaranteed that for each point,<br>
+When all its subtrees have been processed, it will be the node&apos;s turn to process, which ensures the correctness of greedy.<br>
+(1) Search the entire tree depth-first with point 1, and find the number of each point in the depth-first traversal sequence and the parent node number of each point<br>
+(2) Check according to the reverse sequence of the depth-first sequence, if the current point neither belongs to the dominating set nor is connected to a point in the dominating set,<br>
+And its parent node does not belong to the dominating set, add its parent node to the dominating set, and add 1 to the number of points in the dominating set. Mark the current node,<br>
+The parent of the current node and the parent of the parent of the current node, since these nodes either belong to the dominating set (the parent of the current point),<br>
+Either connect to a point in the domination set (the current node and the parent of the current node&apos;s parent).</p>
+</blockquote>
+<p><strong>solution:</strong></p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token keyword keyword-int">int</span> p<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span>                <span class="token comment">//&#x7236;&#x8282;&#x70B9;&#x7F16;&#x53F7;</span>
+<span class="token keyword keyword-bool">bool</span> select<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span>          <span class="token comment">//&#x7528;&#x4E8E;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x7684;&#x5224;&#x91CD;</span>
+<span class="token keyword keyword-int">int</span> newpos<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span>           <span class="token comment">//newpos[i]&#x8868;&#x793A;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x5E8F;&#x5217;&#x7684;&#x7B2C;i&#x4E2A;&#x70B9;&#x662F;&#x54EA;&#x4E2A;&#x70B9;&#xFF0C;</span>
+<span class="token keyword keyword-int">int</span> now<span class="token punctuation">;</span>                    <span class="token comment">//&#x8868;&#x793A;&#x5F53;&#x524D;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x5E8F;&#x5217;&#x5DF2;&#x7ECF;&#x6709;&#x51E0;&#x4E2A;&#x70B9;&#x4E86;</span>
+<span class="token keyword keyword-int">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>    
+ 
+<span class="token keyword keyword-void">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    newpos<span class="token punctuation">[</span>now<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
+    <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> k<span class="token operator">=</span>head<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>k<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">=</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token operator">!</span>select<span class="token punctuation">[</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            select<span class="token punctuation">[</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+            p<span class="token punctuation">[</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">]</span><span class="token operator">=</span>x<span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>edge<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword keyword-int">int</span> <span class="token function">greedy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-bool">bool</span> s<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>               <span class="token comment">//&#x5982;&#x679C;s[i]&#x662F;true&#xFF0C;&#x5219;&#x8868;&#x793A;s[i]&#x88AB;&#x8986;&#x76D6;</span>
+    <span class="token keyword keyword-bool">bool</span> set<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>             <span class="token comment">//set[i]&#x8868;&#x793A;&#x70B9;i&#x5C5E;&#x4E8E;&#x8981;&#x6C42;&#x7684;&#x96C6;&#x5408;</span>
+    <span class="token keyword keyword-int">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i<span class="token operator">=</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword keyword-int">int</span> t<span class="token operator">=</span>newpos<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token operator">!</span>s<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token operator">!</span>set<span class="token punctuation">[</span>p<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                set<span class="token punctuation">[</span>p<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+                ans<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            s<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">[</span>p<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+            s<span class="token punctuation">[</span>p<span class="token punctuation">[</span>p<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-return">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre>
       </div>
       
       

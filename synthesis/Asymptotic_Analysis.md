@@ -1,25 +1,25 @@
-1 **Asymptotic Anaylsis**
-1.1 **Big O**
-<your write up goes here>
+# 1 **Asymptotic Anaylsis**
+## 1.1 **Big O**
+#### 1.1.1 Definition of big O notation
+ Big O notation defines the worst Time complicity
 **exercise:**
-<your write up goes here>
+
 **solution:**
-<your write up goes here>
-1.2 **Big Omega**
-<your write up goes here>
+
+## 1.2 **Big Omega**
+
 **exercise:**
-<your write up goes here>
+
 **solution:**
-<your write up goes here>
-1.3 **Big theta**
-<your write up goes here>
+
+## 1.3 **Big theta**
+
 **exercise:**
-<your write up goes here>
+
 **solution:**
-<your write up goes here>
-1.4 **Ordering of functions**
-<your write up goes here>
+
+## 1.4 **Ordering of functions**
+
 **exercise:**
-<your write up goes here>
+
 **solution:**
-<your write up goes here>
