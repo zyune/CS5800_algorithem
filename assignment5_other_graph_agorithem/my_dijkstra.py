@@ -39,7 +39,7 @@ def dijkstra_adjacency_list(Graph, source):
         return min_key
 
     previous = {i: None for i in Graph}
-
+    visied = []
     dist = {i: 100000 for i in Graph}
     dist[source] = 0
     heap_dist = {}
@@ -49,17 +49,19 @@ def dijkstra_adjacency_list(Graph, source):
     print(heap_dist)
     while len(heap_dist) != 0:
         u = deap_pop_min(heap_dist)
-
+        visied.append(u)
         for v in Graph[u]:
-
-            edge_length = Graph[u][v]
-            if dist[v] > dist[u] + edge_length:
-                dist[v] = dist[u] + edge_length
-                previous[v] = u
-                heap_dist[v] = dist[u] + edge_length
-        # print(dist)
+            if v not in visied:
+                edge_length = Graph[u][v]
+                if dist[v] > dist[u] + edge_length:
+                    dist[v] = dist[u] + edge_length
+                    previous[v] = u
+                    heap_dist[v] = dist[u] + edge_length
+            # 其实这里少了 decrease key 这一步 decreasekey(H,v)
+            # https://stackoverflow.com/questions/9255620/why-does-dijkstras-algorithm-use-decrease-key#:~:text=The%20reason%20for%20using%20decrease,each%20priority%20queue%20balance%20low.
+            # The reason for using decrease-key rather than reinserting nodes is to keep the number of nodes in the priority queue small, thus keeping the total number of priority queue dequeues small and the cost of each priority queue balance low.
     print(previous)
     return dist
 
 
-print(dijkstra_adjacency_list(Graph2, 'A'))
+print(dijkstra_adjacency_list(Graph, 'A'))
