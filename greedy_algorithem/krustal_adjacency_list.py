@@ -48,7 +48,7 @@ class Graph:
         # algorithm
     def KruskalMST(self):
 
-        result = []  # This will store the resultant MST
+        result = []  # This will store the resultant MST . This is the Selection set
 
         # An index variable, used for sorted edges
         i = 0

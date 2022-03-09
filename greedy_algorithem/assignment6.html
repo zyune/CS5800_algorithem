@@ -1,0 +1,1208 @@
+<!DOCTYPE html><html><head>
+      <title>assignment6</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h4 class="mume-header" id="1-apply-the-bellman-ford-algorithm-on-the-following-graph-with-source-vertex-a-to-all-vertices-in-our-graph-show-all-steps">1.) Apply the Bellman-Ford algorithm on the following graph, with source vertex A to all vertices in our graph. Show all steps.</h4>
+
+<p><img src="img/p1.png" alt="output"></p>
+<p>Bellman-ford simply update all the edges, |V | &#x2212; 1 times. In this graph V, the number of vertex is 8. the number of edge is 10. So, strictly, if the judgment of each edge is viewed as a step, we will have 70 steps.<br>
+The final unswer is</p>
+<ul>
+<li>dist =  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}</li>
+<li>Previous_node =  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+<blockquote>
+<p>current i is  0</p>
+<ul>
+<li>step 1 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 3<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 10000, &apos;D&apos;: 10000, &apos;E&apos;: 10000, &apos;F&apos;: 10000, &apos;G&apos;: 10000, &apos;H&apos;: 10000}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+<li>step 2 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 7<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]</li>
+<li>step 3 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 0<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 10000, &apos;E&apos;: 10000, &apos;F&apos;: 10000, &apos;G&apos;: 10000, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: None, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 4 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 9<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 9, &apos;E&apos;: 10000, &apos;F&apos;: 10000, &apos;G&apos;: 10000, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 5 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 4<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]</li>
+<li>step 6 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 11<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 9, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 10000, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: None, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 7 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 6<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 9, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 10000, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: None, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 8 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10000<br>
+graph[u][v] + dist[u]= 12<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 9, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 9 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 20<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 9, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 10 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 7<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  1</p>
+<ul>
+<li>step 11 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 12 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 13 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 14 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 4, &apos;F&apos;: 11, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 15 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 4<br>
+graph[u][v] + dist[u]= 2<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]</li>
+<li>step 16 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 11<br>
+graph[u][v] + dist[u]= 9<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 17 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 12, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 18 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 12<br>
+graph[u][v] + dist[u]= 10<br>
+Apparently,dist[v] &gt; graph[u][v] + dist[u]<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 19 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 20 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  2</p>
+<ul>
+<li>step 21 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 22 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 23 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 24 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 25 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 2<br>
+graph[u][v] + dist[u]= 2</li>
+<li>step 26 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 27 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 28 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10<br>
+graph[u][v] + dist[u]= 10<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 29 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 30 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  3</p>
+<ul>
+<li>step 31 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 32 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 33 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 34 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 35 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 2<br>
+graph[u][v] + dist[u]= 2</li>
+<li>step 36 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 37 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 38 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10<br>
+graph[u][v] + dist[u]= 10<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 39 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 40 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  4</p>
+<ul>
+<li>step 41 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 42 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 43 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 44 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 45 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 2<br>
+graph[u][v] + dist[u]= 2</li>
+<li>step 46 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 47 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 48 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10<br>
+graph[u][v] + dist[u]= 10<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 49 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 50 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  5</p>
+<ul>
+<li>step 51 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 52 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 53 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 54 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 55 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 2<br>
+graph[u][v] + dist[u]= 2</li>
+<li>step 56 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 57 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 58 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10<br>
+graph[u][v] + dist[u]= 10<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 59 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 60 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>current i is  6</p>
+<ul>
+<li>step 61 --------------<br>
+u is  A and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 3<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 62 --------------<br>
+u is  B and v is  C<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7</li>
+<li>step 63 --------------<br>
+u is  B and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 0<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 64 --------------<br>
+u is  C and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 65 --------------<br>
+u is  D and v is  E<br>
+dist[v]= 2<br>
+graph[u][v] + dist[u]= 2</li>
+<li>step 66 --------------<br>
+u is  D and v is  F<br>
+dist[v]= 9<br>
+graph[u][v] + dist[u]= 9<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 67 --------------<br>
+u is  E and v is  B<br>
+dist[v]= 3<br>
+graph[u][v] + dist[u]= 4<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 68 --------------<br>
+u is  F and v is  G<br>
+dist[v]= 10<br>
+graph[u][v] + dist[u]= 10<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 69 --------------<br>
+u is  G and v is  H<br>
+dist[v]= 0<br>
+graph[u][v] + dist[u]= 18<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+<li>step 70 --------------<br>
+u is  H and v is  D<br>
+dist[v]= 7<br>
+graph[u][v] + dist[u]= 7<br>
+dist is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 7, &apos;D&apos;: 7, &apos;E&apos;: 2, &apos;F&apos;: 9, &apos;G&apos;: 10, &apos;H&apos;: 0}<br>
+Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;H&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;D&apos;, &apos;G&apos;: &apos;F&apos;, &apos;H&apos;: &apos;B&apos;}</li>
+</ul>
+</blockquote>
+<h2 class="mume-header" id="in-a-coloring-of-a-graph-one-assigns-colors-to-the-nodes-such-that-any-two-nodes-connected-by-an-edge-receive-different-colors-an-optimal-coloring-is-one-which-uses-the-fewest-colors-for-example-here-is-an-optimal-coloring-of-these-two-graphs">In a <em><strong>coloring</strong></em> of a graph, one assigns colors to the nodes such that any two nodes connected by an edge receive different colors. An optimal coloring is one which uses the fewest colors. For example, here is an optimal coloring of these two graphs.</h2>
+
+<p><img src="img/goddard4.4.png" alt="output"></p>
+<h2 class="mume-header" id="52-suppose-we-want-to-find-the-minimum-spanning-tree-of-the-following-graph">5.2. Suppose we want to find the minimum spanning tree of the following graph.</h2>
+
+<p><img src="img/dasgupta5.2.png" alt="output"></p>
+<h4 class="mume-header" id="a-run-prims-algorithm-whenever-there-is-a-choice-of-nodes-always-use-alphabetic-ordering">(a) Run Prim&#x2019;s algorithm; whenever there is a choice of nodes, always use alphabetic ordering</h4>
+
+<p>(e.g., start from node A). Draw a table showing the intermediate values of the cost array.</p>
+<table>
+<thead>
+<tr>
+<th>set(s)</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A</td>
+<td></td>
+<td>1</td>
+<td>10000</td>
+<td>10000</td>
+<td>4</td>
+<td>8</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B</td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>10000</td>
+<td></td>
+<td>6</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B,C</td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>6</td>
+<td>2</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B,C,G</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li>step 1 --------------<br>
+current u is  A  ,z is  B<br>
+cost[ B ]= 100000<br>
+Graph[ A ][ B ] is  1<br>
+apparently cost[ B ] &gt; Graph[ A ][ B ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 100000, &apos;D&apos;: 100000, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 2 --------------<br>
+current u is  A  ,z is  E<br>
+cost[ E ]= 100000<br>
+Graph[ A ][ E ] is  4<br>
+apparently cost[ E ] &gt; Graph[ A ][ E ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 100000, &apos;D&apos;: 100000, &apos;E&apos;: 4, &apos;F&apos;: 100000, &apos;G&apos;: 100000, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: None, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 3 --------------<br>
+current u is  A  ,z is  F<br>
+cost[ F ]= 100000<br>
+Graph[ A ][ F ] is  8<br>
+apparently cost[ F ] &gt; Graph[ A ][ F ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 100000, &apos;D&apos;: 100000, &apos;E&apos;: 4, &apos;F&apos;: 8, &apos;G&apos;: 100000, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;A&apos;, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 4 --------------<br>
+current u is  B  ,z is  A<br>
+cost[ A ] is  0<br>
+Graph[ B ][ A ] is  1<br>
+apparently cost[ A ] &lt; Graph[ B ][ A ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 5 --------------<br>
+current u is  B  ,z is  C<br>
+cost[ C ]= 100000<br>
+Graph[ B ][ C ] is  2<br>
+apparently cost[ C ] &gt; Graph[ B ][ C ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 100000, &apos;E&apos;: 4, &apos;F&apos;: 8, &apos;G&apos;: 100000, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: None, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;A&apos;, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 6 --------------<br>
+current u is  B  ,z is  F<br>
+cost[ F ]= 8<br>
+Graph[ B ][ F ] is  6<br>
+apparently cost[ F ] &gt; Graph[ B ][ F ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 100000, &apos;E&apos;: 4, &apos;F&apos;: 6, &apos;G&apos;: 100000, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: None, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;B&apos;, &apos;G&apos;: None, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 7 --------------<br>
+current u is  B  ,z is  G<br>
+cost[ G ]= 100000<br>
+Graph[ B ][ G ] is  6<br>
+apparently cost[ G ] &gt; Graph[ B ][ G ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 100000, &apos;E&apos;: 4, &apos;F&apos;: 6, &apos;G&apos;: 6, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: None, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;B&apos;, &apos;G&apos;: &apos;B&apos;, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 8 --------------<br>
+current u is  C  ,z is  B<br>
+cost[ B ] is  1<br>
+Graph[ C ][ B ] is  2<br>
+apparently cost[ B ] &lt; Graph[ C ][ B ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 9 --------------<br>
+current u is  C  ,z is  D<br>
+cost[ D ]= 100000<br>
+Graph[ C ][ D ] is  3<br>
+apparently cost[ D ] &gt; Graph[ C ][ D ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 3, &apos;E&apos;: 4, &apos;F&apos;: 6, &apos;G&apos;: 6, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;B&apos;, &apos;G&apos;: &apos;B&apos;, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 10 --------------<br>
+current u is  C  ,z is  G<br>
+cost[ G ]= 6<br>
+Graph[ C ][ G ] is  2<br>
+apparently cost[ G ] &gt; Graph[ C ][ G ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 3, &apos;E&apos;: 4, &apos;F&apos;: 6, &apos;G&apos;: 2, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;C&apos;, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;B&apos;, &apos;G&apos;: &apos;C&apos;, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 11 --------------<br>
+current u is  G  ,z is  B<br>
+cost[ B ] is  1<br>
+Graph[ G ][ B ] is  6<br>
+apparently cost[ B ] &lt; Graph[ G ][ B ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 12 --------------<br>
+current u is  G  ,z is  C<br>
+cost[ C ] is  2<br>
+Graph[ G ][ C ] is  2<br>
+apparently cost[ C ] &lt; Graph[ G ][ C ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 13 --------------<br>
+current u is  G  ,z is  D<br>
+cost[ D ]= 3<br>
+Graph[ G ][ D ] is  1<br>
+apparently cost[ D ] &gt; Graph[ G ][ D ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 1, &apos;E&apos;: 4, &apos;F&apos;: 6, &apos;G&apos;: 2, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;G&apos;, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;B&apos;, &apos;G&apos;: &apos;C&apos;, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 14 --------------<br>
+current u is  G  ,z is  F<br>
+cost[ F ]= 6<br>
+Graph[ G ][ F ] is  1<br>
+apparently cost[ F ] &gt; Graph[ G ][ F ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 1, &apos;E&apos;: 4, &apos;F&apos;: 1, &apos;G&apos;: 2, &apos;H&apos;: 100000}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;G&apos;, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;G&apos;, &apos;G&apos;: &apos;C&apos;, &apos;H&apos;: None}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 15 --------------<br>
+current u is  G  ,z is  H<br>
+cost[ H ]= 100000<br>
+Graph[ G ][ H ] is  1<br>
+apparently cost[ H ] &gt; Graph[ G ][ H ]<br>
+*** update cost and previous ****<br>
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 2, &apos;D&apos;: 1, &apos;E&apos;: 4, &apos;F&apos;: 1, &apos;G&apos;: 2, &apos;H&apos;: 1}<br>
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;G&apos;, &apos;E&apos;: &apos;A&apos;, &apos;F&apos;: &apos;G&apos;, &apos;G&apos;: &apos;C&apos;, &apos;H&apos;: &apos;G&apos;}</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 16 --------------<br>
+current u is  D  ,z is  C<br>
+cost[ C ] is  2<br>
+Graph[ D ][ C ] is  3<br>
+apparently cost[ C ] &lt; Graph[ D ][ C ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 17 --------------<br>
+current u is  D  ,z is  G<br>
+cost[ G ] is  2<br>
+Graph[ D ][ G ] is  1<br>
+apparently cost[ G ] &lt; Graph[ D ][ G ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 18 --------------<br>
+current u is  D  ,z is  H<br>
+cost[ H ] is  1<br>
+Graph[ D ][ H ] is  4<br>
+apparently cost[ H ] &lt; Graph[ D ][ H ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 19 --------------<br>
+current u is  F  ,z is  A<br>
+cost[ A ] is  0<br>
+Graph[ F ][ A ] is  8<br>
+apparently cost[ A ] &lt; Graph[ F ][ A ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 20 --------------<br>
+current u is  F  ,z is  B<br>
+cost[ B ] is  1<br>
+Graph[ F ][ B ] is  6<br>
+apparently cost[ B ] &lt; Graph[ F ][ B ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 21 --------------<br>
+current u is  F  ,z is  E<br>
+cost[ E ] is  4<br>
+Graph[ F ][ E ] is  5<br>
+apparently cost[ E ] &lt; Graph[ F ][ E ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 22 --------------<br>
+current u is  F  ,z is  G<br>
+cost[ G ] is  2<br>
+Graph[ F ][ G ] is  1<br>
+apparently cost[ G ] &lt; Graph[ F ][ G ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 23 --------------<br>
+current u is  H  ,z is  D<br>
+cost[ D ] is  1<br>
+Graph[ H ][ D ] is  4<br>
+apparently cost[ D ] &lt; Graph[ H ][ D ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 24 --------------<br>
+current u is  H  ,z is  G<br>
+cost[ G ] is  2<br>
+Graph[ H ][ G ] is  1<br>
+apparently cost[ G ] &lt; Graph[ H ][ G ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 25 --------------<br>
+current u is  E  ,z is  A<br>
+cost[ A ] is  0<br>
+Graph[ E ][ A ] is  4<br>
+apparently cost[ A ] &lt; Graph[ E ][ A ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 26 --------------<br>
+current u is  E  ,z is  F<br>
+cost[ F ] is  1<br>
+Graph[ E ][ F ] is  5<br>
+apparently cost[ F ] &lt; Graph[ E ][ F ]<br>
+no update continue</li>
+</ul>
+</blockquote>
+<h4 class="mume-header" id="b-run-kruskals-algorithm-on-the-same-graph-show-how-the-disjoint-sets-data-structure-looks-at-every-intermediate-stage-including-the-structure-of-the-directed-trees-assuming-path-compression-is-used">(b) Run Kruskal&#x2019;s algorithm on the same graph. Show how the disjoint-sets data structure looks at every intermediate stage (including the structure of the directed trees), assuming path compression is used.</h4>
+
+<blockquote>
+<ul>
+<li>First we sort the edge with Ascending order.<br>
+(A-B)=1<br>
+(D-G)=1<br>
+(F-G)=1<br>
+(G-H)=1<br>
+(B-C)=2<br>
+(C-G)=2<br>
+(C-D)=3<br>
+(A-E)=4<br>
+(D-H)=4<br>
+(E-F)=5<br>
+(B-F)=6<br>
+(B-G)=6<br>
+(A-F)=8</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Secondly, makeset(A),makeset(B),...,makeset(G),makeset(H):</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Then we start run union by rank on the disjoint set.</li>
+</ul>
+</blockquote>
+<p><strong>number behind( is the rank of node</strong></p>
+<blockquote>
+<ul>
+<li>step 1 Union (A,B)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step1.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step1.png" alt="output"></li>
+<li>step 2 Union (D,G)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step2.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step2.png" alt="output"></li>
+<li>step 3 Union (F,G)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step3.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step3.png" alt="output"></li>
+<li>step 4 Union (G,H)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step4.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step4.png" alt="output"></li>
+<li>step 5 Union (B,C)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step5.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step5.png" alt="output"></li>
+<li>step 6 Union (C,G)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step6.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step6.png" alt="output"><br>
+Then we do the path compression on the immediate directed tree<br>
+<img src="img/disjoint%20set/../directed%20graph/step6-path-compression.png" alt="output"></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>step 7 Union (C,D)<br>
+C and D are already in one set, we igore this path</li>
+<li>step 8 Union (A,E)<br>
+<strong>Directed Graph</strong><br>
+<img src="img/directed%20graph/step8.png" alt="output"><br>
+Disjoint set is<br>
+<img src="img/disjoint%20set/step7.png" alt="output"></li>
+</ul>
+</blockquote>
+<h2 class="mume-header" id="513-a-long-string-consists-of-the-four-characters-acgt-they-appear-with-frequency-31209-and-40-respectively-what-is-the-huffman-encoding-of-these-four-characters">5.13. A long string consists of the four characters A,C,G,T; they appear with frequency 31%,20%,9%, and 40%, respectively. What is the Huffman encoding of these four characters?</h2>
+
+<blockquote>
+<p>Sort the character in descending order</p>
+</blockquote>
+<p>T = 40%<br>
+A = 31%<br>
+C = 20%<br>
+G = 9%</p>
+<blockquote>
+<p>step1 temporary character X=G +C=29%</p>
+</blockquote>
+<p>T = 40%<br>
+A = 31%<br>
+X = 29%<br>
+C = 20%<br>
+G = 9%<br>
+<img src="img/huffman%20codeing/step1.png" alt="output"></p>
+<blockquote>
+<p>step2 temporary character Y=A +X=60%</p>
+</blockquote>
+<p>T = 40%<br>
+Y = 60%<br>
+A = 31%<br>
+X = 29%<br>
+C = 20%<br>
+G = 9%<br>
+<img src="img/huffman%20codeing/step2.png" alt="output"></p>
+<blockquote>
+<p>step3 temporary character Z=A +Y=100%<br>
+Z = 100%<br>
+T = 40%<br>
+Y = 60%<br>
+A = 31%<br>
+X = 29%<br>
+C = 20%<br>
+G = 9%<br>
+<img src="img/huffman%20codeing/step3.png" alt="output"></p>
+</blockquote>
+<p>T = 0<br>
+A = 11<br>
+G = 100<br>
+C = 101</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

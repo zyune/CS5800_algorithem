@@ -45,19 +45,31 @@ def my_prims_adjacency_list(Graph, source):
     num = 1
     while len(heap_cost) != 0:
         u = deap_pop_min(heap_cost)
+
         for z in Graph[u]:
             print(' ')
             print('step', num, '--------------')
+            print('current u is ', u, ' ,z is ', z)
+
             # print('current heap is ', heap_cost)
             num += 1
             edge_weight = Graph[u][z]
             if z in heap_cost and cost[z] > edge_weight:
+                print('cost[', z, ']=', cost[z])
+                print('Graph[', u, '][', z, '] is ', Graph[u][z])
+                print('apparently cost[', z, '] > Graph[', u, '][', z, ']')
+                print('*** update cost and previous ****')
                 cost[z] = edge_weight
                 previous[z] = u
                 # 这一步就是 decrease key，
                 heap_cost[z] = edge_weight
                 print('current cost is ', cost)
                 print('current prev is ', previous)
+            else:
+                print('cost[', z, '] is ', cost[z])
+                print('Graph[', u, '][', z, '] is ', Graph[u][z])
+                print('apparently cost[', z, '] < Graph[', u, '][', z, ']')
+                print('no update continue')
             # 其实这里少了 decrease key 这一步 decreasekey(H,v)
             # https://stackoverflow.com/questions/9255620/why-does-dijkstras-algorithm-use-decrease-key#:~:text=The%20reason%20for%20using%20decrease,each%20priority%20queue%20balance%20low.
             # The reason for using decrease-key rather than reinserting nodes is to keep the number of nodes in the priority queue small, thus keeping the total number of priority queue dequeues small and the cost of each priority queue balance low.
