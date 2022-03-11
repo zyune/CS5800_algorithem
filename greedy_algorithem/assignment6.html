@@ -711,6 +711,51 @@ Previous is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: 
 <h2 class="mume-header" id="in-a-coloring-of-a-graph-one-assigns-colors-to-the-nodes-such-that-any-two-nodes-connected-by-an-edge-receive-different-colors-an-optimal-coloring-is-one-which-uses-the-fewest-colors-for-example-here-is-an-optimal-coloring-of-these-two-graphs">In a <em><strong>coloring</strong></em> of a graph, one assigns colors to the nodes such that any two nodes connected by an edge receive different colors. An optimal coloring is one which uses the fewest colors. For example, here is an optimal coloring of these two graphs.</h2>
 
 <p><img src="img/goddard4.4.png" alt="output"></p>
+<h4 class="mume-header" id="a-how-long-does-this-algorithm-take-justify">(a) How long does this algorithm take? Justify</h4>
+
+<p>First, we use a greedy method for this algorithem.</p>
+<blockquote>
+<p><strong>Candidates</strong> - vertices ,The color corresponding to each node</p>
+</blockquote>
+<blockquote>
+<p><strong>Selection</strong> - color, we can use a list or dictionary to store the current number of color.  <code>color={red:1,green:2 ....}</code>  ( we always select the smallest available color in it)</p>
+</blockquote>
+<blockquote>
+<p><strong>Solution check</strong> -  does every vertices are assigned a color?</p>
+</blockquote>
+<blockquote>
+<p><strong>Feasibility check</strong> - If there&apos;s at least one available color in color list.</p>
+</blockquote>
+<blockquote>
+<p><strong>Select function</strong> - check all the adjacency node of current node. If a color is used in one of it&apos;s adjacency color, the this color is unavailable, vice versa. Find the smallest available color.</p>
+</blockquote>
+<blockquote>
+<p><strong>Objective function</strong> - an list or dictionary indicating <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi><mn>1</mn><mo>:</mo><mi>c</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>r</mi><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi><mn>2</mn><mo>:</mo><mi>c</mi><mi>o</mi><mi>l</mi><mi>o</mi><mi>r</mi><mn>2....</mn></mrow><annotation encoding="application/x-tex">{node1:color1,node2:color2 ....}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">co</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord">2....</span></span></span></span></span></p>
+</blockquote>
+<p>This is a typical graph&amp; greedy algorithem. We need to go through all the vertex of the graph, and in Select function we need to check all the nodes adjacency to the current node. So there will be at least two for loop. And we need to check smallest available at every for loop.<br>
+So the worst time complexity will be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>V</mi><mo>&#x2217;</mo><mo stretchy="false">(</mo><mi>V</mi><mo>+</mo><mi>V</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mn>2</mn><msup><mi>V</mi><mn>2</mn></msup><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><msup><mi>V</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(V*(V+V))=O(2V^2)=O(V^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment">## this is presocode</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">coloring</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-for">for</span> vertex <span class="token keyword keyword-in">in</span> graph<span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> nodes <span class="token keyword keyword-in">in</span> vertex<span class="token punctuation">.</span>adjacency_node<span class="token punctuation">:</span>
+            mark_unavailable_color <span class="token keyword keyword-in">in</span> color_list
+        check_smallest_available_color
+
+<span class="token keyword keyword-def">def</span> <span class="token function">check_smallest_available_color</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    num<span class="token operator">=</span><span class="token number">100000</span>
+    <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> color_list<span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> i <span class="token keyword keyword-is">is</span> available <span class="token keyword keyword-and">and</span> i<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token operator">&lt;</span>num<span class="token punctuation">:</span>
+            num<span class="token operator">=</span>i<span class="token punctuation">[</span>num<span class="token punctuation">]</span>
+
+        
+</pre><h4 class="mume-header" id="b-does-the-algorithm-work-justify">(b) Does the algorithm work? Justify</h4>
+
+<p>The unswer is no. This algorithem depending heavily on the order of node iteration.<br>
+Example:<br>
+If we loop following graph vertex in order of A,B,C,D,E, the color e will be green. In this situation, red is not available because e is adjacency to a red node. Green and blue are available. green is 1,blue is 2 , we choose green. We can color the graph with three color.<br>
+<img src="img/example1.png" alt="output"></p>
+<p><strong>However</strong> , if we loop following the graph vertex in order of A,B,C,E,D. E will be red, because all color are available for E. And we have to add another color for D, because D&apos;s adjacency node&apos;s color is blue, green and red. We need at least four color in this order.<br>
+<img src="img/example2.png" alt="output"></p>
 <h2 class="mume-header" id="52-suppose-we-want-to-find-the-minimum-spanning-tree-of-the-following-graph">5.2. Suppose we want to find the minimum spanning tree of the following graph.</h2>
 
 <p><img src="img/dasgupta5.2.png" alt="output"></p>

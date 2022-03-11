@@ -429,6 +429,57 @@ Previous is  {'A': None, 'B': 'A', 'C': 'B', 'D': 'H', 'E': 'D', 'F': 'D', 'G': 
 ## In a ***coloring*** of a graph, one assigns colors to the nodes such that any two nodes connected by an edge receive different colors. An optimal coloring is one which uses the fewest colors. For example, here is an optimal coloring of these two graphs.
 ![output](img/goddard4.4.png)
 
+
+
+#### (a) How long does this algorithm take? Justify
+
+First, we use a greedy method for this algorithem.
+
+> **Candidates** - vertices ,The color corresponding to each node
+
+> **Selection** - color, we can use a list or dictionary to store the current number of color.  ```color={red:1,green:2 ....}```  ( we always select the smallest available color in it) 
+
+> **Solution check** -  does every vertices are assigned a color? 
+
+
+> **Feasibility check** - If there's at least one available color in color list. 
+
+
+> **Select function** - check all the adjacency node of current node. If a color is used in one of it's adjacency color, the this color is unavailable, vice versa. Find the smallest available color.
+
+
+> **Objective function** - an list or dictionary indicating $ {node1:color1,node2:color2 ....} $
+
+This is a typical graph& greedy algorithem. We need to go through all the vertex of the graph, and in Select function we need to check all the nodes adjacency to the current node. So there will be at least two for loop. And we need to check smallest available at every for loop.
+So the worst time complexity will be $O(V*(V+V))=O(2V^2)=O(V^2)$
+```python
+## this is presocode
+def coloring()
+    for vertex in graph:
+        for nodes in vertex.adjacency_node:
+            mark_unavailable_color in color_list
+        check_smallest_available_color
+
+def check_smallest_available_color():
+    num=100000
+    for i in color_list:
+        if i is available and i[num]<num:
+            num=i[num]
+
+        
+```
+
+#### (b) Does the algorithm work? Justify
+The unswer is no. This algorithem depending heavily on the order of node iteration.
+Example:
+If we loop following graph vertex in order of A,B,C,D,E, the color e will be green. In this situation, red is not available because e is adjacency to a red node. Green and blue are available. green is 1,blue is 2 , we choose green. We can color the graph with three color.
+![output](img/example1.png)
+
+**However** , if we loop following the graph vertex in order of A,B,C,E,D. E will be red, because all color are available for E. And we have to add another color for D, because D's adjacency node's color is blue, green and red. We need at least four color in this order.
+![output](img/example2.png)
+
+
+
 ## 5.2. Suppose we want to find the minimum spanning tree of the following graph.
 ![output](img/dasgupta5.2.png)
 #### (a) Run Prim’s algorithm; whenever there is a choice of nodes, always use alphabetic ordering
