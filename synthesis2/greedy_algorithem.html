@@ -1,0 +1,821 @@
+<!DOCTYPE html><html><head>
+      <title>greedy_algorithem</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="greedy-algorithem">greedy algorithem</h1>
+
+<h2 class="mume-header" id="technique-definition">Technique definition</h2>
+
+<p>A greedy algorithm (also known as a greedy algorithm) means that when solving a problem, it always makes the best choice at the moment. That is to say, without considering the overall optimality, the algorithm obtains a local optimal solution in a sense.<br>
+Greedy algorithms are particularly effective in problems with optimal substructure. The optimal substructure means that the local optimal solution can determine the global optimal solution. Simply put, the problem can be solved by decomposing it into sub-problems, and the optimal solutions of the sub-problems can be recursive to the optimal solution of the final problem.</p>
+<h3 class="mume-header" id="minimum-spanning-trees">Minimum spanning trees</h3>
+
+<p>A minimum spanning tree (MST) or minimum weight spanning tree is a subset of the edges of a connected edge-weighted undirected graph that connects all vertices together without any cycles and with the smallest possible total edge weight. [1] That is, it is a spanning tree whose sum of edge weights is as small as possible. [2] More generally, any edge-weighted undirected graph (not necessarily connected) has a minimum spanning forest, which is the union of the minimum spanning trees of its connected components.</p>
+<blockquote>
+<p>Why optimal set of edges cannot contain a cycle?<br>
+because removing an edge from this cycle would reduce the cost without compromising connectivity:</p>
+</blockquote>
+<blockquote>
+<p>A minimum spanning tree has (V &#x2013; 1) edges, V is number of vertices<br>
+definition<br>
+Greedy algorithms build up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.</p>
+</blockquote>
+<h4 class="mume-header" id="application-of-minimum-spanning-tree">Application of Minimum Spanning Tree:</h4>
+
+<ul>
+<li>a) To lay optical cables between n cities, the main goal is to enable communication between any two of these n cities, but the cost of laying optical cables is very high, and the cost of laying optical cables between cities is different, so another One goal is to minimize the overall cost of laying fiber optic cables. This requires finding the weighted minimum spanning tree.</li>
+<li>b) There are 8 villages distributed in various regions. The government intends to use the least funds to connect these 8 villages, so that no matter which village is in, you can go to the other 7 villages. It is known that two or two villages can be reached. Villages that can communicate with each other and the money it takes to build the sections between them</li>
+</ul>
+<h4 class="mume-header" id="exercise">exercise</h4>
+
+<p>Consider the following graph.<br>
+<img src="img/spanning%20tree.jpg" alt="output"><br>
+(a) What is the cost of its minimum spanning tree?</p>
+<p>(b) How many minimum spanning trees does it have?</p>
+<h4 class="mume-header" id="solution">solution</h4>
+
+<p>(a) The minimum spanning tree is the following picture<br>
+<img src="img/mininalspaningtree.jpg" alt="output"><br>
+the minimal cost is 14.<br>
+I ran prim&apos;s Algorithm on the graph</p>
+<pre data-role="codeBlock" data-info class="language-"><code>step 1 --------------
+current node is  A  ,edge is  A to B
+cost[ B ]= 100000
+edge[ A ][ B ] is  4
+apparently cost[ B ] &gt; edge[ A ][ B ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 4, &apos;C&apos;: 100000, &apos;D&apos;: 100000, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 2 --------------
+current node is  A  ,edge is  A to D
+cost[ D ]= 100000
+edge[ A ][ D ] is  1
+apparently cost[ D ] &gt; edge[ A ][ D ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 4, &apos;C&apos;: 100000, &apos;D&apos;: 1, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 3 --------------
+current node is  D  ,edge is  D to A
+cost[ A ] is  0
+edge[ D ][ A ] is  1
+apparently cost[ A ] &lt; edge[ D ][ A ]
+no update continue
+ 
+step 4 --------------
+current node is  D  ,edge is  D to B
+cost[ B ]= 4
+edge[ D ][ B ] is  3
+apparently cost[ B ] &gt; edge[ D ][ B ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 100000, &apos;D&apos;: 1, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;D&apos;, &apos;C&apos;: None, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 5 --------------
+current node is  D  ,edge is  D to E
+cost[ E ]= 100000
+edge[ D ][ E ] is  1
+apparently cost[ E ] &gt; edge[ D ][ E ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 3, &apos;C&apos;: 100000, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;D&apos;, &apos;C&apos;: None, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 6 --------------
+current node is  E  ,edge is  E to B
+cost[ B ]= 3
+edge[ E ][ B ] is  2
+apparently cost[ B ] &gt; edge[ E ][ B ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 100000, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: None, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 7 --------------
+current node is  E  ,edge is  E to C
+cost[ C ]= 100000
+edge[ E ][ C ] is  6
+apparently cost[ C ] &gt; edge[ E ][ C ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 6, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;E&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 8 --------------
+current node is  E  ,edge is  E to D
+cost[ D ] is  1
+edge[ E ][ D ] is  1
+apparently cost[ D ] &lt; edge[ E ][ D ]
+no update continue
+ 
+step 9 --------------
+current node is  E  ,edge is  E to F
+cost[ F ]= 100000
+edge[ E ][ F ] is  3
+apparently cost[ F ] &gt; edge[ E ][ F ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 6, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;E&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: None}
+ 
+step 10 --------------
+current node is  B  ,edge is  B to A
+cost[ A ] is  0
+edge[ B ][ A ] is  4
+apparently cost[ A ] &lt; edge[ B ][ A ]
+no update continue
+ 
+step 11 --------------
+current node is  B  ,edge is  B to C
+cost[ C ]= 6
+edge[ B ][ C ] is  5
+apparently cost[ C ] &gt; edge[ B ][ C ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: None}
+ 
+step 12 --------------
+current node is  B  ,edge is  B to D
+cost[ D ] is  1
+edge[ B ][ D ] is  3
+apparently cost[ D ] &lt; edge[ B ][ D ]
+no update continue
+ 
+step 13 --------------
+current node is  B  ,edge is  B to E
+cost[ E ] is  1
+edge[ B ][ E ] is  2
+apparently cost[ E ] &lt; edge[ B ][ E ]
+no update continue
+ 
+step 14 --------------
+current node is  F  ,edge is  F to C
+cost[ C ]= 5
+edge[ F ][ C ] is  4
+apparently cost[ C ] &gt; edge[ F ][ C ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 4, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;F&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: None}
+ 
+step 15 --------------
+current node is  F  ,edge is  F to E
+cost[ E ] is  1
+edge[ F ][ E ] is  3
+apparently cost[ E ] &lt; edge[ F ][ E ]
+no update continue
+ 
+step 16 --------------
+current node is  F  ,edge is  F to G
+cost[ G ]= 100000
+edge[ F ][ G ] is  3
+apparently cost[ G ] &gt; edge[ F ][ G ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 4, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 3}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;F&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: &apos;F&apos;}
+ 
+step 17 --------------
+current node is  G  ,edge is  G to C
+cost[ C ] is  4
+edge[ G ][ C ] is  5
+apparently cost[ C ] &lt; edge[ G ][ C ]
+no update continue
+ 
+step 18 --------------
+current node is  G  ,edge is  G to F
+cost[ F ] is  3
+edge[ G ][ F ] is  3
+apparently cost[ F ] &lt; edge[ G ][ F ]
+no update continue
+ 
+step 19 --------------
+current node is  C  ,edge is  C to B
+cost[ B ] is  2
+edge[ C ][ B ] is  5
+apparently cost[ B ] &lt; edge[ C ][ B ]
+no update continue
+ 
+step 20 --------------
+current node is  C  ,edge is  C to E
+cost[ E ] is  1
+edge[ C ][ E ] is  6
+apparently cost[ E ] &lt; edge[ C ][ E ]
+no update continue
+ 
+step 21 --------------
+current node is  C  ,edge is  C to F
+cost[ F ] is  3
+edge[ C ][ F ] is  4
+apparently cost[ F ] &lt; edge[ C ][ F ]
+no update continue
+ 
+step 22 --------------
+current node is  C  ,edge is  C to G
+cost[ G ] is  3
+edge[ C ][ G ] is  5
+apparently cost[ G ] &lt; edge[ C ][ G ]
+no update continue
+</code></pre><p>You can see that in last update<br>
+cost is  <code>{&apos;A&apos;: 0, &apos;B&apos;: 2, &apos;C&apos;: 4, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 3}</code><br>
+prev is  <code>{&apos;A&apos;: None, &apos;B&apos;: &apos;E&apos;, &apos;C&apos;: &apos;F&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: &apos;F&apos;}</code><br>
+If you added up the value in cost. You will get 14<br>
+(b) It only has one minimum spanning tree.</p>
+<h3 class="mume-header" id="prims-kruskals-algorithm">Prim&#x2019;s &amp; Kruskal&#x2019;s Algorithm</h3>
+
+<p><strong>Kruskal&apos;s algorithm</strong></p>
+<blockquote>
+<p>Steps:<br>
+1. Sort all the edges in non-decreasing order of their weight.<br>
+2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it.<br>
+3. Repeat step#2 until there are (V-1) edges in the spanning tree.</p>
+</blockquote>
+<blockquote>
+<p>Greedy algorithem implementation of Kruskal&apos;s algorithm</p>
+<ul>
+<li>Candidates - edges</li>
+<li>Selection - a subset S&#x2286; E of the candidate edges</li>
+<li>Solution check - does S touch every vertex, is it connected?</li>
+<li>Feasibility check - does adding e &#x2208; E create a cycle?</li>
+<li>Select function - edge weight</li>
+<li>Objective function - sum of weights</li>
+</ul>
+</blockquote>
+<p><strong>Following word is I cited from geeks for geeks. I think it is very useful.</strong><br>
+Time Complexity: O(ElogE) or O(ElogV). Sorting of edges takes O(ELogE) time. After sorting, we iterate through all edges and apply the find-union algorithm. The find and union operations can take at most O(LogV) time. So overall complexity is O(ELogE + ELogV) time. The value of E can be at most O(V2), so O(LogV) is O(LogE) the same. Therefore, the overall time complexity is O(ElogE) or O(ElogV)</p>
+<p><strong>Prim&apos;s algorithm</strong></p>
+<blockquote>
+<p>Prim&apos;s algorithm for finding the minimum spanning tree (like Kruskal&apos;s algorithm) uses a greedy approach. Prim&apos;s algorithm shares similarities with the shortest path first algorithm.<br>
+Compared to Kruskal&apos;s algorithm, Prim&apos;s algorithm treats nodes as a single tree and continues to add new nodes to the spanning tree from the given graph.</p>
+</blockquote>
+<ul>
+<li>Step 1 - Select any node as root node</li>
+</ul>
+<blockquote>
+<p>In this case, we choose the S node as the root node of the Prim spanning tree. This node is arbitrarily chosen, so any node can be the root node. One might wonder why any video can be a root node. So the answer is that in a spanning tree, all nodes of the graph are contained, and because it is connected, there must be at least one edge that connects it to the rest of the tree.<br>
+<img src="img/prim/step1.png" alt="output"></p>
+</blockquote>
+<ul>
+<li>Step 2  Check Outgoing Edges and Choose Less Costly Edges</li>
+</ul>
+<blockquote>
+<p>On selecting the root node S, we see that S, A and S, C are two edges with weights 7 and 8, respectively. We choose edge S, A because it is smaller than the other side.<br>
+<img src="img/prim/step2.png" alt="output"></p>
+</blockquote>
+<blockquote>
+<p>Now, the tree S-7-A is considered a node and we examine all edges coming out of it. We choose the one with the lowest cost and include it in the tree</p>
+</blockquote>
+<p><img src="img/prim/step3.png" alt="output"></p>
+<blockquote>
+<p>After this step, the S-7-A-3-C tree is formed. Now we will treat it as a node again and will check all edges again. However, we will only choose the lowest cost advantage. In this case, C-3-D is the new edge, less than the cost of the other edges 8, 6, 4, etc.</p>
+</blockquote>
+<p><img src="img/prim/step4.png" alt="output"></p>
+<blockquote>
+<p>After adding node D to the spanning tree, we now have two edges with the same cost, D-2-T and D-2-B. So we can add either one. But the next step will again generate edge 2 as the lowest cost. Therefore, we are showing a spanning tree with two edges.</p>
+</blockquote>
+<p><img src="img/prim/step5.png" alt="output"></p>
+<h5 class="mume-header" id="exercise-1">exercise</h5>
+
+<p>Build a communication network in major cities, as shown in the figure below, each circle represents a city, and the number on the side represents the price of establishing a communication connection. So, how can the major cities be directly or indirectly connected with the smallest price?<br>
+<img src="img/P&amp;K%20exercise.png" alt="output"><br>
+(a) Run Prim&#x2019;s algorithm; whenever there is a choice of nodes, always use alphabetic ordering<br>
+(b) Run Kruskal&#x2019;s algorithm on the same graph. Show how the disjoint-sets data structure looks at every intermediate stage (including the structure of the directed trees), assuming path compression is used.</p>
+<h4 class="mume-header" id="solution-1">solution</h4>
+
+<p>(a)<br>
+I start from node A. Draw a table showing the intermediate values of the cost array.</p>
+<table>
+<thead>
+<tr>
+<th>set(s)</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A</td>
+<td></td>
+<td>1</td>
+<td>10000</td>
+<td>1</td>
+<td>10000</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>2</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B,D</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>1</td>
+<td>10000</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>A,B,D,E</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>A,B,D,E,G</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Steps to run Prim&apos;s</p>
+<pre data-role="codeBlock" data-info class="language-"><code>step 1 --------------
+current node is  A  ,edge is  A to B
+cost[ B ]= 100000
+edge[ A ][ B ] is  1
+apparently cost[ B ] &gt; edge[ A ][ B ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 100000, &apos;D&apos;: 100000, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: None, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 2 --------------
+current node is  A  ,edge is  A to D
+cost[ D ]= 100000
+edge[ A ][ D ] is  1
+apparently cost[ D ] &gt; edge[ A ][ D ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 100000, &apos;D&apos;: 1, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: None, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 3 --------------
+current node is  B  ,edge is  B to A
+cost[ A ] is  0
+edge[ B ][ A ] is  1
+apparently cost[ A ] &lt; edge[ B ][ A ]
+no update continue
+ 
+step 4 --------------
+current node is  B  ,edge is  B to C
+cost[ C ]= 100000
+edge[ B ][ C ] is  5
+apparently cost[ C ] &gt; edge[ B ][ C ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 100000, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: None, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 5 --------------
+current node is  B  ,edge is  B to D
+cost[ D ] is  1
+edge[ B ][ D ] is  3
+apparently cost[ D ] &lt; edge[ B ][ D ]
+no update continue
+ 
+step 6 --------------
+current node is  B  ,edge is  B to E
+cost[ E ]= 100000
+edge[ B ][ E ] is  2
+apparently cost[ E ] &gt; edge[ B ][ E ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 2, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;B&apos;, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 7 --------------
+current node is  D  ,edge is  D to A
+cost[ A ] is  0
+edge[ D ][ A ] is  1
+apparently cost[ A ] &lt; edge[ D ][ A ]
+no update continue
+ 
+step 8 --------------
+current node is  D  ,edge is  D to B
+cost[ B ] is  1
+edge[ D ][ B ] is  3
+apparently cost[ B ] &lt; edge[ D ][ B ]
+no update continue
+ 
+step 9 --------------
+current node is  D  ,edge is  D to E
+cost[ E ]= 2
+edge[ D ][ E ] is  1
+apparently cost[ E ] &gt; edge[ D ][ E ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 100000, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: None, &apos;G&apos;: None}
+ 
+step 10 --------------
+current node is  E  ,edge is  E to B
+cost[ B ] is  1
+edge[ E ][ B ] is  2
+apparently cost[ B ] &lt; edge[ E ][ B ]
+no update continue
+ 
+step 11 --------------
+current node is  E  ,edge is  E to C
+cost[ C ] is  5
+edge[ E ][ C ] is  6
+apparently cost[ C ] &lt; edge[ E ][ C ]
+no update continue
+ 
+step 12 --------------
+current node is  E  ,edge is  E to D
+cost[ D ] is  1
+edge[ E ][ D ] is  1
+apparently cost[ D ] &lt; edge[ E ][ D ]
+no update continue
+ 
+step 13 --------------
+current node is  E  ,edge is  E to F
+cost[ F ]= 100000
+edge[ E ][ F ] is  3
+apparently cost[ F ] &gt; edge[ E ][ F ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 100000}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: None}
+ 
+step 14 --------------
+current node is  E  ,edge is  E to G
+cost[ G ]= 100000
+edge[ E ][ G ] is  1
+apparently cost[ G ] &gt; edge[ E ][ G ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 5, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 1}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;B&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: &apos;E&apos;}
+ 
+step 15 --------------
+current node is  G  ,edge is  G to C
+cost[ C ] is  5
+edge[ G ][ C ] is  5
+apparently cost[ C ] &lt; edge[ G ][ C ]
+no update continue
+ 
+step 16 --------------
+current node is  G  ,edge is  G to F
+cost[ F ] is  3
+edge[ G ][ F ] is  3
+apparently cost[ F ] &lt; edge[ G ][ F ]
+no update continue
+ 
+step 17 --------------
+current node is  F  ,edge is  F to C
+cost[ C ]= 5
+edge[ F ][ C ] is  4
+apparently cost[ C ] &gt; edge[ F ][ C ]
+*** update cost and previous ****
+current cost is  {&apos;A&apos;: 0, &apos;B&apos;: 1, &apos;C&apos;: 4, &apos;D&apos;: 1, &apos;E&apos;: 1, &apos;F&apos;: 3, &apos;G&apos;: 1}
+current prev is  {&apos;A&apos;: None, &apos;B&apos;: &apos;A&apos;, &apos;C&apos;: &apos;F&apos;, &apos;D&apos;: &apos;A&apos;, &apos;E&apos;: &apos;D&apos;, &apos;F&apos;: &apos;E&apos;, &apos;G&apos;: &apos;E&apos;}
+ 
+step 18 --------------
+current node is  F  ,edge is  F to E
+cost[ E ] is  1
+edge[ F ][ E ] is  3
+apparently cost[ E ] &lt; edge[ F ][ E ]
+no update continue
+ 
+step 19 --------------
+current node is  F  ,edge is  F to G
+cost[ G ] is  1
+edge[ F ][ G ] is  3
+apparently cost[ G ] &lt; edge[ F ][ G ]
+no update continue
+ 
+step 20 --------------
+current node is  C  ,edge is  C to B
+cost[ B ] is  1
+edge[ C ][ B ] is  5
+apparently cost[ B ] &lt; edge[ C ][ B ]
+no update continue
+ 
+step 21 --------------
+current node is  C  ,edge is  C to E
+cost[ E ] is  1
+edge[ C ][ E ] is  6
+apparently cost[ E ] &lt; edge[ C ][ E ]
+no update continue
+ 
+step 22 --------------
+current node is  C  ,edge is  C to F
+cost[ F ] is  3
+edge[ C ][ F ] is  4
+apparently cost[ F ] &lt; edge[ C ][ F ]
+no update continue
+</code></pre><p>(b)</p>
+<h2 class="mume-header" id="huffman-encoding">Huffman encoding</h2>
+
+<p>&#x6392;&#x7684;&#x65F6;&#x5019;&#x4E00;&#x5B9A;&#x8981;&#x6309;&#x7167;&#x4ECE;&#x5C0F;&#x5230;&#x5927; &#x987A;&#x5E8F;&#x6392;&#x5217;</p>
+<h2 class="mume-header" id="greedy-algorithm-design">Greedy algorithm design</h2>
+
+<h3 class="mume-header" id="elements-in-greedy-algorithem">elements in greedy algorithem</h3>
+
+<pre class="language-text">1. A set C of candidates
+2. A set S of selected items
+3. A solution check: does the set S provide a solution to the problem (ignoring questions of optimality)?
+4. A feasibility check: can the set S be extended to a solution to the problem?
+5. A select function which evaluates the items in C
+6. An objective function
+</pre>
+<p>Greed Algorithms<br>
+&#x25CF; Technique definition (no problem/solution required)<br>
+&#x25CF; Minimum spanning tree &#x7ED3;&#x675F;<br>
+&#x25CF; Prim&#x2019;s &amp; Kruskal&#x2019;s Algorithm<br>
+&#x25CF; Encodings &amp; Huffman&#x2019;s Encoding Agorithm<br>
+&#x25CF; Greedy algorithm design</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
