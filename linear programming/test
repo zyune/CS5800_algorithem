@@ -1,0 +1,7 @@
+21*tomato + 16*lettuce + 371*spinach + 346*carrot+ 884*oil
+tomato+lettuce+spinach+carrot+oil == 100
+0.85*tomato+1.62*lettuce+12.78*spinach+8.39*carrot >= 15
+2<= 0.33*tomato+0.2*lettuce+1.58*spinach+1.39*carrot+100*oil <= 6
+4.64*tomato+2.37*lettuce+74.69*spinach+80*carrot >= 4
+9*tomato+8*lettuce+7*spinach+508.20*carrot <= 100
+lettuce+spinach <= 50
