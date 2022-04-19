@@ -71,6 +71,14 @@ Obviously, there are N! combinations for the combination solution of the TSP pro
 
 
 ● Reductions
+
+ If any subroutine for task Q can also be used to solve P , we say P reduces to Q. Often, P is solvable by a single call to Q’s subroutine, which means any instance x of P can be transformed into an instance y of Q such that P (x) can be deduced from Q(y):
+
+![output](NP_img/reduction.png)
+
+Reduction enhances the power of an algorithm: once we have an algorithm for problem Q (e.g., possibly the shortest path), we can use it to solve other problems
+
+
 - two way to use reduction
 ● Getting around NP-Completeness (no problem/solution required)
 
