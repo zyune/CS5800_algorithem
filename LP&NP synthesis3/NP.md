@@ -11,11 +11,11 @@ In general, A Turing machine is a mathematical computational model that defines 
 
 The Turing machine has an infinitely long paper tape, a finite state automaton (a state machine is a directed graph, the points are states, and the edges mark what characters to read, what operations to do, and which states to move to), and a read The write head can move left and right as well as read and write tape. For a problem, you first write the problem on a paper tape, and then according to what you read, according to the rules of state transition, you move to the next state. After the final calculation, when the state transitions to "yes", the Turing machine judges yes, otherwise it judges "no". No other computational model can be more powerful than a Turing machine.
 
-## Determining Turing Machines
+#### Determining Turing Machines
 
 In a Deterministic Turing Machine (DTM), its governing rules dictate that at most one action can be performed in any given situation. Deterministic Turing Machines have a transition function that, for a given state and symbol under the tape head, specifies three things: the symbol to be written to the tape, the direction in which the head should move (left, right, or neither direction), and subsequent states of limited control. For example, an X on the tape in state 3 might cause the DTM to write a Y on the tape, move the head one position to the right, and then switch to state 5.
 
-## Nondeterministic Turing Machine
+#### Nondeterministic Turing Machine
 
 In theoretical computer science, a nondeterministic Turing machine (NTM) is a theoretical computational model whose control rules specify multiple possible actions under some given circumstances. That is, the NTM's next state is not entirely determined by its actions and the current symbol it sees (unlike a deterministic Turing machine). For example, an X on a tape in state 3 might allow the NTM to: enter a Y, move to the right, then switch to state 5 or write an X, move to the left, and stay in state 3. So the question is, how to choose the next step for a non-deterministic Turing machine? In fact, NTM is lucky enough that it will always choose the step that will eventually lead to the accepting state. You can think of the branches of an NTM as many copies, each of which follows a possible transition. DTMs follow a single "computation path", while NTMs are "computation trees". If at least one branch in the tree leads to an accepting state, then the NTM accepts this input state. Let's look at the decision diagrams of the two:
 ![output](NP_img//dtm.jpeg)
@@ -70,7 +70,7 @@ $w=(w1,w2,w3,w4....wn)$
 Obviously, there are N! combinations for the combination solution of the TSP problem. As the scale of the number of cities N increases, the number of combinations will increase exponentially. Therefore, using the exhaustive method will face the problem of combination explosion, so TSP is an NP-complete problem.
 
 
-● Reductions
+## Reductions
 
  If any subroutine for task Q can also be used to solve P , we say P reduces to Q. Often, P is solvable by a single call to Q’s subroutine, which means any instance x of P can be transformed into an instance y of Q such that P (x) can be deduced from Q(y):
 
@@ -80,7 +80,8 @@ Reduction enhances the power of an algorithm: once we have an algorithm for prob
 
 
 - two way to use reduction
-● Getting around NP-Completeness (no problem/solution required)
+
+## Getting around NP-Completeness (no problem/solution required)
 
 
 
